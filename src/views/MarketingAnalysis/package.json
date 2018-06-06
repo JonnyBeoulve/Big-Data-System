@@ -1,0 +1,6 @@
+{
+  "name": "marketinganalysis",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./MarketingAnalysis.js"
+}

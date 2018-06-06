@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /*======================================================================
-// This is the dashboard that users will land on upon logging into
+// This is the dashboard view that users will land on upon logging into
 // Cobia Systems.
 ======================================================================*/
 class Dashboard extends Component {
@@ -14,7 +14,7 @@ class Dashboard extends Component {
           <hr class="my-4" />
           <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
           <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
+            <a class="btn btn-primary btn-lg" href="#/marketinganalysis" role="button">Get Started</a>
           </p>
         </div>
       </div>

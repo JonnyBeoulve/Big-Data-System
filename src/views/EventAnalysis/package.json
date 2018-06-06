@@ -1,0 +1,6 @@
+{
+  "name": "eventanalysis",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./EventAnalysis.js"
+}

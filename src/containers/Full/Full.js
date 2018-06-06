@@ -8,8 +8,19 @@ import Aside from '../../components/Aside/';
 import Footer from '../../components/Footer/';
 
 import Dashboard from '../../views/Dashboard/';
+import MarketingAnalysis from '../../views/MarketingAnalysis/';
+import EventAnalysis from '../../views/EventAnalysis/';
+import CompetitorAnalysis from '../../views/CompetitorAnalysis/';
+import ReputationReport from '../../views/ReputationReport/';
+import MyCampaigns from '../../views/MyCampaigns/';
+import MyProfile from '../../views/MyProfile/';
 import Help from '../../views/Help/';
 
+/*======================================================================
+// This is the full wrapper for Cobia Systems which includes a sidebar,
+// container for views, aside, and footer. It also includes
+// routing for all views.
+======================================================================*/
 class Full extends Component {
   render() {
     return (
@@ -21,8 +32,14 @@ class Full extends Component {
             <Breadcrumb />
             <Container fluid>
               <Switch>
-                <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
-                <Route path="/help" name="Help" component={Help}/>
+                <Route path="/dashboard" name="dashboard" component={Dashboard}/>
+                <Route path="/marketinganalysis" name="marketinganalysis" component={MarketingAnalysis}/>
+                <Route path="/eventanalysis" name="eventanalysis" component={EventAnalysis}/>
+                <Route path="/competitoranalysis" name="competitoranalysis" component={CompetitorAnalysis}/>
+                <Route path="/reputationreport" name="reputationreport" component={ReputationReport}/>
+                <Route path="/mycampaigns" name="mycampaigns" component={MyCampaigns}/>
+                <Route path="/myprofile" name="myprofile" component={MyProfile}/>
+                <Route path="/help" name="help" component={Help}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>
