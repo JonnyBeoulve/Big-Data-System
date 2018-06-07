@@ -9,39 +9,25 @@ class MarketingAnalysisForm extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-          <h1 class="display-3">Marketing Analysis</h1>
+          <h1 class="display-3">Marketing Campaign</h1>
           <form>
           <div class="form-group">
-            <label for="inputKeyword">What keyword would you like to analyze?</label>
-            <input type="text" class="form-control" id="inputKeywordField" aria-describedby="emailHelp" placeholder="Keyword" />
-            <small id="emailHelp" class="form-text text-muted">i.e. Hotel</small>
+            <label for="inputCampaignName">What would you like to name your campaign?</label>
+            <input type="text" class="form-control" id="inputCampaignNameField" aria-describedby="emailHelp" placeholder="Campaign Name" />
           </div>
           <div class="form-group">
-            <label for="inputArea">What area would you like to target?</label>
-              <select class="form-control" id="inputAreaField">
-                <option>City</option>
-                <option>State</option>
-                <option>United States</option>
-                <option>Worldwide</option>
-              </select>
+            <label for="inputKeyword">Pick a trending keyword.</label>
+            <input type="text" class="form-control" id="inputTrendField" aria-describedby="emailHelp" placeholder="Keyword" />
           </div>
           <div class="form-group">
-            <label for="inputDrivers">What are the main drivers of your analysis?</label>
-            <input type="text" class="form-control" id="inputDriversField1" placeholder="Driver #1" />
-            <input type="text" class="form-control" id="inputDriversField2" placeholder="Driver #2" />
-            <input type="text" class="form-control" id="inputDriversField3" placeholder="Driver #3" />
-            <input type="text" class="form-control" id="inputDriversField4" placeholder="Driver #4" />
-            <input type="text" class="form-control" id="inputDriversField5" placeholder="Driver #5" />
+            <label for="inputKeyword">How much do you want to spend on this campaign?</label>
+            <input type="text" class="form-control" id="inputSpendField" aria-describedby="emailHelp" placeholder="$___" />
           </div>
           <div class="form-group">
-            <label for="inputB2">Is this for Business to Consumer, Business to Business, or both?</label>
-              <select class="form-control" id="inputB2Field">
-                <option>B2C</option>
-                <option>B2B</option>
-                <option>Both</option>
-              </select>
+            <label for="inputKeyword">Lastly, what do you want your campaign to say?</label>
+            <textarea cols="10" rows="5" type="text" class="form-control" id="inputContentField" aria-describedby="emailHelp" placeholder="Can you almost feel the Pacific Ocean breeze drift through the tree-lined beach at @FSCostaRica? That's what we call pura vida. Begin your adventure at HotelCompany.com"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" onClick={this.props.handleFormSubmit}>Submit</button>
+          <button type="submit" class="btn btn-primary" onClick={this.props.handleCampaignSubmit}>Submit</button>
         </form>
       </div>
     )

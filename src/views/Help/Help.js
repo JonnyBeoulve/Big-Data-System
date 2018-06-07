@@ -9,11 +9,9 @@ class Help extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <div class="jumbotron">
         <h1 class="display-3">Help</h1>
           <p>Coming soon...</p>
           <p>Support: (844)324-4784</p>
-        </div>
       </div>
     )
   }

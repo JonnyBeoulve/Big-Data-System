@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import MarketingAnalysisForm from './children/MarketingAnalysisForm/MarketingAnalysisForm';
 import Loader from '../Loader';
 import MarketingAnalysisResults from './children/MarketingAnalysisResults/MarketingAnalysisResults';
+import MarketingAnalysisCampaign from './children/MarketingAnalysisCampaign/MarketingAnalysisCampaign';
+import MarketingAnalysisConfirmation from './children/MarketingAnalysisConfirmation/MarketingAnalysisConfirmation';
 
 /*======================================================================
 // This is the dashboard view that users will land on upon logging into
@@ -18,6 +20,8 @@ class MarketingAnalysis extends Component {
     constructor(props) {
       super(props);
       this.handleMarketingAnalysisFormSubmit = this.handleMarketingAnalysisFormSubmit.bind(this);
+      this.handleMarketingResultsSelectionSubmit = this.handleMarketingResultsSelectionSubmit.bind(this);
+      this.handleMarketingCampaignSubmit = this.handleMarketingCampaignSubmit.bind(this);
       this.state = {
           showForm: true,
           showLoader: false,
@@ -45,6 +49,42 @@ class MarketingAnalysis extends Component {
     return;
   }
 
+  /*======================================================================
+  // This will handle the transition from viewing results to showing
+  // the create campaign form.
+  ======================================================================*/
+  handleMarketingResultsSelectionSubmit (e) {
+    this.setState({
+        showResults: false,
+        showLoader: true,
+      })
+      setTimeout(() =>{ 
+        this.setState({
+            showLoader: false,
+            showCampaign: true,
+          }) 
+        }, 500); 
+    return;
+  }
+
+  /*======================================================================
+  // This will handle creation of a new campaign by the user before
+  // displaying a confirmation message.
+  ======================================================================*/
+  handleMarketingCampaignSubmit (e) {
+    this.setState({
+        showCampaign: false,
+        showLoader: true,
+      })
+      setTimeout(() =>{ 
+        this.setState({
+            showLoader: false,
+            showConfirmation: true,
+          }) 
+        }, 500); 
+    return;
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +95,13 @@ class MarketingAnalysis extends Component {
           ? <Loader />
           : <div></div> }
         { (this.state.showResults)
-          ? <MarketingAnalysisResults />
+          ? <MarketingAnalysisResults handleSelectionSubmit={this.handleMarketingResultsSelectionSubmit} />
+          : <div></div> }
+        { (this.state.showCampaign)
+          ? <MarketingAnalysisCampaign handleCampaignSubmit={this.handleMarketingCampaignSubmit} />
+          : <div></div> }
+        { (this.state.showConfirmation)
+          ? <MarketingAnalysisConfirmation />
           : <div></div> }
       </div>
     )

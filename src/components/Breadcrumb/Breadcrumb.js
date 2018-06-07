@@ -1,8 +1,12 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
-import {Breadcrumb, BreadcrumbItem} from 'reactstrap';
+import { Route, Link } from 'react-router-dom';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import routes from '../../routes';
 
+/*======================================================================
+// Breadcrumbs are located in a horizontal bar above the main body
+// of content and allow users to view their current routing path.
+======================================================================*/
 const findRouteName = url => routes[url];
 
 const getPaths = (pathname) => {
@@ -11,14 +15,14 @@ const getPaths = (pathname) => {
   if (pathname === '/') return paths;
 
   pathname.split('/').reduce((prev, curr, index) => {
-    const currPath = `${prev}/${curr}`;
+    const currPath = `${ prev }/${ curr }`;
     paths.push(currPath);
     return currPath;
   });
   return paths;
 };
 
-const BreadcrumbsItem = ({...rest, match}) => {
+const BreadcrumbsItem = ({ ...rest, match }) => {
   const routeName = findRouteName(match.url);
   if (routeName) {
     return (
@@ -40,7 +44,7 @@ const BreadcrumbsItem = ({...rest, match}) => {
 
 const Breadcrumbs = ({...rest, location : {pathname}, match}) => {
   const paths = getPaths(pathname);
-  const items = paths.map((path, i) => <Route key={i++} path={path} component={BreadcrumbsItem}/>);
+  const items = paths.map((path, i) => <Route key={i++} path={ path } component={ BreadcrumbsItem }/>);
   return (
     <Breadcrumb>
       {items}
@@ -50,6 +54,6 @@ const Breadcrumbs = ({...rest, location : {pathname}, match}) => {
 
 export default props => (
   <div>
-    <Route path="/:path" component={Breadcrumbs} {...props} />
+    <Route path="/:path" component={ Breadcrumbs } { ...props } />
   </div>
 );

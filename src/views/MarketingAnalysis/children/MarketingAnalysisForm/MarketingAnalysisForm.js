@@ -27,11 +27,11 @@ class MarketingAnalysisForm extends Component {
           </div>
           <div class="form-group">
             <label for="inputDrivers">What are the main drivers of your analysis?</label>
-            <input type="text" class="form-control" id="inputDriversField1" placeholder="Driver #1" />
-            <input type="text" class="form-control" id="inputDriversField2" placeholder="Driver #2" />
-            <input type="text" class="form-control" id="inputDriversField3" placeholder="Driver #3" />
-            <input type="text" class="form-control" id="inputDriversField4" placeholder="Driver #4" />
-            <input type="text" class="form-control" id="inputDriversField5" placeholder="Driver #5" />
+            <input type="text" class="form-control" id="inputDriversField1" placeholder="Driver 1" />
+            <input type="text" class="form-control" id="inputDriversField2" placeholder="Driver 2" />
+            <input type="text" class="form-control" id="inputDriversField3" placeholder="Driver 3" />
+            <input type="text" class="form-control" id="inputDriversField4" placeholder="Driver 4" />
+            <input type="text" class="form-control" id="inputDriversField5" placeholder="Driver 5" />
           </div>
           <div class="form-group">
             <label for="inputB2">Is this for Business to Consumer, Business to Business, or both?</label>

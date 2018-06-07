@@ -44,6 +44,16 @@
   }
 }
 
+// Circular image styling
+.circular-logo {
+  margin: 0 5px 5px 5px;
+  cursor: pointer;
+}
+
+.circular-logo:hover {
+  transform: scale(1.02);
+}
+
 // Loader styling
 .sk-cube-grid {
   width: 40px;
