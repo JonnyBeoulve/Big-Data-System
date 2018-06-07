@@ -11,7 +11,7 @@ export default {
     {
       name: 'Marketing Analysis',
       url: '/marketinganalysis',
-      icon: 'icon-speedometer',
+      icon: 'icon-pie-chart',
       badge: {
         variant: 'info'
       }
@@ -19,7 +19,7 @@ export default {
     {
       name: 'Event Analysis',
       url: '/eventanalysis',
-      icon: 'icon-speedometer',
+      icon: 'icon-pie-chart',
       badge: {
         variant: 'info'
       }
@@ -27,7 +27,7 @@ export default {
     {
       name: 'Competitor Analysis',
       url: '/competitoranalysis',
-      icon: 'icon-speedometer',
+      icon: 'icon-chart',
       badge: {
         variant: 'info'
       }
@@ -35,7 +35,7 @@ export default {
     {
       name: 'Reputation Report',
       url: '/reputationreport',
-      icon: 'icon-speedometer',
+      icon: 'icon-chart',
       badge: {
         variant: 'info'
       }
@@ -43,7 +43,7 @@ export default {
     {
       name: 'My Campaigns',
       url: '/mycampaigns',
-      icon: 'icon-speedometer',
+      icon: 'icon-layers',
       badge: {
         variant: 'info'
       }
@@ -51,7 +51,7 @@ export default {
     {
       name: 'My Profile',
       url: '/myprofile',
-      icon: 'icon-speedometer',
+      icon: 'icon-user',
       badge: {
         variant: 'info'
       }

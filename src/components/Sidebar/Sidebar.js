@@ -8,6 +8,10 @@ import SidebarForm from './../SidebarForm';
 import SidebarHeader from './../SidebarHeader';
 import SidebarMinimizer from './../SidebarMinimizer';
 
+/*======================================================================
+// This is the sidebar for the web app which allows users to
+// navigate to all features.
+======================================================================*/
 class Sidebar extends Component {
 
   constructor(props) {
@@ -17,7 +21,6 @@ class Sidebar extends Component {
     this.activeRoute = this.activeRoute.bind(this);
     this.hideMobile = this.hideMobile.bind(this);
   }
-
 
   handleClick(e) {
     e.preventDefault();

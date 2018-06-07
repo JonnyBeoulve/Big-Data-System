@@ -4,15 +4,16 @@ import React, { Component } from 'react';
 // This is the dashboard view that users will land on upon logging into
 // Cobia Systems.
 ======================================================================*/
-class EventAnalysis extends Component {
+class MarketingAnalysisForm extends Component {
+
   render() {
     return (
       <div className="animated fadeIn">
-          <h1 class="display-3">Event Analysis</h1>
+          <h1 class="display-3">Marketing Analysis</h1>
           <form>
           <div class="form-group">
-            <label for="inputKeyword">What event would you like to analyze?</label>
-            <input type="text" class="form-control" id="inputEventField" aria-describedby="emailHelp" placeholder="Keyword" />
+            <label for="inputKeyword">What keyword would you like to analyze?</label>
+            <input type="text" class="form-control" id="inputKeywordField" aria-describedby="emailHelp" placeholder="Keyword" />
             <small id="emailHelp" class="form-text text-muted">i.e. Hotel</small>
           </div>
           <div class="form-group">
@@ -40,11 +41,11 @@ class EventAnalysis extends Component {
                 <option>Both</option>
               </select>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" onClick={this.props.handleFormSubmit}>Submit</button>
         </form>
       </div>
     )
   }
 }
 
-export default EventAnalysis;
+export default MarketingAnalysisForm;

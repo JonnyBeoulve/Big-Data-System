@@ -1,5 +1,5 @@
 {
-  "name": "reputationreport",
+  "name": "ReputationReport",
   "version": "0.0.0",
   "private": true,
   "main": "./ReputationReport.js"

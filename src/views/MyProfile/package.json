@@ -1,5 +1,5 @@
 {
-  "name": "myprofile",
+  "name": "MyProfile",
   "version": "0.0.0",
   "private": true,
   "main": "./MyProfile.js"

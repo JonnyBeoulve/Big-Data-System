@@ -1,6 +1,6 @@
 {
-  "name": "Aside",
+  "name": "Loader",
   "version": "0.0.0",
   "private": true,
-  "main": "./Aside.js"
+  "main": "./Loader.js"
 }

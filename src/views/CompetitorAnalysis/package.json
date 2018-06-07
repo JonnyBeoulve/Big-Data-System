@@ -1,5 +1,5 @@
 {
-  "name": "competitoranalysis",
+  "name": "CompetitorAnalysis",
   "version": "0.0.0",
   "private": true,
   "main": "./CompetitorAnalysis.js"

@@ -4,7 +4,6 @@ import {Container} from 'reactstrap';
 import Header from '../../components/Header/';
 import Sidebar from '../../components/Sidebar/';
 import Breadcrumb from '../../components/Breadcrumb/';
-import Aside from '../../components/Aside/';
 import Footer from '../../components/Footer/';
 
 import Dashboard from '../../views/Dashboard/';
@@ -32,19 +31,18 @@ class Full extends Component {
             <Breadcrumb />
             <Container fluid>
               <Switch>
-                <Route path="/dashboard" name="dashboard" component={Dashboard}/>
-                <Route path="/marketinganalysis" name="marketinganalysis" component={MarketingAnalysis}/>
-                <Route path="/eventanalysis" name="eventanalysis" component={EventAnalysis}/>
-                <Route path="/competitoranalysis" name="competitoranalysis" component={CompetitorAnalysis}/>
-                <Route path="/reputationreport" name="reputationreport" component={ReputationReport}/>
-                <Route path="/mycampaigns" name="mycampaigns" component={MyCampaigns}/>
-                <Route path="/myprofile" name="myprofile" component={MyProfile}/>
-                <Route path="/help" name="help" component={Help}/>
+                <Route path="/dashboard" name="Dashboard" component={Dashboard}/>
+                <Route path="/marketinganalysis" name="MarketingAnalysis" component={MarketingAnalysis}/>
+                <Route path="/eventanalysis" name="EventAnalysis" component={EventAnalysis}/>
+                <Route path="/competitoranalysis" name="CompetitorAnalysis" component={CompetitorAnalysis}/>
+                <Route path="/reputationreport" name="ReputationReport" component={ReputationReport}/>
+                <Route path="/mycampaigns" name="MyCampaigns" component={MyCampaigns}/>
+                <Route path="/myprofile" name="MyProfile" component={MyProfile}/>
+                <Route path="/help" name="Help" component={Help}/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>
           </main>
-          <Aside />
         </div>
         <Footer />
       </div>

@@ -1,5 +1,5 @@
 {
-  "name": "help",
+  "name": "Help",
   "version": "0.0.0",
   "private": true,
   "main": "./Help.js"
