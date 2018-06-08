@@ -43,6 +43,8 @@ class MarketingAnalysisForm extends Component {
           </div>
           <button type="submit" class="btn btn-primary" onClick={this.props.handleFormSubmit}>Submit</button>
         </form>
+        <br />
+        <br />
       </div>
     )
   }

@@ -1,5 +1,22 @@
 // Here you can add other styles
 
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.results-table-item {
+  cursor: pointer;
+}
+
+// Popup styling for tooltips on results
+.tooltip-inner {
+  padding: 10px 10px 10px 10px;
+  min-width: 1000px;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 .page-header {
   padding: $spacer 0;
   background: $breadcrumb-bg;

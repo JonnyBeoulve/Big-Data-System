@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {
   Nav,
   NavItem,
+  NavLink,
   NavbarToggler,
   NavbarBrand,
 } from 'reactstrap';
+import HeaderDropdown from './HeaderDropdown';
+
+/*======================================================================
+// Inline styling for the top right dropdown div.
+======================================================================*/
+var dropdownDivStyle = {
+  marginRight: '15px',
+};
 
 /*======================================================================
 // This is the header for the web app which includes the left sidebar
-// for navigation, branding on the top left, and a header bar on the
-// top.
+// for navigation, branding on the top left, a header bar on the
+// top, and a notifcations and account dropdown on the top-right.
 ======================================================================*/
 class Header extends Component {
 
@@ -31,13 +41,17 @@ class Header extends Component {
   render() {
     return (
       <header className="app-header navbar">
-        <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
+        <NavbarToggler className="d-lg-none" onClick={ this.mobileSidebarToggle }>
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
         <NavbarBrand href="#"></NavbarBrand>
-        <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>
+        <NavbarToggler className="d-md-down-none mr-auto" onClick={ this.sidebarToggle }>
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
+        <Nav className="ml-auto" style={ dropdownDivStyle } navbar>
+          <HeaderDropdown notif/>
+          <HeaderDropdown accnt />
+        </Nav>
       </header>
     );
   }
