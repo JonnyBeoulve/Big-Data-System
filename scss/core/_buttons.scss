@@ -16,6 +16,16 @@ button {
   }
 }
 
+.btn-primary {
+  background-color: $green;
+  border-color: $green;
+}
+
+.btn-primary:hover {
+  background-color: $darkgreen;
+  border-color: $darkgreen;
+}
+
 .btn-facebook,
 .btn-twitter,
 .btn-linkedin,

@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: $sidebar-padding;
   color: $sidebar-color;
-  background: linear-gradient(to bottom,  #063552 0%,#0e476c 100%);
+  background: linear-gradient(to bottom, #063552 0%,#0e476c 100%);
   @include borders($sidebar-borders);
 
   .sidebar-close {
@@ -144,7 +144,7 @@
       @include borders($sidebar-nav-link-active-borders);
 
       i {
-        color: $sidebar-nav-link-active-icon-color;
+        color: $sidebar-nav-link-active-color;
       }
     }
 

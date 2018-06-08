@@ -17,7 +17,7 @@ tr {
 
 // Jumbotron styling
 .jumbotron {
-  background: $gray-200;
+  background: $jumbotronblue;
 }
 
 // Popup styling for tooltips on results
@@ -29,10 +29,10 @@ tr {
   background-color: #e4e5e6;
 }
 
+// Header styling
 .page-header {
   padding: $spacer 0;
   background: $breadcrumb-bg;
-  border-bottom: 1px solid $border-color;
 
   h1 {
     margin: 0;
@@ -47,6 +47,13 @@ tr {
   .charts .title {
     margin-top: 2px;
   }
+}
+
+// Title styling for divs
+.blue-background {
+  background: $lightblue;
+  color: white;
+  padding: 5px 5px 5px 5px;
 }
 
 // Sidebar styling

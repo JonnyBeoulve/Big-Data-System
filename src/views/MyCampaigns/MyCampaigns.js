@@ -15,12 +15,12 @@ class MyCampaigns extends Component {
       <div className="animated fadeIn">
         <Row className="show-grid">
           <Col lg="6">
-              <h2>Campaign List</h2>
-              <p>Coming Soon...</p>
+            <h2 className="blue-background"> <i className="fa fa-bullseye"></i> Campaign List</h2>
+            <p>Coming Soon...</p>
           </Col>
           <Col lg="6">
-              <h2>Campaign Overview</h2>
-              <p>Coming Soon...</p>
+            <h2 className="blue-background"> <i className="fa fa-eye"></i> Campaign Overview</h2>
+            <p>Coming Soon...</p>
           </Col>
         </Row>
       </div>

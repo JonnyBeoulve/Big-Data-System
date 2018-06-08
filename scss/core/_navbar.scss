@@ -4,8 +4,7 @@
   height: $navbar-height;
   padding: 0;
   margin: 0;
-  background-color: linear-gradient(to right,  rgba(4,40,67,1) 0%,rgba(2,59,60,1) 100%);
-  @include borders($navbar-border);
+  background-color: linear-gradient(to right, rgba(4,40,67,1) 0%,rgba(2,59,60,1) 100%);
 
   .navbar-brand {
     display: inline-block;
@@ -18,7 +17,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: $navbar-brand-logo-size;
-    @include borders($navbar-brand-border);
   }
 
   .navbar-toggler {
@@ -103,7 +101,7 @@
   .nav-link.open,
   .nav-link.active {
     @include plain-hover-focus {
-      color: $navbar-active-color;
+      color: $white;
     }
   }
 }

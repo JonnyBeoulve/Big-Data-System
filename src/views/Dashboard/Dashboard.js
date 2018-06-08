@@ -107,7 +107,7 @@ class Dashboard extends Component {
         </Row>
         <Row>
           <Col xs="12" sm="6" lg="3">
-            <Widget02 header="5" mainText="Analysis Performed" icon="fa fa-bar-chart" color="primary" variant="2"/>
+            <Widget02 header="5" mainText="Analyses Performed" icon="fa fa-bar-chart" color="primary" variant="2"/>
           </Col>
           <Col xs="12" sm="6" lg="3">
             <Widget02 header="0" mainText="Reports Performed" icon="fa fa-bar-chart" color="primary" variant="2"/>

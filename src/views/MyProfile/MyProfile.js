@@ -19,7 +19,7 @@ class MyProfile extends Component {
       <div className="animated fadeIn">
         <Row className="show-grid">
           <Col lg="6">
-            <h2 className="sub-header">Vitals</h2>
+          <h2 className="blue-background"> <i className="fa fa-user"></i> Vitals</h2>
             <form>
               <div class="form-group">
                 <label for="inputKeyword">Company Name</label>
@@ -33,12 +33,12 @@ class MyProfile extends Component {
               <button type="submit" class="btn btn-primary">Update Vitals</button>
             </form>
             <br />
-            <h2 className="sub-header">Logins</h2>
+            <h2 className="blue-background"> <i className="fa fa-keyboard-o"></i> Logins</h2>
             <p>cobia@cobiasystems.com</p>
             <button type="submit" class="btn btn-primary">Add Login</button>
           </Col>
           <Col lg="6">
-              <h2 className="sub-header">Link Accounts</h2>
+          <h2 className="blue-background"> <i className="fa fa-link"></i> Link Accounts</h2>
               <p>Social Media</p>
                 <img src={ FacebookLogo } className="circular-logo" alt='Facebook Logo' />
                 <img src={ TwitterLogo } className="circular-logo" alt='Twitter Logo' />
