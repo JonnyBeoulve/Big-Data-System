@@ -44,25 +44,6 @@ class HeaderDropdown extends Component {
   }
 
   /*======================================================================
-  // This will display notifications via a dropdown. The number of
-  // notifications is previewed on the icon within the header div.
-  ======================================================================*/
-  dropNotif() {
-    const itemsCount = 1;
-    return (
-      <Dropdown nav className="d-md-down-none" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle nav>
-          <i className="icon-bell"></i><Badge pill color="danger">{itemsCount}</Badge>
-        </DropdownToggle>
-        <DropdownMenu right>
-          <DropdownItem header tag="div" className="text-center"><strong>You have {itemsCount} notifications</strong></DropdownItem>
-          <DropdownItem><i className="icon-user-follow text-success"></i> New registration</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    );
-  }
-
-  /*======================================================================
   // This will display the user's avatar and include links to profile
   // based features.
   ======================================================================*/
@@ -85,7 +66,6 @@ class HeaderDropdown extends Component {
   render() {
     const {notif, accnt, tasks, mssgs, ...attributes} = this.props;
     return (
-      notif ? this.dropNotif() :
       accnt ? this.dropAccnt() : null
     );
   }

@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
 import {
-  Row,
   Col,
   Progress,
   Card,
   CardBody,
+  CardColumns,
+  CardHeader,
   CardTitle,
+  Row,
   Table,
   Tooltip,
 } from 'reactstrap';
 
 
-const brandPrimary = '#20a8d8';
-const brandSuccess = '#4dbd74';
-const brandInfo = '#63c2de';
-const brandWarning = '#f8cb00';
-const brandDanger = '#f86c6b';
+var tableStyle = {
+  height: '1000px'
+};
 
 /*======================================================================
 // Chart.js data and labels for sentiment doughnut chart.
@@ -53,15 +53,21 @@ const doughnut = {
 ======================================================================*/
 class MarketingAnalysisResults extends Component {
 
+  /*======================================================================
+  // TooltipOpen will hold the state of whether or not a tooltip is
+  // open for each trend, which occurs on user mouseover.
+  ======================================================================*/
   constructor(props) {
     super(props);
-
     this.toggle = this.toggle.bind(this);
     this.state = {
-      tooltipOpen: [false, false],
+      tooltipOpen: [false, false, false, false, false, false, false, false, false, false],
     };
   }
 
+  /*======================================================================
+  // Toggle the visible state of tooltips for a trend on mouseover.
+  ======================================================================*/
   toggle(i) {
     const newArray = this.state.tooltipOpen.map((element, index) => {
       return (index === i ? !element : false);
@@ -75,7 +81,6 @@ class MarketingAnalysisResults extends Component {
 
     return (
       <div className="animated fadeIn">
-          <h1 class="display-3">Marketing Analysis Results</h1>
           <Row>
           <Col>
             <Card>
@@ -123,7 +128,7 @@ class MarketingAnalysisResults extends Component {
                         <div className="callout callout-info">
                           <small className="text-muted">Primary Sentiment</small>
                           <br/>
-                          <strong className="h4">Primary Sentiment</strong>
+                          <strong className="h4">Sentiment</strong>
                         </div>
                       </Col>
                       <Col sm="6">
@@ -137,10 +142,10 @@ class MarketingAnalysisResults extends Component {
                   </Col>
                 </Row>
                 <br/>
-                <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+                <Table hover responsive style={tableStyle}className="table-outline mb-0 d-none d-sm-table">
                   <thead className="thead-light">
                   <tr>
-                    <th>Keyword</th>
+                    <th>Trend</th>
                     <th>Relevance</th>
                     <th>Conversation</th>
                   </tr>
@@ -150,22 +155,65 @@ class MarketingAnalysisResults extends Component {
                     <td>
                       <div>Trend 1</div>
                       <Tooltip placement="bottom" isOpen={this.state.tooltipOpen[0]} target="trendInfo00" toggle={() => { this.toggle(0)} }>
-                        <Row className="show-grid">
-                          <Col lg="6">
-                            <h2>Social Media Posts</h2>
-                            <p>Social media post 1</p>
-                            <p>Social media post 2</p>
-                            <p>Social media post 3</p>
-                            <p>Social media post 4</p>
-                            <p>Social media post 5</p>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Avram Tarasios</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Quintin Ed</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Eneas Kwadwo</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>agapetus Tadeas</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
                           </Col>
-                          <Col lg="6">
-                            <h2>Sentiment</h2>
-                            <div className="chart-wrapper">
-                              <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#fff'}}}} />
-                            </div>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
                           </Col>
-                          </Row>
+                        </Row>
                       </Tooltip>
                     </td>
                     <td>
@@ -189,7 +237,66 @@ class MarketingAnalysisResults extends Component {
                     <td>
                       <div>Trend 2</div>
                       <Tooltip placement="bottom" isOpen={this.state.tooltipOpen[1]} target="trendInfo01" toggle={() => { this.toggle(1)} }>
-                        Hello world!
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
                       </Tooltip>
                     </td>
                     <td>
@@ -209,9 +316,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="info" value="93"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo02" className="results-table-item">
                     <td>
                       <div>Trend 3</div>
+                      <Tooltip placement="bottom" isOpen={this.state.tooltipOpen[2]} target="trendInfo02" toggle={() => { this.toggle(2)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -230,9 +398,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="warning" value="77"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo03" className="results-table-item">
                     <td>
                       <div>Trend 4</div>
+                      <Tooltip placement="bottom" isOpen={this.state.tooltipOpen[3]} target="trendInfo03" toggle={() => { this.toggle(3)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -251,9 +480,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="danger" value="70"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo04" className="results-table-item">
                     <td>
                       <div>Trend 5</div>
+                      <Tooltip placement="bottom" isOpen={this.state.tooltipOpen[4]} target="trendInfo04" toggle={() => { this.toggle(4)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -272,9 +562,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="success" value="63"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo05" className="results-table-item">
                     <td>
                       <div>Trend 6</div>
+                      <Tooltip placement="top" isOpen={this.state.tooltipOpen[5]} target="trendInfo05" toggle={() => { this.toggle(5)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -293,9 +644,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="info" value="60"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo06" className="results-table-item">
                     <td>
                       <div>Trend 7</div>
+                      <Tooltip placement="top" isOpen={this.state.tooltipOpen[6]} target="trendInfo06" toggle={() => { this.toggle(6)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -314,9 +726,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="warning" value="55"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo07" className="results-table-item">
                     <td>
                       <div>Trend 8</div>
+                      <Tooltip placement="top" isOpen={this.state.tooltipOpen[7]} target="trendInfo07" toggle={() => { this.toggle(7)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -335,9 +808,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="danger" value="52"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo08" className="results-table-item">
                     <td>
                       <div>Trend 9</div>
+                      <Tooltip placement="top" isOpen={this.state.tooltipOpen[8]} target="trendInfo08" toggle={() => { this.toggle(8)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">
@@ -356,9 +890,70 @@ class MarketingAnalysisResults extends Component {
                       <Progress className="progress-sm" color="success" value="51"/>
                     </td>
                   </tr>
-                  <tr className="results-table-item">
+                  <tr id="trendInfo09" className="results-table-item">
                     <td>
                       <div>Trend 10</div>
+                      <Tooltip placement="top" isOpen={this.state.tooltipOpen[9]} target="trendInfo09" toggle={() => { this.toggle(9)} }>
+                        <Row>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                              <Table responsive className="table-outline mb-0 d-none d-sm-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td>
+                                      <div>Yiorgos Avraamu</div>
+                                    </td>
+                                    <td>
+                                      This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.
+                                    </td>
+                                  </tr>
+                                </tbody>
+                                </Table>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                          <Col xs="6">
+                            <Card>
+                              <CardBody>
+                                <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        </Row>
+                      </Tooltip>
                     </td>
                     <td>
                       <div className="clearfix">

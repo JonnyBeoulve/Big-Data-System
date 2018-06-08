@@ -4,7 +4,7 @@
   flex-direction: column;
   padding: $sidebar-padding;
   color: $sidebar-color;
-  background: $sidebar-bg;
+  background: linear-gradient(to bottom,  #063552 0%,#0e476c 100%);
   @include borders($sidebar-borders);
 
   .sidebar-close {
@@ -140,7 +140,7 @@
 
     &.active {
       color: $sidebar-nav-link-active-color;
-      background: $sidebar-nav-link-active-bg;
+      background: rgba(15, 145, 239, 0.31);
       @include borders($sidebar-nav-link-active-borders);
 
       i {
@@ -150,7 +150,7 @@
 
     &:hover {
       color: $sidebar-nav-link-hover-color;
-      background: $sidebar-nav-link-hover-bg;
+      background: rgba(15, 145, 239, 0.31);
       @include borders($sidebar-nav-link-hover-borders);
 
       i {
@@ -253,14 +253,14 @@
   .sidebar-footer {
     flex: 0 0 $sidebar-footer-height;
     padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
-    background: $sidebar-footer-bg;
+    background: $black;
     @include borders($sidebar-footer-borders);
   }
 
   .sidebar-minimizer {
     position: relative;
     flex: 0 0 $sidebar-minimizer-height;
-    background-color: $sidebar-minimizer-bg;
+    background-color: $black;
     border: 0;
     @include borders($sidebar-minimizer-borders);
 

@@ -152,8 +152,8 @@ $sidebar-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charse
 
 // Top Navigation
 
-$top-nav-bg:                          #fff !default;
-$top-nav-color:                       $body-color !default;
+$top-nav-bg:                          $black !default;
+$top-nav-color:                       $black !default;
 $top-nav-borders: (
   bottom: (
     size:                             1px,
@@ -203,7 +203,7 @@ $aside-menu-nav-padding-x:            1rem !default;
 // Footer
 
 $footer-height:                       50px !default;
-$footer-bg:                           $gray-100 !default;
+$footer-bg:                           $black !default;
 $footer-color:                        $body-color !default;
 $footer-borders: (
   top: (

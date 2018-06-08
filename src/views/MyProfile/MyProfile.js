@@ -17,7 +17,6 @@ class MyProfile extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <h1 class="display-3">My Profile</h1>
         <Row className="show-grid">
           <Col lg="6">
             <h2 className="sub-header">Vitals</h2>

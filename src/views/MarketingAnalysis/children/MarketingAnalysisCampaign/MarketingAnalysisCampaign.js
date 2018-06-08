@@ -31,7 +31,6 @@ class MarketingAnalysisForm extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-          <h1 class="display-3">Marketing Campaign</h1>
           <form>
           <div class="form-group">
             <label for="inputCampaignName">What would you like to name your campaign?</label>

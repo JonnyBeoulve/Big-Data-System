@@ -54,6 +54,7 @@ app-root {
   .app-header {
     position: fixed;
     z-index: $zindex-sticky;
+    background: rgba(4,40,67,1) 0%;
     width: 100%;
   }
   .app-body {
@@ -311,7 +312,7 @@ app-root {
     z-index: $zindex-sticky;
     width: 100%;
     text-align: center;
-    background-color: $navbar-brand-bg;
+    background-color: rgba(4,40,67,1) 0%;
     @include borders($navbar-brand-border);
 
     .navbar-toggler {
@@ -325,6 +326,7 @@ app-root {
     .navbar-brand {
       position: absolute;
       left: 50%;
+      background-color: transparent;
       margin-left: - ($navbar-brand-width / 2);
     }
   }

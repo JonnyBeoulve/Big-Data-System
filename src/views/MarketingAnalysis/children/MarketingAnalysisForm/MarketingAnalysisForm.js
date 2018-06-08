@@ -9,7 +9,6 @@ class MarketingAnalysisForm extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-          <h1 class="display-3">Marketing Analysis</h1>
           <form>
           <div class="form-group">
             <label for="inputKeyword">What keyword would you like to analyze?</label>

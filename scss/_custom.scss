@@ -1,20 +1,32 @@
 // Here you can add other styles
 
+// Remove anchor styling
 a, a:hover {
   text-decoration: none;
   color: inherit;
+}
+
+// Table styling
+tr {
+  min-height: 80px;
 }
 
 .results-table-item {
   cursor: pointer;
 }
 
+// Jumbotron styling
+.jumbotron {
+  background: $gray-200;
+}
+
 // Popup styling for tooltips on results
 .tooltip-inner {
-  padding: 10px 10px 10px 10px;
-  min-width: 1000px;
+  padding: 10px 10px 0 10px;
+  min-width: 960px;
   height: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  color: #2a2c36;
+  background-color: #e4e5e6;
 }
 
 .page-header {
@@ -37,6 +49,7 @@ a, a:hover {
   }
 }
 
+// Sidebar styling
 .sidebar {
   .sidebar-header {
 

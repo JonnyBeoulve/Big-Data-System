@@ -9,7 +9,6 @@ class ReputationReport extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <h1 class="display-3">Reputation Report</h1>
           <p>Coming soon...</p>
       </div>
     )

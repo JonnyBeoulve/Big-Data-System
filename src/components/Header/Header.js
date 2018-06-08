@@ -19,7 +19,7 @@ var dropdownDivStyle = {
 /*======================================================================
 // This is the header for the web app which includes the left sidebar
 // for navigation, branding on the top left, a header bar on the
-// top, and a notifcations and account dropdown on the top-right.
+// top, and an account dropdown on the top-right.
 ======================================================================*/
 class Header extends Component {
 
@@ -49,7 +49,6 @@ class Header extends Component {
           <span className="navbar-toggler-icon"></span>
         </NavbarToggler>
         <Nav className="ml-auto" style={ dropdownDivStyle } navbar>
-          <HeaderDropdown notif/>
           <HeaderDropdown accnt />
         </Nav>
       </header>

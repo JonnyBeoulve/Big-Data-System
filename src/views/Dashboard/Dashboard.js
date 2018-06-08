@@ -22,6 +22,7 @@ import {
   Input,
   Table
 } from 'reactstrap';
+import Widget02 from './Widget02';
 
 /*======================================================================
 // This is the dashboard view that users will land on upon logging into
@@ -31,7 +32,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <div class="jumbotron">
+	      <div class="jumbotron">
           <h1 class="display-3">Welcome to Cobia Systems</h1>
           <p class="lead">This is an alpha version of the new Cobia Systems web app. Enjoy!</p>
           <hr class="my-4" />
@@ -55,7 +56,6 @@ class Dashboard extends Component {
               </ul>
             </div>
           </Col>
-
           <Col xs="6" sm="6" lg="3">
             <div className="social-box twitter">
               <i className="fa fa-twitter"></i>
@@ -103,6 +103,20 @@ class Dashboard extends Component {
                 </li>
               </ul>
             </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12" sm="6" lg="3">
+            <Widget02 header="5" mainText="Analysis Performed" icon="fa fa-bar-chart" color="primary" variant="2"/>
+          </Col>
+          <Col xs="12" sm="6" lg="3">
+            <Widget02 header="0" mainText="Reports Performed" icon="fa fa-bar-chart" color="primary" variant="2"/>
+          </Col>
+          <Col xs="12" sm="6" lg="3">
+          <a href="#/mycampaigns"><Widget02 header="2" mainText="Campaigns Created" icon="fa fa-bullseye" color="warning" variant="2"/></a>
+          </Col>
+          <Col xs="12" sm="6" lg="3">
+            <a href="#/myprofile"><Widget02 header="Configure" mainText="Profile" icon="fa fa-user-circle" color="danger" variant="2"/></a>
           </Col>
         </Row>
       </div>
