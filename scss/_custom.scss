@@ -9,9 +9,30 @@ a, a:hover {
 // Table styling
 tr {
   min-height: 80px;
+  border: 1px solid $lightblue;
+}
+
+.table th, .table td {
+  border-bottom: 1px solid $lightblue;
+  border-top: 1px solid $lightblue;
+}
+
+.table .thead-light th {
+  min-height: 80px;
+  color: white;
+  background: $lightblue;
+}
+
+.table thead th {
+  border-bottom: 1px solid $lightblue;
 }
 
 .results-table-item {
+  cursor: pointer;
+}
+
+// Icon hover styling
+.icon-hover {
   cursor: pointer;
 }
 

@@ -38,7 +38,18 @@ class MarketingAnalysisForm extends Component {
           </div>
           <div class="form-group">
             <label for="inputKeyword">Pick a trending keyword.</label>
-            <input type="text" class="form-control" id="inputTrendField" aria-describedby="emailHelp" placeholder="Keyword" />
+            <select class="form-control" id="inputCampaignTrendField">
+              <option>Trend 1</option>
+              <option>Trend 2</option>
+              <option>Trend 3</option>
+              <option>Trend 4</option>
+              <option>Trend 5</option>
+              <option>Trend 6</option>
+              <option>Trend 7</option>
+              <option>Trend 8</option>
+              <option>Trend 9</option>
+              <option>Trend 10</option>
+            </select>
           </div>
           <FormGroup>
             <Label htmlFor="appendedPrependedInput">How much do you want to spend on this campaign?</Label>

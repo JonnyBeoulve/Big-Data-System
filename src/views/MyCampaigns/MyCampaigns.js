@@ -13,6 +13,12 @@ class MyCampaigns extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My Campaigns</li>
+          </ol>
+        </nav>
         <Row className="show-grid">
           <Col lg="6">
             <h2 className="blue-background"> <i className="fa fa-bullseye"></i> Campaign List</h2>

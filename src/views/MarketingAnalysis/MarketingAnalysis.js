@@ -23,6 +23,7 @@ class MarketingAnalysis extends Component {
       this.handleMarketingResultsSelectionSubmit = this.handleMarketingResultsSelectionSubmit.bind(this);
       this.handleMarketingCampaignSubmit = this.handleMarketingCampaignSubmit.bind(this);
       this.state = {
+          breadcrumbCurrentStep: 'Marketing Analysis',
           showForm: true,
           showLoader: false,
           showResults: false,
@@ -42,10 +43,11 @@ class MarketingAnalysis extends Component {
       })
        setTimeout(() =>{ 
         this.setState({
+            breadcrumbCurrentStep: 'Marketing Analysis Results',
             showLoader: false,
             showResults: true,
           }) 
-        }, 500); 
+        }, 3000); 
     return;
   }
 
@@ -60,10 +62,11 @@ class MarketingAnalysis extends Component {
       })
       setTimeout(() =>{ 
         this.setState({
+            breadcrumbCurrentStep: 'Marketing Analysis Campaign',
             showLoader: false,
             showCampaign: true,
           }) 
-        }, 500); 
+        }, 3000); 
     return;
   }
 
@@ -78,16 +81,23 @@ class MarketingAnalysis extends Component {
       })
       setTimeout(() =>{ 
         this.setState({
+            breadcrumbCurrentStep: 'Marketing Analysis Confirmation',
             showLoader: false,
             showConfirmation: true,
           }) 
-        }, 500); 
+        }, 2000); 
     return;
   }
 
   render() {
     return (
       <div>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{this.state.breadcrumbCurrentStep}</li>
+          </ol>
+        </nav>
         { (this.state.showForm)
           ? <MarketingAnalysisForm handleFormSubmit={this.handleMarketingAnalysisFormSubmit} />
           : <div></div> }

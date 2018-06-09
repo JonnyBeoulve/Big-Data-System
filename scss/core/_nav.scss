@@ -1,11 +1,11 @@
 .nav-tabs {
   .nav-link {
-    color: $gray-600;
+    color: $gray-900;
     &:hover {
       cursor: pointer;
     }
     &.active {
-      color: $white;
+      color: $gray-900;
       background: #fff;
       border-color: $border-color;
       border-bottom-color: #fff;

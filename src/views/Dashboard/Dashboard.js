@@ -32,6 +32,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="animated fadeIn">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active"><a href="#">Dashboard</a></li>
+          </ol>
+        </nav>
 	      <div class="jumbotron">
           <h1 class="display-3">Welcome to Cobia Systems</h1>
           <p class="lead">This is an alpha version of the new Cobia Systems web app. Enjoy!</p>
