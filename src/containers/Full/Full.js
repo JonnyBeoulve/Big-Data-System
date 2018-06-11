@@ -12,6 +12,8 @@ import CompetitorAnalysis from '../../views/CompetitorAnalysis/';
 import ReputationReport from '../../views/ReputationReport/';
 import MyCampaigns from '../../views/MyCampaigns/';
 import MyProfile from '../../views/MyProfile/';
+import MyProfileEditLogin from '../../views/MyProfile/children/MyProfileEditLogin/';
+import MyProfileAddLogin from '../../views/MyProfile/children/MyProfileAddLogin/';
 import Help from '../../views/Help/';
 
 /*======================================================================
@@ -35,7 +37,9 @@ class Full extends Component {
                 <Route path="/competitoranalysis" name="CompetitorAnalysis" component={ CompetitorAnalysis }/>
                 <Route path="/reputationreport" name="ReputationReport" component={ ReputationReport }/>
                 <Route path="/mycampaigns" name="MyCampaigns" component={ MyCampaigns }/>
-                <Route path="/myprofile" name="MyProfile" component={ MyProfile }/>
+                <Route exact path="/myprofile" name="MyProfile" component={ MyProfile }/>
+                <Route exact path="/myprofile/editlogin" name="MyProfileEditLogin" component={ MyProfileEditLogin }/>
+                <Route exact path="/myprofile/addlogin" name="MyProfileAddLogin" component={ MyProfileAddLogin }/>
                 <Route path="/help" name="Help" component={ Help }/>
                 <Redirect from="/" to="/dashboard"/>
               </Switch>

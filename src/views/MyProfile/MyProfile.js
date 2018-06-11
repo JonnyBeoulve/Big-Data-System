@@ -9,8 +9,8 @@ import TwitterLogo from '../../../public/img/twitter-logo.png';
 import CreditCardLogo from '../../../public/img/credit-card-logo.png';
 
 /*======================================================================
-// This is the help page where users can learn more about how to use
-// Cobia Systems effectively.
+// This is the My Profile page where users can link social media accounts,
+// add a payment method, as well as edit and add new logins.
 ======================================================================*/
 class MyProfile extends Component {
 
@@ -40,8 +40,8 @@ class MyProfile extends Component {
             </form>
             <br />
             <h2 className="blue-background"> <i className="fa fa-keyboard-o"></i> Logins</h2>
-            <p>cobia@cobiasystems.com <i className={ ["fa fa-edit", "icon-hover"].join(' ') }></i></p>
-            <button type="submit" class="btn btn-primary">Add Login</button>
+            <p>cobia@cobiasystems.com <a href="#/myprofile/editlogin"><i className={ ["fa fa-edit", "icon-hover"].join(' ') }></i></a></p>
+            <a href="#/myprofile/addlogin"><button type="submit" class="btn btn-primary">Add Login</button></a>
           </Col>
           <Col lg="6">
           <h2 className="blue-background"> <i className="fa fa-link"></i> Link Accounts</h2>

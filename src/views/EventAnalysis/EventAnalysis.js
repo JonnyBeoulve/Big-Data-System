@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 /*======================================================================
-// This is the dashboard view that users will land on upon logging into
-// Cobia Systems.
+// This is the Event Analysis page, a feature that will be added in a
+// future update.
 ======================================================================*/
 class EventAnalysis extends Component {
   render() {

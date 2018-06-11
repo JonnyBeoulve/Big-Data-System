@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 /*======================================================================
-// This is the help page where users can learn more about how to use
-// Cobia Systems effectively.
+// This is the Reputation Report page, a feature that will be added in a
+// future update.
 ======================================================================*/
 class ReputationReport extends Component {
 

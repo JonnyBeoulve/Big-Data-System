@@ -22,7 +22,7 @@ import {
   Input,
   Table
 } from 'reactstrap';
-import Widget02 from './Widget02';
+import Widget02 from './Widgets/Widget02';
 
 /*======================================================================
 // This is the dashboard view that users will land on upon logging into

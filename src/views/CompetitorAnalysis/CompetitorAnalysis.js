@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 /*======================================================================
-// This is the help page where users can learn more about how to use
-// Cobia Systems effectively.
+// This is Competitor Analysis, a feature that will be added in a 
+// future update.
 ======================================================================*/
 class CompetitorAnalysis extends Component {
 

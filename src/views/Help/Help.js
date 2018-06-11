@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /*======================================================================
-// This is the help page where users can learn more about how to use
+// This is the Help page where users can learn more about how to use
 // Cobia Systems effectively.
 ======================================================================*/
 class Help extends Component {

@@ -13,7 +13,7 @@ import MarketingAnalysisConfirmation from './children/MarketingAnalysisConfirmat
 class MarketingAnalysis extends Component {
 
     /*======================================================================
-    // This will bind this to all core functions of marketing analysis
+    // This will bind 'this' to all core functions of marketing analysis
     // so child components can communicate upward. This also houses the
     // state of the user's input before analysis.
     ======================================================================*/
@@ -89,6 +89,10 @@ class MarketingAnalysis extends Component {
     return;
   }
 
+  /*======================================================================
+  // This is a top level container that will display components depending
+  // upon the current state of the user's Marketing Analysis process.
+  ======================================================================*/
   render() {
     return (
       <div>
