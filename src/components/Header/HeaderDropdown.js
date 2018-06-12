@@ -55,9 +55,9 @@ class HeaderDropdown extends Component {
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-          <DropdownItem><a href="#/myprofile"><i className="fa fa-user"></i> Profile</a></DropdownItem>
-          <DropdownItem><a href="#/myprofile"><i className="fa fa-usd"></i> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
-          <DropdownItem><a href="https://cobiasystems.com/"><i className="fa fa-lock"></i> Logout</a></DropdownItem>
+          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user"></i> Profile</a></DropdownItem>
+          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-usd"></i> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
+          <DropdownItem><a href="/"><i className="fa fa-lock"></i> Logout</a></DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

@@ -4,8 +4,9 @@ import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import routes from '../../routes';
 
 /*======================================================================
-// Breadcrumbs are located in a horizontal bar above the main body
-// of content and allow users to view their current routing path.
+// Breadcrumbs were not working as part of the original template.
+// Therefore, Jonathan implemented them manually on each page and
+// this component is no longer used.
 ======================================================================*/
 const findRouteName = url => routes[url];
 

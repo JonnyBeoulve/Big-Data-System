@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+/*======================================================================
+// This minimizes the sidebar upon clicking a button.
+======================================================================*/
 class SidebarMinimizer extends Component {
 
   sidebarMinimize() {

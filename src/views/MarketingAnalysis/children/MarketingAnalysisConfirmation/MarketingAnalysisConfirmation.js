@@ -11,7 +11,7 @@ class MarketingAnalysisForm extends Component {
       <div className="animated fadeIn">
           <p>Your campaign has been successfully created!</p>
           <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#/mycampaigns" role="button">My Campaigns</a>
+            <a class="btn btn-primary btn-lg" href="#/admin/mycampaigns" role="button">My Campaigns</a>
           </p>
       </div>
     )

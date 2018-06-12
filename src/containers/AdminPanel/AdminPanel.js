@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import Header from '../../components/Header/';
 import Sidebar from '../../components/Sidebar/';
@@ -21,7 +21,7 @@ import Help from '../../views/Help/';
 // container for views, aside, and footer. It also includes
 // routing for all views.
 ======================================================================*/
-class Full extends Component {
+class AdminPanel extends Component {
   render() {
     return (
       <div className="app">
@@ -31,17 +31,17 @@ class Full extends Component {
           <main className="main">
             <Container fluid>
               <Switch>
-                <Route path="/dashboard" name="Dashboard" component={ Dashboard }/>
-                <Route path="/marketinganalysis" name="MarketingAnalysis" component={ MarketingAnalysis }/>
-                <Route path="/eventanalysis" name="EventAnalysis" component={ EventAnalysis }/>
-                <Route path="/competitoranalysis" name="CompetitorAnalysis" component={ CompetitorAnalysis }/>
-                <Route path="/reputationreport" name="ReputationReport" component={ ReputationReport }/>
-                <Route path="/mycampaigns" name="MyCampaigns" component={ MyCampaigns }/>
-                <Route exact path="/myprofile" name="MyProfile" component={ MyProfile }/>
-                <Route exact path="/myprofile/editlogin" name="MyProfileEditLogin" component={ MyProfileEditLogin }/>
-                <Route exact path="/myprofile/addlogin" name="MyProfileAddLogin" component={ MyProfileAddLogin }/>
-                <Route path="/help" name="Help" component={ Help }/>
-                <Redirect from="/" to="/dashboard"/>
+                <Route path="/admin/dashboard" name="Dashboard" component={ Dashboard }/>
+                <Route path="/admin/marketinganalysis" name="MarketingAnalysis" component={ MarketingAnalysis }/>
+                <Route path="/admin/eventanalysis" name="EventAnalysis" component={ EventAnalysis }/>
+                <Route path="/admin/competitoranalysis" name="CompetitorAnalysis" component={ CompetitorAnalysis }/>
+                <Route path="/admin/reputationreport" name="ReputationReport" component={ ReputationReport }/>
+                <Route path="/admin/mycampaigns" name="MyCampaigns" component={ MyCampaigns }/>
+                <Route exact path="/admin/myprofile" name="MyProfile" component={ MyProfile }/>
+                <Route exact path="/admin/myprofile/editlogin" name="MyProfileEditLogin" component={ MyProfileEditLogin }/>
+                <Route exact path="/admin/myprofile/addlogin" name="MyProfileAddLogin" component={ MyProfileAddLogin }/>
+                <Route path="/admin/help" name="Help" component={ Help }/>
+                <Redirect from="/" to="/admin/dashboard"/>
               </Switch>
             </Container>
           </main>
@@ -52,4 +52,4 @@ class Full extends Component {
   }
 }
 
-export default Full;
+export default AdminPanel;

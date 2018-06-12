@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+/*======================================================================
+// This is currently not used by the program.
+======================================================================*/
 class SidebarHeader extends Component {
 
   render() {

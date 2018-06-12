@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 // Styles
 // Import Flag Icons Set
@@ -14,16 +14,18 @@ import '../scss/style.scss'
 // Temp fix for reactstrap
 import '../scss/core/_dropdown-menu-right.scss'
 // Containers
-import Full from './containers/Full/'
+import Login from './containers/Login/'
+import AdminPanel from './containers/AdminPanel/'
 
 /*=========================================================================
-// This is where the routing of Cobia Systems is handled and React
-// elements are placed into the DOM via the div with id 'root'.
+// This is where the high level routing of Cobia Systems is handled and 
+// React elements are placed into the DOM via the div with id 'root'.
 =========================================================================*/
 ReactDOM.render((
   <HashRouter>
     <Switch>
-      <Route path="/" name="Home" component={Full} />
+      <Route path="/admin" component={ AdminPanel } />
+      <Route path="/" component={ Login } />
     </Switch>
   </HashRouter>
 ), document.getElementById('root'));

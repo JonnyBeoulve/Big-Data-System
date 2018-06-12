@@ -19,7 +19,7 @@ class MyProfile extends Component {
       <div className="animated fadeIn">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#/admin">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">My Profile</li>
           </ol>
         </nav>
@@ -41,7 +41,7 @@ class MyProfile extends Component {
             <br />
             <h2 className="blue-background"> <i className="fa fa-keyboard-o"></i> Logins</h2>
             <p>cobia@cobiasystems.com <a href="#/myprofile/editlogin"><i className={ ["fa fa-edit", "icon-hover"].join(' ') }></i></a></p>
-            <a href="#/myprofile/addlogin"><button type="submit" class="btn btn-primary">Add Login</button></a>
+            <a href="#/admin/myprofile/addlogin"><button type="submit" class="btn btn-primary">Add Login</button></a>
           </Col>
           <Col lg="6">
           <h2 className="blue-background"> <i className="fa fa-link"></i> Link Accounts</h2>

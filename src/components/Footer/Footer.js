@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 
 /*======================================================================
-// This is the footer for the web app which simply includes
-// copyright information.
+// This is the footer for the web app.
 ======================================================================*/
 class Footer extends Component {
   render() {

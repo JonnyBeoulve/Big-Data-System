@@ -2,7 +2,7 @@ export default {
   items: [
     {
       name: 'Dashboard',
-      url: '/dashboard',
+      url: '/admin/dashboard',
       icon: 'icon-speedometer',
       badge: {
         variant: 'info'
@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'Marketing Analysis',
-      url: '/marketinganalysis',
+      url: '/admin/marketinganalysis',
       icon: 'icon-pie-chart',
       badge: {
         variant: 'info'
@@ -18,7 +18,7 @@ export default {
     },
     {
       name: 'Event Analysis',
-      url: '/eventanalysis',
+      url: '/admin/eventanalysis',
       icon: 'icon-pie-chart',
       badge: {
         variant: 'info'
@@ -26,7 +26,7 @@ export default {
     },
     {
       name: 'Competitor Analysis',
-      url: '/competitoranalysis',
+      url: '/admin/competitoranalysis',
       icon: 'icon-chart',
       badge: {
         variant: 'info'
@@ -34,7 +34,7 @@ export default {
     },
     {
       name: 'Reputation Report',
-      url: '/reputationreport',
+      url: '/admin/reputationreport',
       icon: 'icon-chart',
       badge: {
         variant: 'info'
@@ -42,7 +42,7 @@ export default {
     },
     {
       name: 'My Campaigns',
-      url: '/mycampaigns',
+      url: '/admin/mycampaigns',
       icon: 'icon-layers',
       badge: {
         variant: 'info'
@@ -50,7 +50,7 @@ export default {
     },
     {
       name: 'My Profile',
-      url: '/myprofile',
+      url: '/admin/myprofile',
       icon: 'icon-user',
       badge: {
         variant: 'info'
@@ -58,7 +58,7 @@ export default {
     },
     {
       name: 'Help',
-      url: '/help',
+      url: '/admin/help',
       icon: 'icon-question',
       badge: {
         variant: 'info'
