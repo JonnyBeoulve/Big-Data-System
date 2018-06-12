@@ -31,46 +31,50 @@ class MarketingAnalysisForm extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-          <form>
-          <div class="form-group">
-            <label for="inputCampaignName">What would you like to name your campaign?</label>
-            <input type="text" class="form-control" id="inputCampaignNameField" aria-describedby="emailHelp" placeholder="Campaign Name" />
-          </div>
-          <div class="form-group">
-            <label for="inputKeyword">Pick a trending keyword.</label>
-            <select class="form-control" id="inputCampaignTrendField">
-              <option>Trend 1</option>
-              <option>Trend 2</option>
-              <option>Trend 3</option>
-              <option>Trend 4</option>
-              <option>Trend 5</option>
-              <option>Trend 6</option>
-              <option>Trend 7</option>
-              <option>Trend 8</option>
-              <option>Trend 9</option>
-              <option>Trend 10</option>
-            </select>
-          </div>
-          <FormGroup>
-            <Label htmlFor="appendedPrependedInput">How much do you want to spend on this campaign?</Label>
-            <div className="controls">
-              <InputGroup className="input-prepend">
-                <div className="input-group-prepend">
-                  <span className="input-group-text">$</span>
+        <Row className="show-grid">
+          <Col lg="6">
+            <form>
+              <div class="form-group">
+                <label for="inputCampaignName">What would you like to name your campaign?</label>
+                <input type="text" class="form-control" id="inputCampaignNameField" aria-describedby="emailHelp" placeholder="Campaign Name" />
+              </div>
+              <div class="form-group">
+                <label for="inputKeyword">Pick a trending keyword.</label>
+                <select class="form-control" id="inputCampaignTrendField">
+                  <option>Trend 1</option>
+                  <option>Trend 2</option>
+                  <option>Trend 3</option>
+                  <option>Trend 4</option>
+                  <option>Trend 5</option>
+                  <option>Trend 6</option>
+                  <option>Trend 7</option>
+                  <option>Trend 8</option>
+                  <option>Trend 9</option>
+                  <option>Trend 10</option>
+                </select>
+              </div>
+              <FormGroup>
+                <Label htmlFor="appendedPrependedInput">How much do you want to spend on this campaign?</Label>
+                <div className="controls">
+                  <InputGroup className="input-prepend">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">$</span>
+                    </div>
+                    <Input id="inputSpendField" size="16" type="text"/>
+                    <div className="input-group-append">
+                      <span className="input-group-text">.00</span>
+                    </div>
+                  </InputGroup>
                 </div>
-                <Input id="inputSpendField" size="16" type="text"/>
-                <div className="input-group-append">
-                  <span className="input-group-text">.00</span>
-                </div>
-              </InputGroup>
-            </div>
-          </FormGroup>
-          <div class="form-group">
-            <label for="inputKeyword">Lastly, what do you want your campaign to say?</label>
-            <textarea cols="10" rows="5" type="text" class="form-control" id="inputContentField" aria-describedby="emailHelp" placeholder="Can you almost feel the Pacific Ocean breeze drift through the tree-lined beach at @FSCostaRica? That's what we call pura vida. Begin your adventure at HotelCompany.com"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" onClick={this.props.handleCampaignSubmit}>Submit</button>
-        </form>
+              </FormGroup>
+              <div class="form-group">
+                <label for="inputKeyword">Lastly, what do you want your campaign to say?</label>
+                <textarea cols="10" rows="5" type="text" class="form-control" id="inputContentField" aria-describedby="emailHelp" placeholder="Can you almost feel the Pacific Ocean breeze drift through the tree-lined beach at @FSCostaRica? That's what we call pura vida. Begin your adventure at HotelCompany.com"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" onClick={this.props.handleCampaignSubmit}>Submit</button>
+            </form>
+          </Col>
+        </Row>
       </div>
     )
   }

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Row,
+  Col,
+} from 'reactstrap';
 
 /*======================================================================
 // This is the dashboard view that users will land on upon logging into
@@ -9,46 +13,50 @@ class MarketingAnalysisForm extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-          <form>
-          <div class="form-group">
-            <label for="inputKeyword">What keyword would you like to analyze?</label>
-            <input type="text" class="form-control" id="inputKeywordField" aria-describedby="emailHelp" placeholder="Keyword" />
-            <small id="emailHelp" class="form-text text-muted">i.e. Hotel</small>
-          </div>
-          <div class="form-group">
-            <label for="inputArea">What area would you like to target?</label>
-              <select class="form-control" id="inputAreaField">
-                <option>City</option>
-                <option>State</option>
-                <option>United States</option>
-                <option>Worldwide</option>
-              </select>
-              <br />
-              <input type="text" class="form-control" id="inputLocation" placeholder="Location" />
-              <small id="emailHelp" class="form-text text-muted">Only if City or State was selected</small>
-          </div>
-          <div class="form-group">
-            <label for="inputDrivers">What are the main drivers of your analysis?</label>
-            <input type="text" class="form-control" id="inputDriversField1" placeholder="Driver 1" />
-            <br />
-            <input type="text" class="form-control" id="inputDriversField2" placeholder="Driver 2" />
-            <br />
-            <input type="text" class="form-control" id="inputDriversField3" placeholder="Driver 3" />
-            <br />
-            <input type="text" class="form-control" id="inputDriversField4" placeholder="Driver 4" />
-            <br />
-            <input type="text" class="form-control" id="inputDriversField5" placeholder="Driver 5" />
-          </div>
-          <div class="form-group">
-            <label for="inputB2">Is this for Business to Consumer, Business to Business, or both?</label>
-              <select class="form-control" id="inputB2Field">
-                <option>B2C</option>
-                <option>B2B</option>
-                <option>Both</option>
-              </select>
-          </div>
-          <button type="submit" class="btn btn-primary" onClick={this.props.handleFormSubmit}>Submit</button>
-        </form>
+        <Row className="show-grid">
+          <Col lg="6">
+            <form>
+              <div class="form-group">
+                <label>What keyword would you like to analyze?</label>
+                <input type="text" class="form-control" id="inputFieldKeyword" placeholder="Keyword" onChange={ this.props.keywordChange } />
+                <small id="emailHelp" class="form-text text-muted">i.e. Hotel</small>
+              </div>
+              <div class="form-group">
+                <label>What area would you like to target?</label>
+                  <select class="form-control" id="inputFieldArea" onChange={ this.props.areaChange } >
+                    <option>City</option>
+                    <option>State</option>
+                    <option>United States</option>
+                    <option>Worldwide</option>
+                  </select>
+                  <br />
+                  <input type="text" class="form-control" id="inputFieldLocation" placeholder="Location" onChange={ this.props.locationChange } />
+                  <small id="emailHelp" class="form-text text-muted">Only if City or State was selected</small>
+              </div>
+              <div class="form-group">
+                <label>What are the main drivers of your analysis?</label>
+                <input type="text" class="form-control" id="inputFieldDriver1" placeholder="Driver 1" onChange={ this.props.driver1Change } />
+                <br />
+                <input type="text" class="form-control" id="inputFieldDriver2" placeholder="Driver 2" onChange={ this.props.driver2Change } />
+                <br />
+                <input type="text" class="form-control" id="inputFieldDriver3" placeholder="Driver 3" onChange={ this.props.driver3Change } />
+                <br />
+                <input type="text" class="form-control" id="inputFieldDriver4" placeholder="Driver 4" onChange={ this.props.driver4Change } />
+                <br />
+                <input type="text" class="form-control" id="inputFieldDriver5" placeholder="Driver 5" onChange={ this.props.driver5Change } />
+              </div>
+              <div class="form-group">
+                <label>Is this for Business to Consumer, Business to Business, or both?</label>
+                  <select class="form-control" id="inputFieldB2" onChange={ this.props.b2Change } >
+                    <option>B2C</option>
+                    <option>B2B</option>
+                    <option>Both</option>
+                  </select>
+              </div>
+              <button type="submit" class="btn btn-primary" onClick={ this.props.handleFormSubmit }>Submit</button>
+            </form>
+          </Col>
+        </Row>
         <br />
         <br />
       </div>

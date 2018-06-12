@@ -50,6 +50,21 @@ tr {
   background-color: #e4e5e6;
 }
 
+.tooltip-social-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}
+
+.tooltip-social-name {
+  font-size: 0.7em;
+}
+
+.tooltip-social-text {
+  font-size: 0.9em;
+  text-align: left;
+}
+
 // Header styling
 .page-header {
   padding: $spacer 0;

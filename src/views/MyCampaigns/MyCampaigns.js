@@ -30,18 +30,18 @@ class MyCampaigns extends Component {
             <br />
             <Row className="show-grid">
               <Col sm="6" md="4">
-                <Widget04 icon="icon-people" color="success" header="56,782" invert>Total Reach</Widget04>
+                <Widget04 icon="icon-people" color="success" header="0" invert>Total Reach</Widget04>
               </Col>
               <Col sm="6" md="4">
-                <Widget04 icon="icon-energy" color="success" header="32%" invert>Success Rate</Widget04>
+                <Widget04 icon="icon-energy" color="success" header="0" invert>Success Rate</Widget04>
               </Col>
             </Row>
             <Row className="show-grid">
               <Col sm="6" md="4">
-                <Widget04 icon="icon-basket-loaded" color="success" header="$650.00" invert>Total Investment</Widget04>
+                <Widget04 icon="icon-basket-loaded" color="success" header="$0.00" invert>Total Investment</Widget04>
               </Col>
               <Col sm="6" md="4">
-                <Widget04 icon="icon-user-follow" color="success" header="87.35" invert>Reach Per Dollar</Widget04>
+                <Widget04 icon="icon-people" color="success" header="0" invert>Reach Per Dollar</Widget04>
               </Col>
             </Row>
           </Col>

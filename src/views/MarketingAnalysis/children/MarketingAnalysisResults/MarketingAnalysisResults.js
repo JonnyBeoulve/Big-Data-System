@@ -22,6 +22,7 @@ import {
   Tooltip,
 } from 'reactstrap';
 import classnames from 'classnames';
+import placeholderAvatar from '../../../../../public/img/avatars/placeholder-avatar.png';
 
 /*======================================================================
 // Inline styling for this specific table.
@@ -153,7 +154,7 @@ class MarketingAnalysisResults extends Component {
                             <div className="callout callout-info">
                               <small className="text-muted">Keyword</small>
                               <br/>
-                              <strong className="h4">Keyword</strong>
+                              <strong className="h4">{this.props.keyword}</strong>
                             </div>
                           </Col>
                         </Row>
@@ -164,14 +165,14 @@ class MarketingAnalysisResults extends Component {
                             <div className="callout callout-info">
                               <small className="text-muted">Area</small>
                               <br/>
-                              <strong className="h4">Area</strong>
+                              <strong className="h4">{this.props.area}</strong>
                             </div>
                           </Col>
                           <Col sm="6">
                             <div className="callout callout-info">
                               <small className="text-muted">Location</small>
                               <br/>
-                              <strong className="h4">Location</strong>
+                              <strong className="h4">{this.props.location}</strong>
                             </div>
                           </Col>
                         </Row>
@@ -182,14 +183,14 @@ class MarketingAnalysisResults extends Component {
                             <div className="callout callout-info">
                               <small className="text-muted">Driver</small>
                               <br/>
-                              <strong className="h4">Driver</strong>
+                              <strong className="h4">{this.props.driver1}</strong>
                             </div>
                           </Col>
                           <Col sm="6">
                           <div className="callout callout-info">
-                              <small className="text-muted">Primary Sentiment</small>
+                              <small className="text-muted">Business Type</small>
                               <br/>
-                              <strong className="h4">Sentiment</strong>
+                              <strong className="h4">{this.props.b2}</strong>
                             </div>
                           </Col>
                         </Row>
@@ -205,7 +206,7 @@ class MarketingAnalysisResults extends Component {
                         </tr>
                       </thead>
                       <tbody>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo00">
                           <div><i className="fa fa-line-chart"></i> Trend 1</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[0]} target="trendInfo00" toggle={() => { this.toggle(0)} }>
@@ -215,16 +216,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                     <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 1. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 1. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -233,7 +234,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -257,7 +258,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="100"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo01" >
                           <div><i className="fa fa-line-chart"></i> Trend 2</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[1]} target="trendInfo01" toggle={() => { this.toggle(1)} }>
@@ -267,16 +268,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 2. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 2. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -286,7 +287,7 @@ class MarketingAnalysisResults extends Component {
                                 <Card>
 
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -310,7 +311,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="93"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo02">
                           <div><i className="fa fa-line-chart"></i> Trend 3</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[2]} target="trendInfo02" toggle={() => { this.toggle(2)} }>
@@ -320,16 +321,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 3. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td  className="tooltip-social-text">This is a post in trend 3. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -338,7 +339,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -362,7 +363,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="77"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo03">
                           <div><i className="fa fa-line-chart"></i> Trend 4</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[3]} target="trendInfo03" toggle={() => { this.toggle(3)} }>
@@ -372,16 +373,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 4. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 4. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -390,7 +391,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -414,7 +415,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="70"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo04">
                           <div><i className="fa fa-line-chart"></i> Trend 5</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[4]} target="trendInfo04" toggle={() => { this.toggle(4)} }>
@@ -424,16 +425,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 5. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 5. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -442,7 +443,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -466,7 +467,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="63"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo05">
                           <div><i className="fa fa-line-chart"></i> Trend 6</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[5]} target="trendInfo05" toggle={() => { this.toggle(5)} }>
@@ -476,16 +477,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 6. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 6. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -494,7 +495,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -518,7 +519,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="60"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo06">
                           <div><i className="fa fa-line-chart"></i> Trend 7</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[6]} target="trendInfo06" toggle={() => { this.toggle(6)} }>
@@ -528,16 +529,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 7. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 7. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -546,7 +547,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -570,7 +571,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="55"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo07">
                           <div><i className="fa fa-line-chart"></i> Trend 8</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[7]} target="trendInfo07" toggle={() => { this.toggle(7)} }>
@@ -580,16 +581,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 8. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 8. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -598,7 +599,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -622,7 +623,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="52"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo08">
                           <div><i className="fa fa-line-chart"></i> Trend 9</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[8]} target="trendInfo08" toggle={() => { this.toggle(8)} }>
@@ -632,16 +633,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 9. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 9. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -650,7 +651,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
@@ -674,7 +675,7 @@ class MarketingAnalysisResults extends Component {
                           <Progress className="progress-sm" color="success" value="51"/>
                         </td>
                       </tr>
-                      <tr className="results-table-item">
+                      <tr>
                         <td id="trendInfo09">
                           <div><i className="fa fa-line-chart"></i> Trend 10</div>
                           <Tooltip placement="right" isOpen={this.state.tooltipOpen[9]} target="trendInfo09" toggle={() => { this.toggle(9)} }>
@@ -684,16 +685,16 @@ class MarketingAnalysisResults extends Component {
                                   <CardBody>
                                   <Table responsive className="table-outline mb-0 d-none d-sm-table">
                                   <tbody>
-                                      <tr><td><div>Yiorgos Avraamu</div></td>
-                                        <td>This is a post in trend 10. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Avram Tarasios</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Quintin Ed</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Eneas Kwadwo</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
-                                      <tr><td><div>Agapetus Tadeas</div></td>
-                                        <td>This is a post. This is a post. This is a post. This is a post. This is a post. This is a post.</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Yiorgos Avraamu</span></div></td>
+                                        <td className="tooltip-social-text">This is a post in trend 10. This is a post. This is a post. This is a post. This is a post. This is a post.#post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Avram Tarasios</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Quintin Ed</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Eneas Kwadwo</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
+                                      <tr><td><div><img className="tooltip-social-avatar" src={placeholderAvatar} alt="Social media avatar"></img><span className="tooltip-social-name">Agapetus Tadeas</span></div></td>
+                                        <td className="tooltip-social-text">This is a post. This is a post. This is a post. This is a post. This is a post. This is a post. #post #trend</td></tr>
                                     </tbody>
                                     </Table>
                                   </CardBody>
@@ -702,7 +703,7 @@ class MarketingAnalysisResults extends Component {
                               <Col xs="6">
                                 <Card>
                                   <CardBody>
-                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#000'}}}} />
+                                    <Doughnut data={doughnut} options= {{legend: {labels: {fontColor: '#2a2c36'}}}} />
                                   </CardBody>
                                 </Card>
                               </Col>
