@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Badge,
@@ -6,7 +7,6 @@ import {
   DropdownMenu,
   DropdownToggle,
   Dropdown,
-  Progress,
 } from 'reactstrap';
 
 const propTypes = {
@@ -31,25 +31,39 @@ class HeaderDropdown extends Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
+    this.toggleDropdown = this.toggleDropdown.bind(this);
     this.state = {
       dropdownOpen: false,
+      logout: false,
     };
   }
 
-  toggle() {
+  toggleDropdown() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
   }
 
+  logout() {
+    localStorage.removeItem('cobiaUserID');
+    this.setState({
+      logout: true,
+    })
+  }
+
   /*======================================================================
   // This will display the user's avatar and include links to profile
-  // based features.
+  // based features. If a user clicks logout, their localStorage key
+  // will be deleted and they'll be redirected to the login page.
   ======================================================================*/
   dropAccnt() {
+
+    if (this.state.logout) {
+      return <Redirect to='/'/>;
+    }
+
     return (
-      <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+      <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
         <DropdownToggle nav>
           <img src={'img/avatars/user-default.jpg'} className="img-avatar" alt="Default user avatar"/>
         </DropdownToggle>
@@ -57,7 +71,7 @@ class HeaderDropdown extends Component {
           <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
           <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user"></i> Profile</a></DropdownItem>
           <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-usd"></i> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
-          <DropdownItem><a href="/"><i className="fa fa-lock"></i> Logout</a></DropdownItem>
+          <DropdownItem onClick={e => this.logout()}><i className="fa fa-lock"></i> Logout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
@@ -66,7 +80,9 @@ class HeaderDropdown extends Component {
   render() {
     const {notif, accnt, tasks, mssgs, ...attributes} = this.props;
     return (
-      accnt ? this.dropAccnt() : null
+      accnt 
+        ? this.dropAccnt() 
+        : null
     );
   }
 }

@@ -7,7 +7,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="app-footer">
-        <span>Copyright © 2018 - Cobia Systems, Inc.</span>
+        <a href="https://cobiasystems.com/"><span>Copyright © 2018 - Cobia Systems, Inc.</span></a>
       </footer>
     )
   }

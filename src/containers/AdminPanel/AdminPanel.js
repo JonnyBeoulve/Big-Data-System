@@ -22,7 +22,44 @@ import Help from '../../views/Help/';
 // routing for all views.
 ======================================================================*/
 class AdminPanel extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      login: true,
+    };
+  }
+
+  /*======================================================================
+  // Upon arriving at the Admin Panel this function will be run to see if
+  // the user is logged in. If not, it will redirect them to the login
+  // page.
+  ======================================================================*/
+  checkAuthentication() {
+    const token = localStorage.getItem('cobiaUserID');
+    if(!token) {
+      this.setState({
+        login: false,
+      })
+    } else {
+      return;
+    }
+  }
+
+  componentDidMount() {
+    this.checkAuthentication();
+  }
+
+  /*======================================================================
+  // This will render the entire layout of the Admin Panel, in addition
+  // to handling displaying of views within the UI.
+  ======================================================================*/
   render() {
+
+    if (!this.state.login) {
+      return <Redirect to='/'/>;
+    }
+
     return (
       <div className="app">
         <Header />
