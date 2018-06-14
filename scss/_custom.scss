@@ -7,22 +7,16 @@ a, a:hover {
 // Table styling
 tr {
   min-height: 80px;
-  border: 1px solid $lightblue;
 }
 
-.table th, .table td {
-  border-bottom: 1px solid $lightblue;
-  border-top: 1px solid $lightblue;
+.trend-column {
+  width: 300px;
 }
 
 .table .thead-light th {
   min-height: 80px;
   color: white;
   background: $lightblue;
-}
-
-.table thead th {
-  border-bottom: 1px solid $lightblue;
 }
 
 .results-table-item {
@@ -48,19 +42,50 @@ tr {
   background-color: #e4e5e6;
 }
 
-.tooltip-social-avatar {
-  height: 40px;
-  width: 40px;
+.tooltip-avatar-and-name {
+  border-right: 1px solid rgba(87, 87, 87, 0.2);
+}
+
+.tooltip-avatar {
+  height: 50px;
+  width: 50px;
   border-radius: 50px;
 }
 
-.tooltip-social-name {
-  font-size: 0.7em;
+.tooltip-name {
+  font-family: inherit;
+  font-weight: bold;
 }
 
-.tooltip-social-text {
+.tooltip-row-title {
   font-size: 0.9em;
+  text-align: center;
+}
+
+.tooltip-text {
+  font-family: inherit;
+  font-size: 1em;
   text-align: left;
+}
+
+.tooltip-social-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+  border: none !important;
+}
+
+.tooltip-social-logo {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+
+.tooltip-social-logo:hover {
+  opacity: 1;
 }
 
 // Header styling

@@ -40,7 +40,7 @@ class MyProfile extends Component {
             </form>
             <br />
             <h2 className="blue-background"> <i className="fa fa-keyboard-o"></i> Logins</h2>
-            <p>cobia@cobiasystems.com <a href="#/myprofile/editlogin"><i className={ ["fa fa-edit", "icon-hover"].join(' ') }></i></a></p>
+            <p>cobia@cobiasystems.com <a href="#/admin/myprofile/editlogin"><i className={ ["fa fa-edit", "icon-hover"].join(' ') }></i></a></p>
             <a href="#/admin/myprofile/addlogin"><button type="submit" class="btn btn-primary">Add Login</button></a>
           </Col>
           <Col lg="6">

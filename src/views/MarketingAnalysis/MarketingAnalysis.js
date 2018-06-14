@@ -6,6 +6,9 @@ import MarketingAnalysisResults from './children/MarketingAnalysisResults/Market
 import MarketingAnalysisCampaign from './children/MarketingAnalysisCampaign/MarketingAnalysisCampaign';
 import MarketingAnalysisConfirmation from './children/MarketingAnalysisConfirmation/MarketingAnalysisConfirmation';
 
+// Use local data file for data instead of server until server is working
+import jsonData from '../../data/health_435.json';
+
 /*======================================================================
 // This is the dashboard view that users will land on upon logging into
 // Cobia Systems.
@@ -15,7 +18,8 @@ class MarketingAnalysis extends Component {
     /*======================================================================
     // This will bind 'this' to all core functions of marketing analysis
     // so child components can communicate upward. This also houses the
-    // state of the user's input before analysis.
+    // state of the user's input before analysis. Data holds the received
+    // JSON formatted data to be displayed to the user in results.
     ======================================================================*/
     constructor(props) {
       super(props);
@@ -47,13 +51,14 @@ class MarketingAnalysis extends Component {
           analysisFormDriver4: '',
           analysisFormDriver5: '',
           analysisFormB2: 'B2C',
+          data: jsonData,
       };
   }
 
     /*======================================================================
     // This will update the state of keyword as the user inputs text.
     ======================================================================*/
-    handleKeywordChange (e) {
+    handleKeywordChange(e) {
       this.setState({
         analysisFormKeyword: e.target.value,
         })
@@ -63,7 +68,7 @@ class MarketingAnalysis extends Component {
     /*======================================================================
   // This will update the state of location as the user inputs text.
   ======================================================================*/
-  handleAreaChange (e) {
+  handleAreaChange(e) {
       this.setState({
         analysisFormArea: e.target.value,
       })
@@ -73,7 +78,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of area as the user inputs text.
   ======================================================================*/
-  handleLocationChange (e) {
+  handleLocationChange(e) {
       this.setState({
         analysisFormLocation: e.target.value,
       })
@@ -83,7 +88,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleDriver1Change (e) {
+  handleDriver1Change(e) {
       this.setState({
         analysisFormDriver1: e.target.value,
       })
@@ -93,7 +98,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleDriver2Change (e) {
+  handleDriver2Change(e) {
       this.setState({
         analysisFormDriver2: e.target.value,
       })
@@ -103,7 +108,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleDriver3Change (e) {
+  handleDriver3Change(e) {
       this.setState({
         analysisFormDriver3: e.target.value,
       })
@@ -113,7 +118,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleDriver4Change (e) {
+  handleDriver4Change(e) {
       this.setState({
         analysisFormDriver4: e.target.value,
       })
@@ -123,7 +128,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleDriver5Change (e) {
+  handleDriver5Change(e) {
       this.setState({
         analysisFormDriver5: e.target.value,
       })
@@ -133,7 +138,7 @@ class MarketingAnalysis extends Component {
   /*======================================================================
   // This will update the state of driver1 as the user inputs text.
   ======================================================================*/
-  handleB2Change (e) {
+  handleB2Change(e) {
       this.setState({
         analysisFormB2: e.target.value,
       })
@@ -143,21 +148,22 @@ class MarketingAnalysis extends Component {
 
   /*======================================================================
   // This will handle the transition from the marketing analysis form
-  // to getting data while displaying a loader.
+  // to getting data while displaying a loader. Currently, it uses a
+  // local JSON file that is used as a template for when real data is
+  // received in the future.
   ======================================================================*/
-  handleMarketingAnalysisFormSubmit (e) {
+  handleMarketingAnalysisFormSubmit() {
     this.setState({
-        showForm: false,
-        showLoader: true,
-      })
-       setTimeout(() =>{ 
-        this.setState({
-            breadcrumbCurrentStep: 'Marketing Analysis Results',
-            showLoader: false,
-            showResults: true,
-          }) 
-        }, 500); 
-    console.log(this.state.analysisFormDriver5);
+      showForm: false,
+      showLoader: true,
+    })
+    setTimeout(() =>{ 
+      this.setState({
+        breadcrumbCurrentStep: 'Marketing Analysis Results',
+        showLoader: false,
+        showResults: true,
+      }) 
+    }, 500); 
     return;
   }
 
@@ -165,7 +171,7 @@ class MarketingAnalysis extends Component {
   // This will handle the transition from viewing results to showing
   // the create campaign form.
   ======================================================================*/
-  handleMarketingResultsSelectionSubmit (e) {
+  handleMarketingResultsSelectionSubmit() {
     this.setState({
         showResults: false,
         showLoader: true,
@@ -184,7 +190,7 @@ class MarketingAnalysis extends Component {
   // This will handle creation of a new campaign by the user before
   // displaying a confirmation message.
   ======================================================================*/
-  handleMarketingCampaignSubmit (e) {
+  handleMarketingCampaignSubmit() {
     this.setState({
         showCampaign: false,
         showLoader: true,
@@ -223,7 +229,7 @@ class MarketingAnalysis extends Component {
           ? <Loader />
           : <div></div> }
         { (this.state.showResults)
-          ? <MarketingAnalysisResults keyword={ this.state.analysisFormKeyword } area={ this.state.analysisFormArea } location={ this.state.analysisFormLocation } 
+          ? <MarketingAnalysisResults resultsData={this.state.data} keyword={ this.state.analysisFormKeyword } area={ this.state.analysisFormArea } location={ this.state.analysisFormLocation } 
               driver1={ this.state.analysisFormDriver1 } driver2={ this.state.analysisFormDriver2 } driver3={ this.state.analysisFormDriver3 }
               driver4={ this.state.analysisFormDriver4 } driver5={ this.state.analysisFormDriver5 } b2={ this.state.analysisFormB2 }
               handleSelectionSubmit={ this.handleMarketingResultsSelectionSubmit }
