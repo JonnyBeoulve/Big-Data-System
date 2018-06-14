@@ -5,28 +5,27 @@ import {
 } from 'reactstrap';
 import Widget04 from './Widgets/Widget04';
 
-/*======================================================================
+/*= =====================================================================
 // This is the My Campaign page where users can view a history of
 // campaigns and their performance.
-======================================================================*/
+====================================================================== */
 class MyCampaigns extends Component {
-
   render() {
     return (
       <div className="animated fadeIn">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#/admin">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">My Campaigns</li>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><a href="#/admin">Dashboard</a></li>
+            <li className="breadcrumb-item active" aria-current="page">My Campaigns</li>
           </ol>
         </nav>
         <Row className="show-grid">
           <Col lg="6">
-            <h2 className="blue-background"> <i className="fa fa-bullseye"></i> Campaign List</h2>
+            <h2 className="blue-background"> <i className="fa fa-bullseye" /> Campaign List</h2>
             <p>Coming Soon...</p>
           </Col>
           <Col lg="6">
-            <h2 className="blue-background"> <i className="fa fa-eye"></i> Campaign Overview</h2>
+            <h2 className="blue-background"> <i className="fa fa-eye" /> Campaign Overview</h2>
             <br />
             <Row className="show-grid">
               <Col sm="6" md="4">
@@ -47,7 +46,7 @@ class MyCampaigns extends Component {
           </Col>
         </Row>
       </div>
-    )
+    );
   }
 }
 

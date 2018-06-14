@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /*======================================================================
 // This is currently not used by the program.

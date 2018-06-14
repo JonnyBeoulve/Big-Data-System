@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /*======================================================================
 // This minimizes the sidebar upon clicking a button.

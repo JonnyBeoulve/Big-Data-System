@@ -22,12 +22,11 @@ const defaultProps = {
   mssgs: false,
 };
 
-/*======================================================================
+/*= =====================================================================
 // This handles the dropdown menus found on the top right of the header
 // where users can access account links and notifications.
-======================================================================*/
+====================================================================== */
 class HeaderDropdown extends Component {
-
   constructor(props) {
     super(props);
 
@@ -40,7 +39,7 @@ class HeaderDropdown extends Component {
 
   toggleDropdown() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpen: !this.state.dropdownOpen,
     });
   }
 
@@ -48,40 +47,41 @@ class HeaderDropdown extends Component {
     localStorage.removeItem('cobiaUserID');
     this.setState({
       logout: true,
-    })
+    });
   }
 
-  /*======================================================================
+  /*= =====================================================================
   // This will display the user's avatar and include links to profile
   // based features. If a user clicks logout, their localStorage key
   // will be deleted and they'll be redirected to the login page.
-  ======================================================================*/
+  ====================================================================== */
   dropAccnt() {
-
     if (this.state.logout) {
-      return <Redirect to='/'/>;
+      return <Redirect to="/" />;
     }
 
     return (
       <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
         <DropdownToggle nav>
-          <img src={'img/avatars/user-default.jpg'} className="img-avatar" alt="Default user avatar"/>
+          <img src="img/avatars/user-default.jpg" className="img-avatar" alt="Default user avatar" />
         </DropdownToggle>
         <DropdownMenu right>
           <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user"></i> Profile</a></DropdownItem>
-          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-usd"></i> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
-          <DropdownItem onClick={e => this.logout()}><i className="fa fa-lock"></i> Logout</DropdownItem>
+          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user" /> Profile</a></DropdownItem>
+          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-usd" /> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
+          <DropdownItem onClick={e => this.logout()}><i className="fa fa-lock" /> Logout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
   }
 
   render() {
-    const {notif, accnt, tasks, mssgs, ...attributes} = this.props;
+    const {
+      notif, accnt, tasks, mssgs, ...attributes
+    } = this.props;
     return (
-      accnt 
-        ? this.dropAccnt() 
+      accnt
+        ? this.dropAccnt()
         : null
     );
   }
