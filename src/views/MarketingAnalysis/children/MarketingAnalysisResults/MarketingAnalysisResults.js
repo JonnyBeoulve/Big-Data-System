@@ -47,7 +47,7 @@ class MarketingAnalysisResults extends Component {
   ====================================================================== */
   render() {
     // Temporary array solution for driver names input by user, used to determine and display tabs
-    const driver = ['driver1', 'driver2', 'driver3', 'driver4'];
+    const driver = ['Driver1', 'Driver2', 'Driver3', 'Driver4', 'Driver5'];
 
     return (
       <div className="animated fadeIn">
@@ -61,6 +61,8 @@ class MarketingAnalysisResults extends Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <DriverResults
+            tabNum={'0'}
+            trendNum={['0','1','2','3','4','5','6','7','8','9']}
             driverData={this.props.resultsData}
             keyword={this.props.keyword}
             area={this.props.area}
@@ -70,24 +72,52 @@ class MarketingAnalysisResults extends Component {
           />
         </TabContent>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
-            <p>Working!</p>
-          </TabPane>
+          <DriverResults
+            tabNum={'1'}
+            trendNum={['10','11','12','13','14','15','16','17','18','19']}
+            driverData={this.props.resultsData}
+            keyword={this.props.keyword}
+            area={this.props.area}
+            location={this.props.location}
+            driver={this.props.driver1}
+            b2={this.props.b2}
+          />
         </TabContent>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="2">
-            <p>Working!</p>
-          </TabPane>
+          <DriverResults
+            tabNum={'2'}
+            trendNum={['20','21','22','23','24','25','26','27','28','29']}
+            driverData={this.props.resultsData}
+            keyword={this.props.keyword}
+            area={this.props.area}
+            location={this.props.location}
+            driver={this.props.driver1}
+            b2={this.props.b2}
+          />
         </TabContent>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="3">
-            <p>Working!</p>
-          </TabPane>
+          <DriverResults
+            tabNum={'3'}
+            trendNum={['30','31','32','33','34','35','36','37','38','39']}
+            driverData={this.props.resultsData}
+            keyword={this.props.keyword}
+            area={this.props.area}
+            location={this.props.location}
+            driver={this.props.driver1}
+            b2={this.props.b2}
+          />
         </TabContent>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="4">
-            <p>Working!</p>
-          </TabPane>
+          <DriverResults
+            tabNum={'4'}
+            trendNum={['40','41','42','43','44','45','46','47','48','49']}
+            driverData={this.props.resultsData}
+            keyword={this.props.keyword}
+            area={this.props.area}
+            location={this.props.location}
+            driver={this.props.driver1}
+            b2={this.props.b2}
+          />
         </TabContent>
         <br />
         <button type="submit" className="btn btn-primary" onClick={this.props.handleSelectionSubmit}>Create Campaign</button>
