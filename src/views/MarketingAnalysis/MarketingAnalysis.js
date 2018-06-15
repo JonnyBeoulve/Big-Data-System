@@ -142,7 +142,7 @@ class MarketingAnalysis extends Component {
   // to a loading view while a query is submitted to the server before
   // displaying results.
   ====================================================================== */
-  handleMarketingAnalysisFormSubmit() {
+  handleMarketingAnalysisFormSubmit(e) {
     if (this.state.analysisFormKeyword.length < 4 || this.state.analysisFormDriver1.length < 4) {
       this.setState({
         formKeywordOrDriverError: true,

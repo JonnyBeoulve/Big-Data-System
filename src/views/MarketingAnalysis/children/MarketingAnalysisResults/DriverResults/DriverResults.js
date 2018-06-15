@@ -149,24 +149,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[0].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[0].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[0].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[0].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[0].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[0].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[0].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[0].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[0].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[0].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[0].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[0].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[0].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[0].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[0].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[0].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[0].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[0].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[0].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[0].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }     
                                           </div>
                                         </td>
                                       </tr>
@@ -250,24 +250,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[0].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[0].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[1].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[1].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[1].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[1].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[1].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[1].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[1].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[1].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[1].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[1].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[1].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[1].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[1].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[1].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[1].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[1].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[1].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[1].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -351,24 +351,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[2].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[2].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[2].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[2].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[2].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[2].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[2].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[2].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[2].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[2].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[2].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[2].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[2].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[2].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[2].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[2].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[2].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[2].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[2].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[2].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -452,24 +452,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[3].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[3].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[3].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[3].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[3].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[3].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[3].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[3].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[3].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[3].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[3].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[3].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[3].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[3].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[3].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[3].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[3].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[3].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[3].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[3].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -553,24 +553,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[4].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[4].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[4].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[4].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[4].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[4].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[4].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[4].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[4].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[4].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[4].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[4].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[4].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[4].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[4].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[4].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[4].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[4].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[4].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[4].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -654,24 +654,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[5].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[5].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[5].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[5].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[5].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[5].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[5].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[5].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[5].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[5].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[5].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[5].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[5].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[5].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[5].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[5].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[5].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[5].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[5].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[5].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -755,24 +755,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[6].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[6].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[6].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[6].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[6].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[6].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[6].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[6].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[6].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[6].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[6].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[6].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[6].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[6].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[6].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[6].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[6].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[6].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[6].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[6].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -856,24 +856,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[7].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[7].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[7].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[7].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[7].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[7].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[7].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[7].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[7].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[7].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[7].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[7].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[7].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[7].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[7].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[7].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[7].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[7].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[7].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[7].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -957,24 +957,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[8].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[8].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[8].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[8].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[8].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[8].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[8].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[8].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[8].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[8].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[8].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[8].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[8].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[8].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[8].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[8].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[8].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[8].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[8].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[8].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
@@ -1058,24 +1058,24 @@ class DriverResults extends Component {
                                           <p className="tooltip-text">{ this.props.driverData[9].Description }</p>
                                           <p className="tooltip-text">{ this.props.driverData[9].User.Followers.NetworkCount } Followers</p>
                                           <div className="tooltip-social-logos">
-                                            <a href={this.props.driverData[9].User.Website.Facebook} target="_blank">
-                                              <img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" />
-                                            </a>
-                                            <a href={this.props.driverData[9].User.Website.Instagram} target="_blank">
-                                              <img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" />
-                                            </a>
-                                            <a href={this.props.driverData[9].User.Website.LinkedIn} target="_blank">
-                                              <img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" />
-                                            </a>
-                                            <a href={this.props.driverData[9].User.Website.Pinterest} target="_blank">
-                                              <img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" />
-                                            </a>
-                                            <a href={this.props.driverData[9].User.Website.Twitter} target="_blank">
-                                              <img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" />
-                                            </a>
-                                            <a href={this.props.driverData[9].User.Website.Youtube} target="_blank">
-                                              <img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" />
-                                            </a>
+                                            { (this.props.driverData[9].User.Website.Twitter)
+                                              ? <a href={this.props.driverData[9].User.Website.Twitter} target="_blank"><img className="tooltip-social-logo" src={TwitterLogo} alt="Twitter logo" /></a>
+                                              : <div></div> }    
+                                            { (this.props.driverData[9].User.Website.Facebook)
+                                              ? <a href={this.props.driverData[9].User.Website.Facebook} target="_blank"><img className="tooltip-social-logo" src={FacebookLogo} alt="Facebook logo" /></a>
+                                              : <div></div> }                                       
+                                            { (this.props.driverData[9].User.Website.LinkedIn)
+                                              ? <a href={this.props.driverData[9].User.Website.LinkedIn} target="_blank"><img className="tooltip-social-logo" src={LinkedInLogo} alt="LinkedIn logo" /></a>
+                                              : <div></div> }                                              
+                                            { (this.props.driverData[9].User.Website.Instagram)
+                                              ? <a href={this.props.driverData[9].User.Website.Instagram} target="_blank"><img className="tooltip-social-logo" src={InstagramLogo} alt="Instagram logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[9].User.Website.Pinterest)
+                                              ? <a href={this.props.driverData[9].User.Website.Pinterest} target="_blank"><img className="tooltip-social-logo" src={PinterestLogo} alt="Pinterest logo" /></a>
+                                              : <div></div> }     
+                                            { (this.props.driverData[9].User.Website.YouTube)
+                                              ? <a href={this.props.driverData[9].User.Website.YouTube} target="_blank"><img className="tooltip-social-logo" src={YouTubeLogo} alt="YouTube logo" /></a>
+                                              : <div></div> }   
                                           </div>
                                         </td>
                                       </tr>
