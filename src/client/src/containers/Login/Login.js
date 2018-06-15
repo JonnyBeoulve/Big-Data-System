@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+
+import Signup from './children/Signup/Signup';
 import CobiaLogo from '../../../public/img/logo.png';
 
 /*= =====================================================================
@@ -12,7 +14,9 @@ class Login extends Component {
   // This will house state of the user's email and password as they
   // are input.
   ====================================================================== */
-  constructor() {
+  constructor(props) {
+    super(props);
+    this.handleCloseSignupModal = this.handleCloseSignupModal.bind(this);
     super();
     this.state = {
       showSignUp: false,
@@ -71,7 +75,7 @@ class Login extends Component {
   // This will close the sign up modal upon clicking the X on the top
   // right;
   ====================================================================== */
-  handleCloseSignUpModal() {
+  handleCloseSignupModal() {
     this.setState({
       showSignUp: false,
     });
@@ -97,17 +101,7 @@ class Login extends Component {
           <button className="login-button" onClick={this.handleLoginSubmit.bind(this)}>Submit</button>
           <p className="login-signup-link" onClick={this.handleSignUp.bind(this)}>Sign Up</p>
           { (this.state.showSignUp)
-            ? <div className={['login-signup-modal', 'animated fadeIn'].join(' ')}>
-              <div className="login-signup-close" onClick={this.handleCloseSignUpModal.bind(this)}>X</div>
-              <div className="login-signup-form"><h2 className="login-header-text">SIGN UP</h2>
-                <input className="login-input" type="text" name="sign-up-email" placeholder="Email" />
-                <input className="login-input" type="text" name="loginSignupFname" placeholder="First Name" />
-                <input className="login-input" type="text" name="loginSignupLname" placeholder="Last Name" />
-                <input className="login-input" type="password" name="loginSignupPassword" placeholder="Password" />
-                <input className="login-input" type="text" name="loginSignupPasswordConfirm" placeholder="Confirm Password" />
-                <button className="login-button" onClick={this.handleCloseSignUpModal.bind(this)}>Register</button>
-              </div>
-            </div>
+            ? <Signup closeSignupModal={this.handleCloseSignupModal} />
             : <div /> }
         </div>
       </div>

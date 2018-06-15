@@ -1,7 +1,7 @@
 {
   "name": "cobia-systems",
-  "version": "0.0.5",
-  "description": "The new and improved Cobia Systems, a web app that uses big data to analyze global and localized trends in real-time.",
+  "version": "0.1.0",
+  "description": "The front-end for the new Cobia Systems.",
   "author": "Jonathan Leack",
   "homepage": "https://www.cobiasystems.com",
   "copyright": "Copyright 2018 Cobia Systems",

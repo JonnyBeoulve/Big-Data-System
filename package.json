@@ -1,9 +1,11 @@
 {
-  "name": "cobia-systems-full-stack",
+  "name": "cobia-systems",
   "author": "Jonathan Leack",
-  "license": "ISC",
   "version": "0.0.1",
-  "description": "The full stack solution for the new Cobia Systems.",
+  "copyright": "Copyright 2018 Cobia Systems",
+  "license": "https://www.cobiasystems.com",
+  "private": true,
+  "description": "The new and improved Cobia Systems, a web app that uses big data to analyze global and localized trends in real-time.",
   "engines": {
     "node": "10.4.1",
     "npm": "6.1.0"
