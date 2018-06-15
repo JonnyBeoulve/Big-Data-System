@@ -1,19 +1,5 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-node_modules
-package-lock.json
-
-# testing
-coverage
-
-# production
-build
-
-# misc
-.DS_Store
-Thumbs.db
-.env
-.idea
+/node_modules
 npm-debug.log
-compilation-stats.json
+.DS_Store
+/src/client/node_modules
+/*.env
