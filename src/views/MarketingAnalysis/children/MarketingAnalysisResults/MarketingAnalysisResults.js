@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Nav,
   TabContent,
-  TabPane,
 } from 'reactstrap';
 import DriverTab from './DriverTab/DriverTab';
 import DriverResults from './DriverResults/DriverResults';
@@ -22,6 +21,7 @@ class MarketingAnalysisResults extends Component {
     this.toggleTab = this.toggleTab.bind(this);
     this.state = {
       activeTab: '0',
+      driverArray: [],
     };
   }
 
@@ -47,8 +47,8 @@ class MarketingAnalysisResults extends Component {
   ====================================================================== */
   render() {
     // Temporary array solution for driver names input by user, used to determine and display tabs
-    const driver = ['Driver1', 'Driver2', 'Driver3', 'Driver4', 'Driver5'];
-
+    const driver = [`${this.props.driver1}`, `${this.props.driver2}`, `${this.props.driver3}`, `${this.props.driver4}`, `${this.props.driver5}`];
+    
     return (
       <div className="animated fadeIn">
         <Nav tabs>
@@ -79,7 +79,7 @@ class MarketingAnalysisResults extends Component {
             keyword={this.props.keyword}
             area={this.props.area}
             location={this.props.location}
-            driver={this.props.driver1}
+            driver={this.props.driver2}
             b2={this.props.b2}
           />
         </TabContent>
@@ -91,7 +91,7 @@ class MarketingAnalysisResults extends Component {
             keyword={this.props.keyword}
             area={this.props.area}
             location={this.props.location}
-            driver={this.props.driver1}
+            driver={this.props.driver3}
             b2={this.props.b2}
           />
         </TabContent>
@@ -103,7 +103,7 @@ class MarketingAnalysisResults extends Component {
             keyword={this.props.keyword}
             area={this.props.area}
             location={this.props.location}
-            driver={this.props.driver1}
+            driver={this.props.driver4}
             b2={this.props.b2}
           />
         </TabContent>
@@ -115,7 +115,7 @@ class MarketingAnalysisResults extends Component {
             keyword={this.props.keyword}
             area={this.props.area}
             location={this.props.location}
-            driver={this.props.driver1}
+            driver={this.props.driver5}
             b2={this.props.b2}
           />
         </TabContent>

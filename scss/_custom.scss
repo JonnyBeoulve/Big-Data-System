@@ -4,6 +4,15 @@ a, a:hover {
   color: inherit;
 }
 
+// Form styling
+.form-error-div {
+  background-color: rgb(207, 0, 0);
+  color: white;
+  padding: 2px 5px 2px 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 // Table styling
 tr {
   min-height: 80px;
@@ -11,6 +20,10 @@ tr {
 
 .trend-column {
   width: 300px;
+}
+
+.relevance-conversation-column {
+  width: 40%;
 }
 
 .table .thead-light th {

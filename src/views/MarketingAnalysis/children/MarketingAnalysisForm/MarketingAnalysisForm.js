@@ -14,6 +14,12 @@ class MarketingAnalysisForm extends Component {
       <div className="animated fadeIn">
         <Row className="show-grid">
           <Col lg="6">
+            { (this.props.keywordOrDriverError)
+              ? <div className="form-error-div">Keyword and Driver 1 are required.</div>
+              : <div></div> }
+            { (this.props.locationError)
+              ? <div className="form-error-div">A location is required if you selected City or State.</div>
+              : <div></div> }
             <form>
               <div className="form-group">
                 <label>What keyword would you like to analyze?</label>

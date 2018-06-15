@@ -46,7 +46,6 @@ class DriverResults extends Component {
     ====================================================================== */
   toggleTooltip(i) {
     const newArray = this.state.tooltipOpen.map((element, index) => (index === i ? !element : false));
-    console.log(newArray);
     this.setState({
       tooltipOpen: newArray,
     });
@@ -124,8 +123,8 @@ class DriverResults extends Component {
                   <thead className="thead-light">
                     <tr>
                       <th className="trend-column">Trend</th>
-                      <th>Relevance</th>
-                      <th>Conversation</th>
+                      <th className="relevance-conversation-column">Relevance</th>
+                      <th className="relevance-conversation-column">Conversation</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -213,7 +212,7 @@ class DriverResults extends Component {
                           </Row>
                         </Tooltip>
                       </td>
-                      <td>
+                      <td className="relevance-conversation-column">
                         <div className="clearfix">
                           <div className="float-left">
                             <strong>{this.props.driverData[0].Description_enriched.keywords[0].relevance * 100}%</strong>
@@ -221,7 +220,7 @@ class DriverResults extends Component {
                         </div>
                         <Progress className="progress-sm" color="success" value={this.props.driverData[0].Description_enriched.keywords[0].relevance * 100} />
                       </td>
-                      <td>
+                      <td className="relevance-conversation-column">
                         <div className="clearfix">
                           <div className="float-left">
                             <strong>1,273,182 Posts</strong>

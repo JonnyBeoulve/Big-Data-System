@@ -2,24 +2,10 @@ import React, { Component } from 'react';
 import {
   Row,
   Col,
-  Button,
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Card,
-  CardHeader,
-  CardFooter,
-  CardBody,
-  Collapse,
-  Form,
   FormGroup,
-  FormText,
   Label,
   Input,
   InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
 } from 'reactstrap';
 
 /*= =====================================================================
@@ -40,16 +26,16 @@ class MarketingAnalysisForm extends Component {
               <div className="form-group">
                 <label htmlFor="inputKeyword">Pick a trending keyword.</label>
                 <select className="form-control" id="inputCampaignTrendField">
-                  <option>Trend 1</option>
-                  <option>Trend 2</option>
-                  <option>Trend 3</option>
-                  <option>Trend 4</option>
-                  <option>Trend 5</option>
-                  <option>Trend 6</option>
-                  <option>Trend 7</option>
-                  <option>Trend 8</option>
-                  <option>Trend 9</option>
-                  <option>Trend 10</option>
+                  <option>{this.props.resultsData[0].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[1].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[2].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[3].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[4].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[5].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[6].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[7].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[8].Description_enriched.keywords[0].text}</option>
+                  <option>{this.props.resultsData[9].Description_enriched.keywords[0].text}</option>
                 </select>
               </div>
               <FormGroup>

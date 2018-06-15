@@ -51,6 +51,8 @@ class MarketingAnalysis extends Component {
       analysisFormDriver5: '',
       analysisFormB2: 'B2C',
       data: jsonData,
+      formKeywordOrDriverError: false,
+      formLocationError: false,
     };
   }
 
@@ -135,14 +137,36 @@ class MarketingAnalysis extends Component {
     });
   }
 
-
   /*= =====================================================================
-  // This will handle the transition from the marketing analysis form
-  // to getting data while displaying a loader. Currently, it uses a
-  // local JSON file that is used as a template for when real data is
-  // received in the future.
+  // This will hnadle form authentication in addition to transitioning
+  // to a loading view while a query is submitted to the server before
+  // displaying results.
   ====================================================================== */
   handleMarketingAnalysisFormSubmit() {
+    if (this.state.analysisFormKeyword.length < 4 || this.state.analysisFormDriver1.length < 4) {
+      this.setState({
+        formKeywordOrDriverError: true,
+      });
+      window.scrollTo(0, 0);
+      return;
+    }
+    this.setState({
+      formKeywordOrDriverError: false,
+    });
+
+    if (this.state.analysisFormArea === 'City' || this.state.analysisFormArea === 'State') {
+      if (this.state.analysisFormLocation.length < 2) {
+        this.setState({
+          formLocationError: true,
+        });
+        window.scrollTo(0, 0);
+        return;
+      }
+    } else {
+      this.setState({
+        formLocationError: false,
+      });
+    }
     this.setState({
       showForm: false,
       showLoader: true,
@@ -207,6 +231,8 @@ class MarketingAnalysis extends Component {
         </nav>
         { (this.state.showForm)
           ? <MarketingAnalysisForm
+            keywordOrDriverError={this.state.formKeywordOrDriverError}
+            locationError={this.state.formLocationError}
             keywordChange={this.handleKeywordChange}
             locationChange={this.handleLocationChange}
             areaChange={this.handleAreaChange}
@@ -238,7 +264,10 @@ class MarketingAnalysis extends Component {
           />
           : <div /> }
         { (this.state.showCampaign)
-          ? <MarketingAnalysisCampaign handleCampaignSubmit={this.handleMarketingCampaignSubmit} />
+          ? <MarketingAnalysisCampaign
+            resultsData={this.state.data}
+            handleCampaignSubmit={this.handleMarketingCampaignSubmit}
+          />
           : <div /> }
         { (this.state.showConfirmation)
           ? <MarketingAnalysisConfirmation />
