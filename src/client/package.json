@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "aphrodite": "^2.2.1",
+    "axios": "^0.18.0",
     "bootstrap": "4.0.0",
     "chart.js": "2.7.1",
     "codemirror": "5.33.0",

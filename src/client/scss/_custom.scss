@@ -6,11 +6,35 @@ a, a:hover {
 
 // Form styling
 .form-error-div {
+  width: 100%;
+  display: block;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
   background-color: rgb(207, 0, 0);
   color: white;
-  padding: 2px 5px 2px 5px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  text-align: center;
+}
+
+.form-success-div {
+  width: 300px;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: $darkgreen;
+  color: white;
+  text-align: center;
+}
+
+.login-error-div {
+  width: 300px;
+  display: block;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: rgb(207, 0, 0);
+  color: white;
+  text-align: center;
 }
 
 // Table styling
@@ -159,7 +183,7 @@ tr {
   margin: 10px auto 10px;
   width: 300px;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 2px;
   font-size: 0.8em;
   text-transform: uppercase;
   background-color: #5DC0E0;
@@ -181,7 +205,7 @@ tr {
   margin: 10px 0 10px 0;
   width: 300px;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 2px;
   border: 1px solid #dbe2e8;
   font-family: inherit;
 }
@@ -217,7 +241,7 @@ tr {
   margin: 0px 0 10px 0;
   width: 300px;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 2px;
   border: 1px solid transparent;
   font-family: inherit;
 

@@ -1,9 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
-const {User} = require('./../models/user');
+const { Company } = require('./../models/company');
 
 router.use(bodyParser.json());
+
+/*============================================================================
+// This will get all companies in the Mongo database. This is only for test 
+// purposes.
+============================================================================*/
+router.get('/', function(req, res, next) {
+	Company.find( {}, '', function(err, companies) {
+		if (err) {
+			return next(err);
+		}
+		res.send(companies);
+	});
+})
 
 /*============================================================================
 // When the user first arrives at the website a check will be made to see
@@ -19,16 +32,17 @@ router.get('/checksession', function(req, res, next) {
 })
 
 /*============================================================================
-// Upon submitting a registration request, this will post the user's email 
+// Upon submitting a registration request, this will post the company's email 
 // address and password to the Mongo database.
 ============================================================================*/
 router.post('/register', function(req, res, next) {
-	var user = {
+	var company = {
 		emailAddress: req.body.emailAddress,
+		companyName: req.body.companyName,
 		password: req.body.password,
 	};
 
-	User.create(user, (err, user) => {
+	Company.create(company, (err, company) => {
 		if (err) {
 			res.status(400);
 			return next(err);
@@ -40,18 +54,18 @@ router.post('/register', function(req, res, next) {
 })
 
 /*============================================================================
-// Upon entering signin information, a user's credentials will be verified
+// Upon entering login information, a user's credentials will be verified
 // before the client state is set to logged in.
 ============================================================================*/
-router.post('/signin', function(req, res, next) {
+router.post('/login', function(req, res, next) {
 	if (req.body.emailAddress && req.body.password) {
-	  User.authenticate(req.body.emailAddress, req.body.password, function (error, user) {
-			if (error || !user) {
+	  Company.authenticate(req.body.emailAddress, req.body.password, function (error, company) {
+			if (error || !company) {
 		  	var err = new Error('Wrong email or password.');
 		  	err.status = 401;
 		  	return next(err);
 		} else {
-			req.session.userId = user._id;
+			req.session.companyId = company._id;
 			res.location('/').status(201).json();
 		}
 	  });

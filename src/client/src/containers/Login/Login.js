@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import Signup from './children/Signup/Signup';
 import CobiaLogo from '../../../public/img/logo.png';
@@ -17,10 +18,11 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.handleCloseSignupModal = this.handleCloseSignupModal.bind(this);
-    super();
     this.state = {
+      showLoginFailed: false,
+      showLoginFormError: false,
       showSignUp: false,
-      login: false,
+      loggedIn: false,
       loginEmail: '',
       loginPassword: '',
     };
@@ -37,7 +39,7 @@ class Login extends Component {
       return false;
     }
     this.setState({
-      login: true,
+      loggedIn: true,
     });
   }
 
@@ -46,19 +48,39 @@ class Login extends Component {
   }
 
   /*= =====================================================================
-  // This will handle login submission and authentication. Currently,
-  // it saves a localstorage item to simulate login for the sake of early
-  // front-end production.
+  // This will handle login submission and authentication. First it will
+  // ensure that an email and password have been entered before attempting
+  // a login via the server. If successful, a token in localStorage will
+  // be created.
   ====================================================================== */
   handleLoginSubmit() {
-    if ((this.state.loginEmail === '') && (this.state.loginPassword === '')) {
+    if (this.state.loginEmail.length < 1 || this.state.loginPassword.length < 1) {
+      this.setState({
+        showLoginFormError: true,
+      });
+      return;
+    } 
+    axios ({
+      method: 'post',
+      url: 'http://localhost:5000/account/login',
+      data: { 
+        emailAddress: this.state.loginEmail,
+        password: this.state.loginPassword,
+      }
+    })
+    .then(response => {
       localStorage.setItem('cobiaUserID', 'temp123');
       this.setState({
-        login: true,
+        loggedIn: true,
       });
-    } else {
-
-    }
+      return;
+    })
+    .catch(error => {
+      console.log('Error fetching and parsing data', error);
+    })
+    this.setState({
+      showLoginFailed: true,
+    });
   }
 
   /*= =====================================================================
@@ -87,7 +109,7 @@ class Login extends Component {
   // redirect to the dashboard.
   ====================================================================== */
   render() {
-    if (this.state.login) {
+    if (this.state.loggedIn) {
       return <Redirect to="/admin" />;
     }
 
@@ -95,6 +117,12 @@ class Login extends Component {
       <div className={['login', 'animated fadeIn'].join(' ')}>
         <img src={CobiaLogo} className="login-cobia-logo" alt="Cobia Systems Logo" />
         <h2 className="login-header-text">LOG IN</h2>
+        { (this.state.showLoginFormError)
+            ? <div className="login-error-div">Email and password are required.</div>
+            : <div /> }
+        { (this.state.showLoginFailed)
+            ? <div className="login-error-div">Login failed.</div>
+            : <div /> }
         <div className="login-form">
           <input className="login-email-input" type="email" name="user-email" placeholder="Email" onChange={e => this.setState({ loginEmail: e.target.value })} />
           <input className="login-password-input" type="password" name="user-password" placeholder="Password" onChange={e => this.setState({ loginPassword: e.target.value })} />
