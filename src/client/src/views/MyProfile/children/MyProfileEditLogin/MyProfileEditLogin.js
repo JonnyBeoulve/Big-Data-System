@@ -23,21 +23,19 @@ class MyProfileEditLogin extends Component {
         <Row className="show-grid">
           <Col lg="6">
             <h2 className="blue-background"> <i className="fa fa-edit" /> Edit Login</h2>
-            <form>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">Current Password</label>
-                <input type="password" className="form-control" id="inputEditLoginCurrentPassword" aria-describedby="emailHelp" placeholder="Current Password" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">New Password</label>
-                <input type="password" className="form-control" id="inputEditLoginNewPassword" aria-describedby="emailHelp" placeholder="New Password" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">Confirm Password</label>
-                <input type="password" className="form-control" id="inputEditLoginConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password" />
-              </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">Current Password</label>
+              <input type="password" className="form-control" id="inputEditLoginCurrentPassword" aria-describedby="emailHelp" placeholder="Current Password" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">New Password</label>
+              <input type="password" className="form-control" id="inputEditLoginNewPassword" aria-describedby="emailHelp" placeholder="New Password" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">Confirm Password</label>
+              <input type="password" className="form-control" id="inputEditLoginConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password" />
+            </div>
+            <button className="btn btn-primary">Submit</button>
           </Col>
           <Col lg="6" />
         </Row>

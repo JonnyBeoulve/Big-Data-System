@@ -40,6 +40,9 @@ router.post('/register', function(req, res, next) {
 		emailAddress: req.body.emailAddress,
 		companyName: req.body.companyName,
 		password: req.body.password,
+		campaigns: [{ 
+			campaignName: req.body.campaignName 
+		}]
 	};
 
 	Company.create(company, (err, company) => {

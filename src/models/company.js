@@ -28,7 +28,13 @@ var CompanySchema = new mongoose.Schema ({
 		required: true,
 		minlength: 5,
 		maxlength: 15
-	}
+	},
+	campaigns: [{
+		campaignName: {
+			type: String,
+			unique: true
+		}
+	}]
 })
 
 /*============================================================================

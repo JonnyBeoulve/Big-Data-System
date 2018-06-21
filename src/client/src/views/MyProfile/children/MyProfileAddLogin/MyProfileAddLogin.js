@@ -22,23 +22,21 @@ class MyProfileAddLogin extends Component {
         <Row className="show-grid">
           <Col lg="6">
             <h2 className="blue-background"> <i className="fa fa-edit" /> Add Login</h2>
-            <form>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">Email</label>
-                <input type="email" className="form-control" id="inputAddLoginEmail" aria-describedby="emailHelp" placeholder="Email" />
-                <small id="emailHelp" className="form-text text-muted">Used as the login name</small>
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">Password</label>
-                <input type="password" className="form-control" id="inputAddLoginNewPassword" aria-describedby="emailHelp" placeholder="New Password" />
-              </div>
-              <div className="form-group">
-                <label htmlFor="inputKeyword">Confirm Password</label>
-                <input type="password" className="form-control" id="inputAddLoginConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password" />
-              </div>
-              <p>Adding a new login requires a fee.</p>
-              <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">Email</label>
+              <input type="email" className="form-control" id="inputAddLoginEmail" aria-describedby="emailHelp" placeholder="Email" />
+              <small id="emailHelp" className="form-text text-muted">Used as the login name</small>
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">Password</label>
+              <input type="password" className="form-control" id="inputAddLoginNewPassword" aria-describedby="emailHelp" placeholder="New Password" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="inputKeyword">Confirm Password</label>
+              <input type="password" className="form-control" id="inputAddLoginConfirmPassword" aria-describedby="emailHelp" placeholder="Confirm Password" />
+            </div>
+            <p>Adding a new login requires a fee.</p>
+            <button className="btn btn-primary">Submit</button>
           </Col>
           <Col lg="6" />
         </Row>

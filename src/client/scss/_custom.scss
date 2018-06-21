@@ -232,7 +232,7 @@ tr {
 }
 
 .login-form {
-  margin: 30px auto;
+  margin: 20px auto;
   text-align: center;
   width: 300px;
 }
@@ -304,11 +304,12 @@ tr {
 // Circular image styling
 .circular-logo {
   margin: 0 5px 5px 5px;
+  opacity: 0.9;
   cursor: pointer;
 }
 
 .circular-logo:hover {
-  transform: scale(1.02);
+  opacity: 1;
 }
 
 // Loader styling

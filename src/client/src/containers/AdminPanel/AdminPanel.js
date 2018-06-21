@@ -25,7 +25,7 @@ class AdminPanel extends Component {
   constructor() {
     super();
     this.state = {
-      login: true,
+      loggedIn: true,
     };
   }
 
@@ -35,7 +35,7 @@ class AdminPanel extends Component {
   // page.
   ====================================================================== */
   checkAuthentication() {
-    const token = localStorage.getItem('cobiaUserID');
+    const token = localStorage.getItem('cobiaUserEmail');
     if (!token) {
       this.setState({
         login: false,
@@ -54,7 +54,7 @@ class AdminPanel extends Component {
   // to handling displaying of views within the UI.
   ====================================================================== */
   render() {
-    if (!this.state.login) {
+    if (!this.state.loggedIn) {
       return <Redirect to="/" />;
     }
 

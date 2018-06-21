@@ -34,7 +34,7 @@ class Login extends Component {
   // the admin panel.
   ====================================================================== */
   checkAuthentication() {
-    const token = localStorage.getItem('cobiaUserID');
+    const token = localStorage.getItem('cobiaUserEmail');
     if (!token) {
       return false;
     }
@@ -59,17 +59,17 @@ class Login extends Component {
         showLoginFormError: true,
       });
       return;
-    } 
-    axios ({
+    }
+     axios ({
       method: 'post',
-      url: 'http://localhost:5000/account/login',
+      url: 'https://cobiasystems.com/dash/rest/public/account/login_basic',
       data: { 
-        emailAddress: this.state.loginEmail,
+        email: this.state.loginEmail,
         password: this.state.loginPassword,
       }
     })
     .then(response => {
-      localStorage.setItem('cobiaUserID', 'temp123');
+      localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
       this.setState({
         loggedIn: true,
       });
@@ -77,9 +77,15 @@ class Login extends Component {
     })
     .catch(error => {
       console.log('Error fetching and parsing data', error);
+      return;
     })
     this.setState({
       showLoginFailed: true,
+    }); 
+    // Temporary client testing below
+    localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
+    this.setState({
+      loggedIn: true,
     });
   }
 

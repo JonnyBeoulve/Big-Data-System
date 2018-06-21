@@ -13,7 +13,9 @@ import CreditCardLogo from '../../../public/img/credit-card-logo.png';
 // add a payment method, as well as edit and add new logins.
 ====================================================================== */
 class MyProfile extends Component {
+
   render() {
+    const loginEmail = localStorage.getItem('cobiaUserEmail');
     return (
       <div className="animated fadeIn">
         <nav aria-label="breadcrumb">
@@ -39,7 +41,7 @@ class MyProfile extends Component {
             </form>
             <br />
             <h2 className="blue-background"> <i className="fa fa-keyboard-o" /> Logins</h2>
-            <p>cobia@cobiasystems.com <a href="#/admin/myprofile/editlogin"><i className={['fa fa-edit', 'icon-hover'].join(' ')} /></a></p>
+            <p>{loginEmail} <a href="#/admin/myprofile/editlogin"><i className={['fa fa-edit', 'icon-hover'].join(' ')} /></a></p>
             <a href="#/admin/myprofile/addlogin"><button type="submit" className="btn btn-primary">Add Login</button></a>
           </Col>
           <Col lg="6">
