@@ -1,0 +1,380 @@
+// Remove anchor styling
+a, a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Form styling
+.form-error-div {
+  width: 100%;
+  display: block;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: rgb(207, 0, 0);
+  color: white;
+  text-align: center;
+}
+
+.form-success-div {
+  width: 300px;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: $darkgreen;
+  color: white;
+  text-align: center;
+}
+
+.login-error-div {
+  width: 300px;
+  display: block;
+  margin: 10px auto;
+  padding: 5px 5px 5px 5px;
+  border-radius: 2px;
+  background-color: rgb(207, 0, 0);
+  color: white;
+  text-align: center;
+}
+
+// Table styling
+tr {
+  min-height: 80px;
+}
+
+.select-trend-column {
+  width: 50px;
+}
+
+.trend-column {
+  width: 200px;
+}
+
+.relevance-conversation-column {
+  width: 35%;
+}
+
+.table .thead-light th {
+  min-height: 80px;
+  color: white;
+  background: $lightblue;
+}
+
+.results-table-item {
+  cursor: pointer;
+}
+
+// Icon hover styling
+.icon-hover {
+  cursor: pointer;
+}
+
+// Jumbotron styling
+.jumbotron {
+  background: $jumbotronblue;
+}
+
+// Popup styling for tooltips on results
+.tooltip-inner {
+  padding: 10px 10px 0 10px;
+  min-width: 960px;
+  height: auto;
+  color: #2a2c36;
+  background-color: #e4e5e6;
+}
+
+.tooltip-avatar-and-name {
+  border-right: 1px solid rgba(87, 87, 87, 0.2);
+}
+
+.tooltip-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+
+.tooltip-name {
+  font-family: inherit;
+  font-weight: bold;
+}
+
+.tooltip-row-title {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.tooltip-text {
+  font-family: inherit;
+  font-size: 1em;
+  text-align: left;
+}
+
+.tooltip-social-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+  border: none !important;
+}
+
+.tooltip-social-logo {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  opacity: 0.9;
+}
+
+.tooltip-social-logo:hover {
+  opacity: 1;
+}
+
+// Header styling
+.page-header {
+  padding: $spacer 0;
+  background: $breadcrumb-bg;
+
+  h1 {
+    margin: 0;
+  }
+
+  .chart-wrapper {
+    max-width: 140px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .charts .title {
+    margin-top: 2px;
+  }
+}
+
+// Title styling for divs
+.blue-background {
+  background: $lightblue;
+  color: white;
+  padding: 5px 5px 5px 5px;
+}
+
+// Sidebar styling
+.sidebar {
+  .sidebar-header {
+
+    .img-avatar {
+      width: 80px;
+      margin: 20px auto 10px;
+      border-radius: 50em;
+    }
+
+    > .btn-group {
+      margin-top: 10px;
+    }
+
+    .btn-link {
+      color: $text-muted;
+
+      &:hover {
+        color: $sidebar-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Login and signup page styling
+.login-button{
+  display: block;
+  margin: 10px auto 10px;
+  width: 300px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 2px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  background-color: #5DC0E0;
+  color: white;
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+}
+
+.login-button:hover {
+  background-color: rgb(83, 183, 216);
+}
+
+.login-input {
+  margin: 10px 0 10px 0;
+  width: 300px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 2px;
+  border: 1px solid #dbe2e8;
+  font-family: inherit;
+}
+
+.login-input:focus {
+  border: 1px solid #5DC0E0;
+}
+
+.login {
+  height: 100vh;
+  background-color: #006593;
+}
+
+.login-cobia-logo {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  padding: 20vh 0 30px 0;
+}
+
+.login-header-text {
+  text-align: center;
+  color: #5DC0E0;
+}
+
+.login-form {
+  margin: 20px auto;
+  text-align: center;
+  width: 300px;
+}
+
+.login-email-input, .login-password-input {
+  margin: 0px 0 10px 0;
+  width: 300px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  font-family: inherit;
+
+  -webkit-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  -moz-box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+  box-shadow: 8px 10px 20px 0 rgba(46,61,73,.15);
+}
+
+.login-email-input:focus, .login-password-input:focus {
+  border: 1px solid #5DC0E0;
+}
+
+.login-signup-link {
+  position: relative;
+  display: block;
+  width: 50px;
+  margin: 0 auto;
+  font-size: 0.8em;
+  color: white;
+  cursor: pointer;
+}
+
+.login-signup-link:hover {
+  border-bottom: 1px solid #5DC0E0;
+}
+
+.login-signup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #2b2d35;
+  z-index: 110;
+}
+
+.login-signup-close {
+  display: block;
+  position: relative;
+  top: 5%;
+  left: 42%;
+  font-size: 4em;
+  color: white;
+  cursor: pointer;
+}
+
+.login-signup-close:hover {
+  color: #5DC0E0;
+}
+
+.login-signup-form {
+  display: block;
+  position: relative;
+  top: 15%;
+  margin: 0 auto;
+  width: 300px;
+  text-align: center;
+}
+
+// Circular image styling
+.circular-logo {
+  margin: 0 5px 5px 5px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.circular-logo:hover {
+  opacity: 1;
+}
+
+// Loader styling
+.sk-cube-grid {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+}
+
+.sk-cube-grid .sk-cube {
+  width: 33%;
+  height: 33%;
+  background-color: #333;
+  float: left;
+  -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+          animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; 
+}
+.sk-cube-grid .sk-cube1 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube2 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s; }
+.sk-cube-grid .sk-cube4 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube5 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+.sk-cube-grid .sk-cube6 {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s; }
+.sk-cube-grid .sk-cube7 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s; }
+.sk-cube-grid .sk-cube8 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s; }
+.sk-cube-grid .sk-cube9 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s; }
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1); 
+  }
+}
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+            transform: scale3D(1, 1, 1);
+  } 35% {
+    -webkit-transform: scale3D(0, 0, 1);
+            transform: scale3D(0, 0, 1);
+  } 
+}

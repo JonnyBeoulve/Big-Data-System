@@ -1,83 +1,31 @@
-'use strict';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const morgan = require('morgan');
-const session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
-const path = require('path');
+// Styles
+// Import Flag Icons Set
+import 'flag-icon-css/css/flag-icon.min.css';
+// Import Font Awesome Icons Set
+import 'font-awesome/css/font-awesome.min.css';
+// Import Simple Line Icons Set
+import 'simple-line-icons/css/simple-line-icons.css';
+// Import Main styles for this application
+import '../scss/style.scss'
+// Temp fix for reactstrap
+import '../scss/core/_dropdown-menu-right.scss'
+// Containers
+import Login from './containers/Login/'
+import AdminPanel from './containers/AdminPanel/'
 
-const accountRoutes = require('./routes/account');
-
-/*============================================================================
-// Establish connection to Mongo database and set port as well as database. 
-// By default it will connect to a private mLab MongoDB database. If running
-// locally, a local MongoDB will be utilized (you will need to set this up). 
-// If a database error occurs, throw object to console.
-============================================================================*/
-mongoose.Promise = global.Promise;
-mongoose.connect((process.env.MONGODB_URI || 'mongodb://localhost:27017/cobiasystems'));
-const port = (process.env.PORT || 5000);
-var db = mongoose.connection;
-
-db.on('error', function(err) {
-	console.log(err);
-})
-
-/*============================================================================
-// Sessions will track signin state.
-============================================================================*/
-app.use(session({
-	secret: 'cobiaforever',
-	resave: true,
-	saveUninitialized: false,
-	store: new MongoStore({
-	  mongooseConnection: db
-	})
-  }));
-
-/*============================================================================
-// HTTP methodology to import the Account route.
-============================================================================*/
-app.use('/account', accountRoutes);
-
-/*============================================================================
-// Set port to 5000 and initiate Morgan logging functionality.
-============================================================================*/
-app.set('port', port);
-app.use(morgan('dev'));
-
-/*============================================================================
-// Static route initiated for public files. These files include the
-// build files from Create React App.
-============================================================================*/
-app.use(express.static(path.join(__dirname, '/static')));
-
-/*============================================================================
-// Error handling.
-============================================================================*/
-app.use(function(req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-})
-
-app.use(function(err, req, res, next) {
-	res.status(err.status || 500);
-	res.json({
-		error: {
-			message: err.message
-		}
-	});
-})
-
-/*============================================================================
-// Begin listenserver. The server port will be used by default, and 5000
-// is used when run locally.
-============================================================================*/
-app.listen((process.env.PORT || 5000), function() {
-  	console.log('Server is now running!');
-})
-
-module.exports = {app};
+/*=========================================================================
+// This is where the high level routing of Cobia Systems is handled and 
+// React elements are placed into the DOM via the div with id 'root'.
+=========================================================================*/
+ReactDOM.render((
+  <HashRouter>
+    <Switch>
+      <Route path="/admin" component={ AdminPanel } />
+      <Route path="/" component={ Login } />
+    </Switch>
+  </HashRouter>
+), document.getElementById('root'));
