@@ -49,43 +49,49 @@ class Login extends Component {
   /*= =====================================================================
   // This will handle login submission and authentication. First it will
   // ensure that an email and password have been entered before attempting
-  // a login via the server. If successful, a token in localStorage will
-  // be created.
+  // a login via the server. Then, it will create a formData object with
+  // the user's credentials. If the post is successful, a token in 
+  // localStorage will be created authorizing the user. If not, an error
+  // will be displayed.
   ====================================================================== */
-  handleLoginSubmit() {
+  handleLoginSubmit(e) {
+    e.preventDefault();
     if (this.state.loginEmail.length < 1 || this.state.loginPassword.length < 1) {
       this.setState({
         showLoginFormError: true,
       });
       return;
     }
-     axios ({
+    const formData = new FormData();
+    formData.append('email', `${this.state.loginEmail}`);
+    formData.append('password', `${this.state.loginPassword}`);
+    axios ({
       method: 'post',
-      url: 'https://cobiasystems.com/rest/public/account/login_basic',
-      data: { 
-        email: this.state.loginEmail,
-        password: this.state.loginPassword,
+      url: 'http://cobiasystems.lc/rest/public/account/login_basic',
+      data: formData,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data'
       }
     })
     .then(response => {
-      localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
-      this.setState({
-        loggedIn: true,
-      });
+      if(response.data.Status === 1) {
+        localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
+        this.setState({
+          loggedIn: true,
+        });
+      } else {
+        this.setState({
+          showLoginFailed: true,
+        }); 
+      }
       return;
     })
     .catch(error => {
       console.log('Error fetching and parsing data', error);
-      this.setState({
-        showLoginFailed: true,
-      }); 
       return;
     })
     // Temporary client testing solution below
-    localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
-    this.setState({
-      loggedIn: true,
-    });
   }
 
   /*= =====================================================================
@@ -129,9 +135,11 @@ class Login extends Component {
             ? <div className="login-error-div">Login failed.</div>
             : <div /> }
         <div className="login-form">
-          <input className="login-email-input" type="email" name="user-email" placeholder="Email" onChange={e => this.setState({ loginEmail: e.target.value })} />
-          <input className="login-password-input" type="password" name="user-password" placeholder="Password" onChange={e => this.setState({ loginPassword: e.target.value })} />
-          <button className="login-button" onClick={this.handleLoginSubmit.bind(this)}>Submit</button>
+          <form onSubmit={this.handleLoginSubmit.bind(this)}>
+            <input className="login-email-input" type="email" name="email" placeholder="Email" onChange={e => this.setState({ loginEmail: e.target.value })} />
+            <input className="login-password-input" type="password" name="password" placeholder="Password" onChange={e => this.setState({ loginPassword: e.target.value })} />
+            <button className="login-button" type="submit" value="Submit">Submit</button>
+          </form>
           <p className="login-signup-link" onClick={this.handleSignUp.bind(this)}>Sign Up</p>
           { (this.state.showSignUp)
             ? <Signup closeSignupModal={this.handleCloseSignupModal} />
