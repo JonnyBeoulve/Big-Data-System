@@ -10,11 +10,20 @@ export default {
     },
     {
       name: 'Marketing Analysis',
-      url: '/admin/marketinganalysis',
+      url: '/admin/dashboard',
       icon: 'icon-pie-chart',
-      badge: {
-        variant: 'info'
-      }
+      children: [
+        {
+          name: 'Add Keyword',
+          url: '/admin/addkeyword',
+          icon: 'icon-pie-chart'
+        },
+        {
+          name: 'Analysis Results',
+          url: '/admin/marketinganalysis',
+          icon: 'icon-pie-chart'
+        }
+      ]
     },
     {
       name: 'Event Analysis',

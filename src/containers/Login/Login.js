@@ -56,6 +56,7 @@ class Login extends Component {
   ====================================================================== */
   handleLoginSubmit(e) {
     e.preventDefault();
+    /*
     if (this.state.loginEmail.length < 1 || this.state.loginPassword.length < 1) {
       this.setState({
         showLoginFormError: true,
@@ -90,8 +91,12 @@ class Login extends Component {
     .catch(error => {
       console.log('Error fetching and parsing data', error);
       return;
-    })
+    }) */
     // Temporary client testing solution below
+    localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
+        this.setState({
+          loggedIn: true,
+        });
   }
 
   /*= =====================================================================
