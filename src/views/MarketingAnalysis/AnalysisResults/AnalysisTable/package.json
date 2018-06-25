@@ -1,0 +1,6 @@
+{
+  "name": "AnalysisTable",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AnalysisTable.js"
+}

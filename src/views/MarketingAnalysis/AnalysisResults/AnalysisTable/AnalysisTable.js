@@ -11,7 +11,7 @@ import DriverResults from './DriverResults/DriverResults';
 // handle each driver tab, in addition to calling the display of
 // data within each tab.
 ====================================================================== */
-class MarketingAnalysisResults extends Component {
+class AnalysisTable extends Component {
   /*= =====================================================================
   // ToggleTab and ActiveTab will hold the state of which tab/driver
   // is currently displayed.
@@ -128,4 +128,4 @@ class MarketingAnalysisResults extends Component {
   }
 }
 
-export default MarketingAnalysisResults;
+export default AnalysisTable;

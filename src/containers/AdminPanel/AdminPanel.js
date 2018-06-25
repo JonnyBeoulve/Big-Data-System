@@ -5,9 +5,9 @@ import Header from '../../components/Header/';
 import Sidebar from '../../components/Sidebar/';
 import Footer from '../../components/Footer/';
 
-import AddKeyword from '../../views/AddKeyword/';
+import AddKeyword from '../../views/MarketingAnalysis/AddKeyword/';
+import AnalysisResults from '../../views/MarketingAnalysis/AnalysisResults';
 import Dashboard from '../../views/Dashboard/';
-import MarketingAnalysis from '../../views/MarketingAnalysis/';
 import EventAnalysis from '../../views/EventAnalysis/';
 import CompetitorAnalysis from '../../views/CompetitorAnalysis/';
 import ReputationReport from '../../views/ReputationReport/';
@@ -66,8 +66,8 @@ class AdminPanel extends Component {
             <Container fluid>
               <Switch>
                 <Route path="/admin/dashboard" name="Dashboard" component={Dashboard} />
-                <Route path="/admin/addkeyword" name="AddKeyword" component={AddKeyword} />
-                <Route path="/admin/marketinganalysis" name="MarketingAnalysis" component={MarketingAnalysis} />
+                <Route path="/admin/marketinganalysis/addkeyword" name="AddKeyword" component={AddKeyword} />
+                <Route path="/admin/marketinganalysis/results" name="AnalysisResults" component={AnalysisResults} />
                 <Route path="/admin/eventanalysis" name="EventAnalysis" component={EventAnalysis} />
                 <Route path="/admin/competitoranalysis" name="CompetitorAnalysis" component={CompetitorAnalysis} />
                 <Route path="/admin/reputationreport" name="ReputationReport" component={ReputationReport} />

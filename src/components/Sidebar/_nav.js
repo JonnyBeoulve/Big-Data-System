@@ -15,12 +15,12 @@ export default {
       children: [
         {
           name: 'Add Keyword',
-          url: '/admin/addkeyword',
+          url: '/admin/marketinganalysis/addkeyword',
           icon: 'icon-pie-chart'
         },
         {
           name: 'Analysis Results',
-          url: '/admin/marketinganalysis',
+          url: '/admin/marketinganalysis/results',
           icon: 'icon-pie-chart'
         }
       ]

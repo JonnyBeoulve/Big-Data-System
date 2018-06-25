@@ -1,0 +1,6 @@
+{
+  "name": "AnalysisConfirmation",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./AnalysisConfirmation.js"
+}

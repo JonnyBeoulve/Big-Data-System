@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 /*= =====================================================================
-// This is the dashboard view that users will land on upon logging into
-// Cobia Systems.
+// This will confirm that a campaign has been created.
 ====================================================================== */
-class MarketingAnalysisForm extends Component {
+class AnalysisConfirmation extends Component {
   render() {
     return (
       <div className="animated fadeIn">
@@ -17,4 +16,4 @@ class MarketingAnalysisForm extends Component {
   }
 }
 
-export default MarketingAnalysisForm;
+export default AnalysisConfirmation;
