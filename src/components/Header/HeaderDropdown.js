@@ -37,14 +37,19 @@ class HeaderDropdown extends Component {
     };
   }
 
+  /*= =====================================================================
+  // This handles display of the dropdown menu.
+  ====================================================================== */
   toggleDropdown() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen,
     });
   }
 
+  /*= =====================================================================
+  // ATTENTION: This function is currently not working.
+  ====================================================================== */
   logout() {
-    localStorage.removeItem('cobiaUserEmail');
     this.setState({
       logout: true,
     });

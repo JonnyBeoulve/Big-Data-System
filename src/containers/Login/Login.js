@@ -29,21 +29,41 @@ class Login extends Component {
   }
 
   /*= =====================================================================
+  // Upon arriving at the login page execute check session to see if
+  // the user is already logged in.
+  ====================================================================== */
+  componentDidMount() {
+    this.checkSession();
+  }
+
+  /*= =====================================================================
   // Upon arriving at the login page this function will be run to see if
   // the user is already logged in. If so, it will redirect them to
   // the admin panel.
   ====================================================================== */
-  checkAuthentication() {
-    const token = localStorage.getItem('cobiaUserEmail');
-    if (token) {
+  checkSession() {
+    axios ({
+      method: 'post',
+      url: 'http://cobiasystems.lc/rest/admin/account/me',
+    })
+    .then(response => {
+      if (response.data.Status === 1) {
+        this.setState({
+          loggedIn: true,
+        });
+      } else {
+        this.setState({
+          loggedIn: false,
+        });
+      }
+    })
+    .catch(error => {
       this.setState({
-        loggedIn: true,
+        loggedIn: false,
       });
-    }
-  }
-
-  componentDidMount() {
-    this.checkAuthentication();
+      console.log('Error fetching and parsing data', error);
+      return;
+    }) 
   }
 
   /*= =====================================================================
@@ -77,7 +97,6 @@ class Login extends Component {
     })
     .then(response => {
       if(response.data.Status === 1) {
-        localStorage.setItem('cobiaUserEmail', this.state.loginEmail);
         this.setState({
           loggedIn: true,
         });

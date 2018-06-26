@@ -17,13 +17,37 @@ class AnalysisKeywords extends Component {
   }
 
   render() {
+
+/*         const driver = [`${this.props.driver1}`, `${this.props.driver2}`, `${this.props.driver3}`, `${this.props.driver4}`, `${this.props.driver5}`];
+    
+        return (
+          <div className="animated fadeIn">
+            <Nav tabs>
+              { driver.map((driverName, driverIndex) => (<DriverTab
+                tabName={driverName}
+                tabNum={driverIndex}
+                activeDriver={this.state.activeTab}
+                toggleDriverTab={this.toggleTab}
+              />)) } */
+
+    const keywords = this.props.allKeywords;
+
     return (
       <div className="animated fadeIn">
-          <Row>
-            <Col xs="12" sm="6" lg="3">
-              <Widget04 className="widget-button" icon="icon-speedometer" color="info" header="Hotel" value="25" invert onClick={this.hello} >Keyword</Widget04>
-            </Col>
-          </Row>
+        <div className="keywords-flexbox">
+            { keywords.map((keyword, keywordIndex) => (<Widget04
+                className="widget-button"
+                icon="icon-speedometer"
+                color="info"
+                header={keyword.keyword}
+                value="25"
+                invert
+                onClick={this.hello}
+              >
+              Keyword
+              </Widget04>
+            ))}
+        </div>
       </div>
     );
   }

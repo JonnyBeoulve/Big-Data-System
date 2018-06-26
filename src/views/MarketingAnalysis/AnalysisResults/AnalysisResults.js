@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import AnalysisKeywords from './AnalysisKeywords/AnalysisKeywords';
 import Loader from '../../Loader';
@@ -24,13 +25,57 @@ class AnalysisResults extends Component {
     super(props);
     this.state = {
       breadcrumbCurrentStep: 'Analysis Results',
-      showKeywords: true,
-      showLoader: false,
+      showLoader: true,
+      showNoKeywords: false,
+      showKeywords: false,
       showResults: false,
       showCampaign: false,
       showConfirmation: false,
       data: jsonData,
+      keywordsArray: [],
     };
+  }
+
+  /*= =====================================================================
+  // Grab all keywords for a given user upon mounting Analysis Results.
+  ====================================================================== */
+  componentDidMount() {
+    this.getKeywords();
+  }
+
+  /*= =====================================================================
+  // Get the full list of keywords and their IDs to store as state
+  // within this high level container. AnalysisKeywords will then
+  // list these, while other child components will reference their data.
+  ====================================================================== */
+  getKeywords(e) {
+    axios ({
+      method: 'post',
+      url: 'http://cobiasystems.lc/rest/admin/keyword/get_keywords',
+    })
+    .then(response => {
+      if(response.data.Status === 1) {
+        this.setState({
+          keywordsArray: response.data.Data.keywords,
+          showLoader: false,
+          showKeywords: true,
+        });
+      } else {
+        this.setState({
+          showLoader: false,
+          showNoKeywords: true,
+        }); 
+      }
+      return;
+    })
+    .catch(error => {
+      this.setState({
+        showLoader: false,
+        showNoKeywords: true,
+      }); 
+      console.log('Error fetching and parsing data', error);
+      return;
+    }) 
   }
 
   /*= =====================================================================
@@ -49,8 +94,11 @@ class AnalysisResults extends Component {
         { (this.state.showLoader)
           ? <Loader />
           : <div /> }
+        { (this.state.showNoKeywords)
+          ? <div>No keywords found. Visit <a href="#/admin/marketinganalysis/addkeyword">add keyword</a> to get started.</div>
+          : <div /> }
         { (this.state.showKeywords)
-          ? <AnalysisKeywords />
+          ? <AnalysisKeywords allKeywords={this.state.keywordsArray} />
           : <div /> }
         { (this.state.showResults)
           ? <AnalysisTable

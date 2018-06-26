@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import axios from 'axios';
+
 import Header from '../../components/Header/';
 import Sidebar from '../../components/Sidebar/';
 import Footer from '../../components/Footer/';
-
 import AddKeyword from '../../views/MarketingAnalysis/AddKeyword/';
 import AnalysisResults from '../../views/MarketingAnalysis/AnalysisResults';
 import Dashboard from '../../views/Dashboard/';
@@ -31,21 +32,36 @@ class AdminPanel extends Component {
   }
 
   /*= =====================================================================
-  // Upon arriving at the Admin Panel this function will be run to see if
-  // the user is logged in. If not, it will redirect them to the login
-  // page.
+  // Check if the user has a login session upon arriving at admin panel.
   ====================================================================== */
-  checkAuthentication() {
-    const token = localStorage.getItem('cobiaUserEmail');
-    if (!token) {
+  componentDidMount() {
+    this.checkSession();
+  }
+
+  /*= =====================================================================
+  // Upon arriving at the admin panel this function will be run to see if
+  // the user is already logged in. If so, it will redirect them to
+  // the admin panel.
+  ====================================================================== */
+  checkSession() {
+    axios ({
+      method: 'post',
+      url: 'http://cobiasystems.lc/rest/admin/account/me',
+    })
+    .then(response => {
+      if (response.data.Status === 0) {
+        this.setState({
+          loggedIn: false,
+        });
+      } else return;
+    })
+    .catch(error => {
       this.setState({
         loggedIn: false,
       });
-    }
-  }
-
-  componentDidMount() {
-    this.checkAuthentication();
+      console.log('Error fetching and parsing data', error);
+      return;
+    }) 
   }
 
   /*= =====================================================================

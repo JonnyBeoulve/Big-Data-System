@@ -38,7 +38,7 @@ class AddKeyword extends Component {
       return;
     }
     const formData = new FormData();
-    formData.append('keywordWhite', `${this.state.keyword}`);
+    formData.append('keywordLead', `${this.state.keyword}`);
     axios ({
       method: 'post',
       url: 'http://cobiasystems.lc/rest/admin/keyword/create_keyphrases',
@@ -49,7 +49,6 @@ class AddKeyword extends Component {
       }
     })
     .then(response => {
-      console.log(response);
       if(response.data.Status === 1) {
         this.setState({
           showConfirmation: true,
