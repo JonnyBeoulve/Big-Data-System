@@ -24,7 +24,7 @@ class AnalysisResults extends Component {
     super(props);
     this.state = {
       breadcrumbCurrentStep: 'Analysis Results',
-      showForm: true,
+      showKeywords: true,
       showLoader: false,
       showResults: false,
       showCampaign: false,
@@ -46,11 +46,11 @@ class AnalysisResults extends Component {
             <li className="breadcrumb-item active" aria-current="page">{this.state.breadcrumbCurrentStep}</li>
           </ol>
         </nav>
-        { (this.state.showForm)
-          ? <AnalysisKeywords />
-          : <div /> }
         { (this.state.showLoader)
           ? <Loader />
+          : <div /> }
+        { (this.state.showKeywords)
+          ? <AnalysisKeywords />
           : <div /> }
         { (this.state.showResults)
           ? <AnalysisTable
