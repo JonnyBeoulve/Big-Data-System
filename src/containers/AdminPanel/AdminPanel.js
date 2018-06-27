@@ -32,7 +32,8 @@ class AdminPanel extends Component {
   }
 
   /*= =====================================================================
-  // Check if the user has a login session upon arriving at admin panel.
+  // Check if the user has a login session upon arriving at admin panel
+  // as well as a connected Twitter account.
   ====================================================================== */
   componentDidMount() {
     this.checkSession();
