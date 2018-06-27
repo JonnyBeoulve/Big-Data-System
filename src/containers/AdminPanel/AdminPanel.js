@@ -59,7 +59,7 @@ class AdminPanel extends Component {
       this.setState({
         loggedIn: false,
       });
-      console.log('Error fetching and parsing data', error);
+      console.log('Error checking session', error);
       return;
     }) 
   }

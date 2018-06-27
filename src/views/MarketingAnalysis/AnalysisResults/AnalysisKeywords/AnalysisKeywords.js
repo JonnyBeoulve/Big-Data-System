@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Row,
-  Col,
-} from 'reactstrap';
 
 import Widget04 from './Widget04';
 
@@ -12,30 +8,20 @@ import Widget04 from './Widget04';
 ====================================================================== */
 class AnalysisKeywords extends Component {
 
+  /*= =====================================================================
+  // Placeholder function.
+  ====================================================================== */
   hello() {
     console.log("Hello!");
   }
 
   render() {
-
-/*         const driver = [`${this.props.driver1}`, `${this.props.driver2}`, `${this.props.driver3}`, `${this.props.driver4}`, `${this.props.driver5}`];
-    
-        return (
-          <div className="animated fadeIn">
-            <Nav tabs>
-              { driver.map((driverName, driverIndex) => (<DriverTab
-                tabName={driverName}
-                tabNum={driverIndex}
-                activeDriver={this.state.activeTab}
-                toggleDriverTab={this.toggleTab}
-              />)) } */
-
     const keywords = this.props.allKeywords;
 
     return (
       <div className="animated fadeIn">
         <div className="keywords-flexbox">
-            { keywords.map((keyword, keywordIndex) => (<Widget04
+            { keywords.map((keyword) => (<Widget04
                 className="widget-button"
                 icon="icon-speedometer"
                 color="info"
