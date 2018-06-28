@@ -43,7 +43,7 @@ tr {
   min-height: 80px;
 }
 
-.select-trend-column {
+.small-trend-column {
   width: 50px;
 }
 
@@ -68,6 +68,14 @@ tr {
 // Icon hover styling
 .icon-hover {
   cursor: pointer;
+}
+
+// Pagination buttons div
+.pagination-buttons-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 // Jumbotron styling

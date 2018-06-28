@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import AnalysisKeywords from './AnalysisKeywords/AnalysisKeywords';
 import Loader from '../../Loader';
-import AnalysisTable from './AnalysisTable/AnalysisTable';
+import AnalysisKeywordTrends from './AnalysisKeywordTrends/AnalysisKeywordTrends';
 import AnalysisCampaign from './AnalysisCampaign/AnalysisCampaign';
 import AnalysisConfirmation from './AnalysisConfirmation/AnalysisConfirmation';
 
@@ -20,11 +20,16 @@ class AnalysisResults extends Component {
     // so child components can communicate upward. This also houses the
     // state of the user's input before analysis. Data holds the received
     // JSON formatted data to be displayed to the user in results.
+    // TrendNumArray stores the currently visible indexes in the
+    // results, which jump up or down in sets of 10 to paginate the results.
     ====================================================================== */
   constructor(props) {
     super(props);
+    this.displayKeywordResults = this.displayKeywordResults.bind(this);
+    this.handlePrevious10Results = this.handlePrevious10Results.bind(this);
+    this.handleNext10Results = this.handleNext10Results.bind(this);
     this.state = {
-      breadcrumbCurrentStep: 'Analysis Results',
+      breadcrumbCurrentStep: 'All Keywords',
       showLoader: true,
       showNoKeywords: false,
       showKeywords: false,
@@ -33,6 +38,7 @@ class AnalysisResults extends Component {
       showConfirmation: false,
       data: jsonData,
       keywordsArray: [],
+      trendNumArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     };
   }
 
@@ -79,6 +85,53 @@ class AnalysisResults extends Component {
   }
 
   /*= =====================================================================
+  // For now, this function will simply move the state of the view
+  // from displaying keywords to viewing a mock table.
+  ====================================================================== */
+  displayKeywordResults(e) {
+    this.setState({
+      breadcrumbCurrentStep: 'Keyword Trends',
+      showKeywords: false,
+      showResults: true,
+    });
+  }
+
+  /*= =====================================================================
+  // For pagination, minus 10 from each element in trendNumArray, but only
+  // if the first element isn't already at 0 (can't go lower). The final
+  // setState forces a component rerender to ensure the new data is
+  // displayed.
+  ====================================================================== */
+  handlePrevious10Results() {
+    if (this.state.trendNumArray[0] === 0) {
+      return;
+    } else {
+      const newArray = this.state.trendNumArray.map((element) => (element - 10));
+      this.setState({
+          trendNumArray: newArray,
+      });
+    }
+  }
+
+    /*= =====================================================================
+  // For pagination, add 10 from each element in trendNumArray, but only
+  // if the final element isn't already at or higher than the length of
+  // the dataset (can't go higher). The final setState forces a component 
+  // rerender to ensure the new data is displayed.
+  ====================================================================== */
+  handleNext10Results() {
+    console.log(this.state.data);
+    if (this.state.trendNumArray[9] >= this.state.data.length) {
+      return;
+    } else {
+      const newArray = this.state.trendNumArray.map((element) => (element + 10));
+      this.setState({
+          trendNumArray: newArray,
+      });
+    }
+  }
+
+  /*= =====================================================================
   // This is a top level container that will display components depending
   // upon the current state of the user's Marketing Analysis process.
   ====================================================================== */
@@ -98,21 +151,19 @@ class AnalysisResults extends Component {
           ? <div>No keywords found. Visit <a href="#/admin/marketinganalysis/addkeyword">add keyword</a> to get started.</div>
           : <div /> }
         { (this.state.showKeywords)
-          ? <AnalysisKeywords allKeywords={this.state.keywordsArray} />
+          ? <AnalysisKeywords 
+              allKeywords={this.state.keywordsArray} 
+              selectKeyword={this.displayKeywordResults}
+            />
           : <div /> }
         { (this.state.showResults)
-          ? <AnalysisTable
+          ? <AnalysisKeywordTrends
             resultsData={this.state.data}
-            keyword={this.state.analysisFormKeyword}
-            area={this.state.analysisFormArea}
-            location={this.state.analysisFormLocation}
-            driver1={this.state.analysisFormDriver1}
-            driver2={this.state.analysisFormDriver2}
-            driver3={this.state.analysisFormDriver3}
-            driver4={this.state.analysisFormDriver4}
-            driver5={this.state.analysisFormDriver5}
-            b2={this.state.analysisFormB2}
+            trendNum={this.state.trendNumArray}
+            keyword="Keyword"
             handleSelectionSubmit={this.handleMarketingResultsSelectionSubmit}
+            previous10Results={this.handlePrevious10Results}
+            next10Results={this.handleNext10Results}
           />
           : <div /> }
         { (this.state.showCampaign)

@@ -8,13 +8,6 @@ import Widget04 from './Widget04';
 ====================================================================== */
 class AnalysisKeywords extends Component {
 
-  /*= =====================================================================
-  // Placeholder function.
-  ====================================================================== */
-  hello() {
-    console.log("Hello!");
-  }
-
   render() {
     const keywords = this.props.allKeywords;
 
@@ -28,7 +21,7 @@ class AnalysisKeywords extends Component {
                 header={keyword.keyword}
                 value="25"
                 invert
-                onClick={this.hello}
+                onClick={this.props.selectKeyword}
               >
               Keyword
               </Widget04>

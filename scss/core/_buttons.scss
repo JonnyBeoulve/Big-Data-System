@@ -26,6 +26,19 @@ button {
   border-color: $darkgreen;
 }
 
+.btn-flex {
+  margin: 10px 10px 10px;
+  background-color: $green;
+  border-color: $green;
+  color: white;
+}
+
+.btn-flex:hover {
+  background-color: $darkgreen;
+  border-color: $darkgreen;
+  color: white;
+}
+
 .btn-facebook,
 .btn-twitter,
 .btn-linkedin,

@@ -41,15 +41,11 @@ class MyProfile extends Component {
             </form>
             <br />
             <h2 className="blue-background"> <i className="fa fa-keyboard-o" /> Logins</h2>
-            <p>{loginEmail} <a href="#/admin/myprofile/editlogin"><i className={['fa fa-edit', 'icon-hover'].join(' ')} /></a></p>
+            <p>placeholderemail@email.com <a href="#/admin/myprofile/editlogin"><i className={['fa fa-edit', 'icon-hover'].join(' ')} /></a></p>
             <a href="#/admin/myprofile/addlogin"><button type="submit" className="btn btn-primary">Add Login</button></a>
           </Col>
           <Col lg="6">
-            <h2 className="blue-background"> <i className="fa fa-link" /> Link Accounts</h2>
-            <p>Social Media</p>
-            <img src={FacebookLogo} className="circular-logo" alt="Facebook Logo" />
-            <img src={TwitterLogo} className="circular-logo" alt="Twitter Logo" />
-            <br />
+            <h2 className="blue-background"> <i className="fa fa-link" /> Payment</h2>
             <p>Payment Method</p>
             <img src={CreditCardLogo} className="circular-logo" alt="Credit Card Logo" />
           </Col>
