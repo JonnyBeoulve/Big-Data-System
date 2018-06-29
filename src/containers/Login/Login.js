@@ -88,6 +88,7 @@ class Login extends Component {
     })
     .then(response => {
       if(response.data.Status === 1) {
+        localStorage.setItem('userEmail', `${this.state.loginEmail}`)
         this.setState({
           loggedIn: true,
         });

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Badge,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
@@ -29,7 +28,6 @@ const defaultProps = {
 class HeaderDropdown extends Component {
   constructor(props) {
     super(props);
-
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.state = {
       dropdownOpen: false,
@@ -47,12 +45,22 @@ class HeaderDropdown extends Component {
   }
 
   /*= =====================================================================
-  // ATTENTION: This function is currently not working.
+  // Remove the user's session and redirect them to the top level page.
   ====================================================================== */
-  logout() {
-    this.setState({
-      logout: true,
-    });
+  handleLogout() {
+    e.preventDefault();
+    axios ({
+      method: 'post',
+      url: 'http://cobiasystems.lc/rest/public/account/logout',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    .catch(error => {
+      console.log('Error logging out', error);
+      return;
+    }) 
   }
 
   /*= =====================================================================
@@ -73,8 +81,7 @@ class HeaderDropdown extends Component {
         <DropdownMenu right>
           <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
           <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user" /> Profile</a></DropdownItem>
-          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-usd" /> Payments<Badge color="secondary">0</Badge></a></DropdownItem>
-          <DropdownItem onClick={e => this.logout()}><i className="fa fa-lock" /> Logout</DropdownItem>
+          <DropdownItem onClick={e => this.handleLogout()}><i className="fa fa-lock" /> Logout</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );

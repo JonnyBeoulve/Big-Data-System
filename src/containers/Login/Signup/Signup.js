@@ -52,7 +52,7 @@ class Signup extends Component {
                 console.log(response);
                 this.setState({
                     signupError: true,
-                    signupErrorMessage: response.data.data.Message,
+                    signupErrorMessage: response.data.Message,
                 });
             }
         })

@@ -14,14 +14,14 @@ class AnalysisKeywords extends Component {
     return (
       <div className="animated fadeIn">
         <div className="keywords-flexbox">
-            { keywords.map((keyword) => (<Widget04
+            { keywords.map((keyword, index) => (<Widget04
                 className="widget-button"
                 icon="icon-speedometer"
                 color="info"
                 header={keyword.keyword}
                 value="25"
                 invert
-                onClick={this.props.selectKeyword}
+                onClick={() => { this.props.selectKeyword(index) }}
               >
               Keyword
               </Widget04>

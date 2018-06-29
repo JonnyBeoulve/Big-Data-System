@@ -86,9 +86,12 @@ class AnalysisResults extends Component {
 
   /*= =====================================================================
   // For now, this function will simply move the state of the view
-  // from displaying keywords to viewing a mock table.
+  // from displaying keywords to viewing a mock table. The passed variable
+  // i indicates the index of the keyword, which will be used for fetching
+  // data from a specific analysis.
   ====================================================================== */
-  displayKeywordResults(e) {
+  displayKeywordResults(i) {
+    console.log(this.state.keywordsArray[i]);
     this.setState({
       breadcrumbCurrentStep: 'Keyword Trends',
       showKeywords: false,
@@ -119,8 +122,8 @@ class AnalysisResults extends Component {
   // the dataset (can't go higher). The final setState forces a component 
   // rerender to ensure the new data is displayed.
   ====================================================================== */
-  handleNext10Results() {
-    console.log(this.state.data);
+  handleNext10Results(i) {
+    console.log(i);
     if (this.state.trendNumArray[9] >= this.state.data.length) {
       return;
     } else {
