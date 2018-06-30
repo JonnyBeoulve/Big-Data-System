@@ -29,40 +29,6 @@ const mainTableStyle = {
 // Display table with data from the trend results.
 ====================================================================== */
 class AnalysisKeywordTrends extends Component {
-    /*= =====================================================================
-    // ToggleTooltip and TooltipOpen will handle the display of tooltips
-    // which house additional information for each post.
-    ====================================================================== */
-    constructor(props) {
-    super(props);
-    this.toggleTooltip = this.toggleTooltip.bind(this);
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
-    this.state = {
-        selectedTrends: [false, false, false, false, false, false, false, false, false, false],
-        tooltipOpen: [false, false, false, false, false, false, false, false, false, false],
-    };
-    }
-
-    /*= =====================================================================
-    // Toggle the visible state of tooltips for a trend on mouseover.
-    ====================================================================== */
-    toggleTooltip(i) {
-        const newArray = this.state.tooltipOpen.map((element, index) => (index === i ? !element : false));
-        this.setState({
-            tooltipOpen: newArray,
-        });
-    }
-
-    /*= =====================================================================
-    // Toggle whether or not a checkbox is selected.
-    ====================================================================== */
-    toggleCheckbox(i) {
-        const newArray = this.state.selectedTrends.map((element, index) => (index === i ? !element : false));
-        this.setState({
-            selectedTrends: newArray,
-        });
-    }
-
   /*= =====================================================================
     // Display a table with data results along with a tooltip that displays
     // upon hovering over a trend.
@@ -93,6 +59,35 @@ class AnalysisKeywordTrends extends Component {
                       </Col>
                     </Row>
                   </Col>
+                  <Col xs="12" md="6" xl="4">
+                    <Row>
+                      <Col sm="6">
+                        <div className="callout callout-info">
+                          <small className="text-muted">Area</small>
+                          <br />
+                          <strong className="h4">Area</strong>
+                        </div>
+                      </Col>
+                      <Col sm="6">
+                        <div className="callout callout-info">
+                          <small className="text-muted">Driver</small>
+                          <br />
+                          <strong className="h4">Driver</strong>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                  <Col xs="12" md="6" xl="4">
+                    <Row>
+                      <Col sm="6">
+                        <div className="callout callout-info">
+                          <small className="text-muted">Business</small>
+                          <br />
+                          <strong className="h4">B2B</strong>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
                 </Row>
                 <br />
                 <Table hover responsive style={mainTableStyle}className="table-outline mb-0 d-none d-sm-table">
@@ -113,18 +108,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[0]} 
-                            onChange={() => { this.toggleCheckbox(0); }}
+                            checked={this.props.selTrends[0]} 
+                            onChange={() => { this.props.changeCheckbox(0); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[0]}</p>
+                        <p>{this.props.trendNum[1]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[0]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[0]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[0]} target={'trendInfo' + `${this.props.trendNum[0]}`} toggle={() => { this.toggleTooltip(0); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[0]} target={'trendInfo' + `${this.props.trendNum[0]}`} toggle={() => { this.props.changeTooltip(0); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -229,18 +224,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[1]} 
-                            onChange={() => { this.toggleCheckbox(1); }}
+                            checked={this.props.selTrends[1]} 
+                            onChange={() => { this.props.changeCheckbox(1); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[1]}</p>
+                        <p>{this.props.trendNum[2]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[1]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[1]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[1]} target={'trendInfo' + `${this.props.trendNum[1]}`} toggle={() => { this.toggleTooltip(1); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[1]} target={'trendInfo' + `${this.props.trendNum[1]}`} toggle={() => { this.props.changeTooltip(1); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -345,18 +340,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[2]} 
-                            onChange={() => { this.toggleCheckbox(2); }}
+                            checked={this.props.selTrends[2]} 
+                            onChange={() => { this.props.changeCheckbox(2); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[2]}</p>
+                        <p>{this.props.trendNum[3]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[2]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[2]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[2]} target={'trendInfo' + `${this.props.trendNum[2]}`} toggle={() => { this.toggleTooltip(2); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[2]} target={'trendInfo' + `${this.props.trendNum[2]}`} toggle={() => { this.props.changeTooltip(2); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -461,18 +456,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[3]} 
-                            onChange={() => { this.toggleCheckbox(3); }}
+                            checked={this.props.selTrends[3]} 
+                            onChange={() => { this.props.changeCheckbox(3); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[3]}</p>
+                        <p>{this.props.trendNum[4]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[3]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[3]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[3]} target={'trendInfo' + `${this.props.trendNum[3]}`} toggle={() => { this.toggleTooltip(3); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[3]} target={'trendInfo' + `${this.props.trendNum[3]}`} toggle={() => { this.props.changeTooltip(3); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -577,18 +572,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[4]} 
-                            onChange={() => { this.toggleCheckbox(4); }}
+                            checked={this.props.selTrends[4]} 
+                            onChange={() => { this.props.changeCheckbox(4); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[4]}</p>
+                        <p>{this.props.trendNum[5]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[4]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[4]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[4]} target={'trendInfo' + `${this.props.trendNum[4]}`} toggle={() => { this.toggleTooltip(4); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[4]} target={'trendInfo' + `${this.props.trendNum[4]}`} toggle={() => { this.props.changeTooltip(4); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -693,18 +688,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[5]} 
-                            onChange={() => { this.toggleCheckbox(5); }}
+                            checked={this.props.selTrends[5]} 
+                            onChange={() => { this.props.changeCheckbox(5); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[5]}</p>
+                        <p>{this.props.trendNum[6]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[5]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[5]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[5]} target={'trendInfo' + `${this.props.trendNum[5]}`} toggle={() => { this.toggleTooltip(5); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[5]} target={'trendInfo' + `${this.props.trendNum[5]}`} toggle={() => { this.props.changeTooltip(5); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -809,18 +804,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[6]} 
-                            onChange={() => { this.toggleCheckbox(6); }}
+                            checked={this.props.selTrends[6]} 
+                            onChange={() => { this.props.changeCheckbox(6); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[6]}</p>
+                        <p>{this.props.trendNum[7]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[6]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[6]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[6]} target={'trendInfo' + `${this.props.trendNum[6]}`} toggle={() => { this.toggleTooltip(6); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[6]} target={'trendInfo' + `${this.props.trendNum[6]}`} toggle={() => { this.props.changeTooltip(6); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -925,18 +920,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[7]} 
-                            onChange={() => { this.toggleCheckbox(7); }}
+                            checked={this.props.selTrends[7]} 
+                            onChange={() => { this.props.changeCheckbox(7); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[7]}</p>
+                        <p>{this.props.trendNum[8]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[7]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[7]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[7]} target={'trendInfo' + `${this.props.trendNum[7]}`} toggle={() => { this.toggleTooltip(7); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[7]} target={'trendInfo' + `${this.props.trendNum[7]}`} toggle={() => { this.props.changeTooltip(7); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -1041,18 +1036,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[8]} 
-                            onChange={() => { this.toggleCheckbox(8); }}
+                            checked={this.props.selTrends[8]} 
+                            onChange={() => { this.props.changeCheckbox(8); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[8]}</p>
+                        <p>{this.props.trendNum[9]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[8]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[8]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[8]} target={'trendInfo' + `${this.props.trendNum[8]}`} toggle={() => { this.toggleTooltip(8); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[8]} target={'trendInfo' + `${this.props.trendNum[8]}`} toggle={() => { this.props.changeTooltip(8); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -1157,18 +1152,18 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.state.selectedTrends[9]} 
-                            onChange={() => { this.toggleCheckbox(9); }}
+                            checked={this.props.selTrends[9]} 
+                            onChange={() => { this.props.changeCheckbox(9); }}
                           />
                           </div>
                         </div>
                       </td>
                       <td className="small-trend-column">
-                        <p>{this.props.trendNum[9]}</p>
+                        <p>{this.props.trendNum[10]}</p>
                       </td>
                       <td className="trend-column" id={'trendInfo' + `${this.props.trendNum[9]}`}>
                         <div><i className="fa fa-line-chart" /> { this.props.resultsData[`${this.props.trendNum[9]}`].Description_enriched.keywords[0].text } </div>
-                        <Tooltip placement="right" autohide={false} isOpen={this.state.tooltipOpen[9]} target={'trendInfo' + `${this.props.trendNum[9]}`} toggle={() => { this.toggleTooltip(9); }}>
+                        <Tooltip placement="right" autohide={false} isOpen={this.props.toolOpen[9]} target={'trendInfo' + `${this.props.trendNum[9]}`} toggle={() => { this.props.changeTooltip(9); }}>
                           <Row>
                             <Col xs="6">
                               <Card>
@@ -1268,11 +1263,17 @@ class AnalysisKeywordTrends extends Component {
                     </tr>
                   </tbody>
                 </Table>
-                <div className="pagination-buttons-div">
-                    <button type="submit" className="btn btn-flex" onClick={this.props.previous10Results}>Previous 10</button>
-                    <button type="submit" className="btn btn-flex" onClick={this.props.next10Results}>Next 10</button>
+                <div className="pagination-buttons">
+                  <div className="pagination-buttons-start-div">
+                      <button type="submit" className="btn btn-flex" onClick={this.props.previous10Results}>Previous 10</button>
+                      <button type="submit" className="btn btn-flex" onClick={this.props.next10Results}>Next 10</button>
+                  </div>
+                  <div className="pagination-buttons-end-div">
+                      <button type="submit" className="btn btn-flex" onClick={this.props.backToKeywords}>Back</button>
+                      <button type="submit" className="btn btn-flex" onClick={this.props.analyzeTrend}>Analyze Trend</button>
+                  </div>
                 </div>
-              </CardBody>
+                </CardBody>
             </Card>
           </Col>
         </Row>

@@ -89,9 +89,33 @@ class AddKeyword extends Component {
               <div className="form-group">
                 <label>What keyword would you like to analyze?</label>
                 <input className="form-control" type="text" name="keyword" placeholder="Keyword" onChange={e => this.setState({ keyword: e.target.value })} />
-                <br />
-                <button className="btn btn-primary" type="submit" value="Submit">Submit</button>
               </div>
+              <div className="form-group">
+                <label>What area would you like to target?</label>
+                  <select className="form-control" id="inputFieldArea" >
+                    <option>City</option>
+                    <option>State</option>
+                    <option>United States</option>
+                    <option>Worldwide</option>
+                  </select>
+                <br />
+                <input type="text" className="form-control" id="inputFieldLocation" placeholder="Location" />
+                <small id="emailHelp" className="form-text text-muted">Only if City or State was selected</small>
+              </div>
+              <div className="form-group">
+                <label>What is the main driver of your analysis?</label>
+                <input type="text" className="form-control" id="inputFieldDriver" placeholder="Driver" />
+              </div>
+              <div className="form-group">
+                <label>Is this for Business to Consumer, Business to Business, or both?</label>
+                <select className="form-control" id="inputFieldB2" >
+                  <option>B2C</option>
+                  <option>B2B</option>
+                  <option>Both</option>
+                </select>
+              </div>
+              <br />
+              <button className="btn btn-primary" type="submit" value="Submit">Submit</button>
             </form>
           </Col>
         </Row>
