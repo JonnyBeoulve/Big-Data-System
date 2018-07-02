@@ -4,6 +4,7 @@ import axios from 'axios';
 import AnalysisKeywords from './AnalysisKeywords/AnalysisKeywords';
 import Loader from '../../Loader';
 import AnalysisKeywordTrends from './AnalysisKeywordTrends/AnalysisKeywordTrends';
+import AnalysisTrendConversations from './AnalysisTrendConversations/AnalysisTrendConversations';
 import AnalysisCampaign from './AnalysisCampaign/AnalysisCampaign';
 import AnalysisConfirmation from './AnalysisConfirmation/AnalysisConfirmation';
 
@@ -25,26 +26,32 @@ class AnalysisResults extends Component {
     ====================================================================== */
   constructor(props) {
     super(props);
-    this.displayKeywordResults = this.displayKeywordResults.bind(this);
+    this.displayResultsTrends = this.displayResultsTrends.bind(this);
+    this.displayResultsConversations = this.displayResultsConversations.bind(this);
     this.handlePrevious10Results = this.handlePrevious10Results.bind(this);
     this.handleNext10Results = this.handleNext10Results.bind(this);
     this.toggleTooltip = this.toggleTooltip.bind(this);
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
+    this.toggleTrendCheckbox = this.toggleTrendCheckbox.bind(this);
+    this.toggleConversationCheckbox = this.toggleConversationCheckbox.bind(this);
     this.handleBackToKeywords = this.handleBackToKeywords.bind(this);
-    this.handleAnalyzeTrend = this.handleAnalyzeTrend.bind(this);
+    this.handleBackToTrends = this.handleBackToTrends.bind(this);
+    this.handleCampaignBegin = this.handleCampaignBegin.bind(this);
     this.handleCampaignSubmit = this.handleCampaignSubmit.bind(this);
     this.state = {
       breadcrumbCurrentStep: 'All Keywords',
       showLoader: true,
       showNoKeywords: false,
       showKeywords: false,
-      showResults: false,
+      showResultsTrends: false,
+      showResultsConversations: false,
       showCampaign: false,
       showConfirmation: false,
       data: jsonData,
       keywordsArray: [],
       trendNumArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      selectedTrends: [false, false, false, false, false, false, false, false, false, false],
+      conversationNumArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      selectedTrend: [false, false, false, false, false, false, false, false, false, false],
+      selectedConversation: [false, false, false, false, false, false, false, false, false, false],
       tooltipOpen: [false, false, false, false, false, false, false, false, false, false],
     };
   }
@@ -100,20 +107,6 @@ class AnalysisResults extends Component {
   }
 
   /*= =====================================================================
-  // For now, this function will simply move the state of the view
-  // from displaying keywords to viewing a mock table. The passed variable
-  // i indicates the index of the keyword, which will be used for fetching
-  // data from a specific analysis.
-  ====================================================================== */
-  displayKeywordResults(i) {
-    this.setState({
-      breadcrumbCurrentStep: 'Keyword Trends',
-      showKeywords: false,
-      showResults: true,
-    });
-  }
-
-  /*= =====================================================================
   // Toggle the visible state of tooltips for a trend on mouseover.
   ====================================================================== */
   toggleTooltip(i) {
@@ -126,12 +119,22 @@ class AnalysisResults extends Component {
   /*= =====================================================================
   // Toggle whether or not a checkbox is selected.
   ====================================================================== */
-  toggleCheckbox(i) {
-      const newArray = this.state.selectedTrends.map((element, index) => (index === i ? !element : false));
+  toggleTrendCheckbox(i) {
+      const newArray = this.state.selectedTrend.map((element, index) => (index === i ? !element : false));
       this.setState({
-          selectedTrends: newArray,
+          selectedTrend: newArray,
       });
   }
+
+  /*= =====================================================================
+  // Toggle whether or not a checkbox is selected.
+  ====================================================================== */
+  toggleConversationCheckbox(i) {
+    const newArray = this.state.selectedConversation.map((element, index) => (index === i ? !element : false));
+    this.setState({
+        selectedConversation: newArray,
+    });
+}
 
   /*= =====================================================================
   // For pagination, minus 10 from each element in trendNumArray, but only
@@ -143,10 +146,10 @@ class AnalysisResults extends Component {
     if (this.state.trendNumArray[0] === 0) {
       return;
     } else {
-      const newSelTrendsArray = this.state.selectedTrends.map((element) => (false));
+      const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
       const newTrendNumArray = this.state.trendNumArray.map((element) => (element - 10));
       this.setState({
-          selectedTrends: newSelTrendsArray,
+          selectedTrend: newSelTrendsArray,
           trendNumArray: newTrendNumArray,
       });
     }
@@ -163,10 +166,10 @@ class AnalysisResults extends Component {
     if (this.state.trendNumArray[9] >= 100) {
       return;
     } else {
-      const newSelTrendsArray = this.state.selectedTrends.map((element) => (false));
+      const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
       const newTrendNumArray = this.state.trendNumArray.map((element) => (element + 10));
       this.setState({
-          selectedTrends: newSelTrendsArray,
+          selectedTrend: newSelTrendsArray,
           trendNumArray: newTrendNumArray,
       });
     }
@@ -177,25 +180,67 @@ class AnalysisResults extends Component {
   // keywords. In addition, reset state.
   ====================================================================== */
   handleBackToKeywords() {
-    const newSelTrendsArray = this.state.selectedTrends.map((element) => (false));
+    const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
     const newTrendNumArray = this.state.trendNumArray.map((element, index) => (index));
     this.setState({
-      selectedTrends: newSelTrendsArray,
+      selectedTrend: newSelTrendsArray,
       showKeywords: true,
-      showResults: false,
+      showResultsTrends: false,
       trendNumArray: newTrendNumArray,
     });
+    window.scrollTo(0,0);
+  }
+
+    /*= =====================================================================
+  // When the user clicks the Back button, hide conversations and show
+  // trends.
+  ====================================================================== */
+  handleBackToTrends() {
+    const newSelConvoArray = this.state.selectedConversation.map((element) => (false));
+    this.setState({
+      showResultsTrends: true,
+      showResultsConversations: false,
+      selectedConveration: newSelConvoArray,
+    });
+    window.scrollTo(0,0);
+  }
+
+  
+  /*= =====================================================================
+  // Display trends.
+  ====================================================================== */
+  displayResultsTrends(i) {
+    this.setState({
+      breadcrumbCurrentStep: 'Keyword Trends',
+      showKeywords: false,
+      showResultsTrends: true,
+    });
+    window.scrollTo(0,0);
+  }
+
+      /*= =====================================================================
+  // Display conversations.
+  ====================================================================== */
+  displayResultsConversations(i) {
+    this.setState({
+      breadcrumbCurrentStep: 'Trend Conversations',
+      showResultsTrends: false,
+      showResultsConversations: true,
+    });
+    window.scrollTo(0,0);
   }
 
   /*= =====================================================================
   // When the user clicks the Analyze Trend campaign, ensure that
   // a trend has been checkmarked and then direct the user to results.
   ====================================================================== */
-  handleAnalyzeTrend() {
+  handleCampaignBegin() {
     this.setState({
-      showResults: false,
+      breadcrumbCurrentStep: 'Create Campaign',
+      showResultsConversations: false,
       showCampaign: true,
     });
+    window.scrollTo(0,0);
   }
 
   /*= =====================================================================
@@ -204,9 +249,11 @@ class AnalysisResults extends Component {
   ====================================================================== */
   handleCampaignSubmit() {
     this.setState({
+      breadcrumbCurrentStep: 'Campaign Success',
       showCampaign: false,
       showConfirmation: true,
     });
+    window.scrollTo(0,0);
   }
 
   /*= =====================================================================
@@ -224,41 +271,55 @@ class AnalysisResults extends Component {
         </nav>
         { (this.state.showLoader)
           ? <Loader />
-          : <div /> }
+          : null }
         { (this.state.showNoKeywords)
           ? <div>No keywords found. Visit <a href="#/admin/marketinganalysis/addkeyword">add keyword</a> to get started.</div>
-          : <div /> }
+          : null }
         { (this.state.showKeywords)
           ? <AnalysisKeywords 
               allKeywords={this.state.keywordsArray} 
-              selectKeyword={this.displayKeywordResults}
+              selectKeyword={this.displayResultsTrends}
             />
-          : <div /> }
-        { (this.state.showResults)
+          : null }
+        { (this.state.showResultsTrends)
           ? <AnalysisKeywordTrends
             resultsData={this.state.data}
             trendNum={this.state.trendNumArray}
-            selTrends={this.state.selectedTrends}
+            selTrend={this.state.selectedTrend}
             toolOpen={this.state.tooltipOpen}
             keyword="Keyword"
             handleSelectionSubmit={this.handleMarketingResultsSelectionSubmit}
             previous10Results={this.handlePrevious10Results}
             next10Results={this.handleNext10Results}
             changeTooltip={this.toggleTooltip}
-            changeCheckbox={this.toggleCheckbox}
+            changeCheckbox={this.toggleTrendCheckbox}
             backToKeywords={this.handleBackToKeywords}
-            analyzeTrend={this.handleAnalyzeTrend}
+            analyzeTrend={this.displayResultsConversations}
           />
-          : <div /> }
+          : null }
+        { (this.state.showResultsConversations)
+          ? <AnalysisTrendConversations
+            resultsData={this.state.data}
+            trendNum={this.state.trendNumArray}
+            selConvo={this.state.selectedConversation}
+            keyword="Keyword"
+            handleSelectionSubmit={this.handleMarketingResultsSelectionSubmit}
+            previous10Results={this.handlePrevious10Results}
+            next10Results={this.handleNext10Results}
+            changeCheckbox={this.toggleConversationCheckbox}
+            backToTrends={this.handleBackToTrends}
+            startCampaign={this.handleCampaignBegin}
+          />
+          : null }
         { (this.state.showCampaign)
           ? <AnalysisCampaign
             resultsData={this.state.data}
             campaignSubmit={this.handleCampaignSubmit}
           />
-          : <div /> }
+          : null }
         { (this.state.showConfirmation)
           ? <AnalysisConfirmation />
-          : <div /> }
+          : null }
       </div>
     );
   }

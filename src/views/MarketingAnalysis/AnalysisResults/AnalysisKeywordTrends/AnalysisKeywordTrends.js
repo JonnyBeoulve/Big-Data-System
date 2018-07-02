@@ -90,7 +90,7 @@ class AnalysisKeywordTrends extends Component {
                   </Col>
                 </Row>
                 <br />
-                <Table hover responsive style={mainTableStyle}className="table-outline mb-0 d-none d-sm-table">
+                <Table hover responsive style={mainTableStyle} className="table-outline mb-0 d-none d-sm-table">
                   <thead className="thead-light">
                     <tr>
                       <th className="small-trend-column">Select</th>
@@ -108,7 +108,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[0]} 
+                            checked={this.props.selTrend[0]} 
                             onChange={() => { this.props.changeCheckbox(0); }}
                           />
                           </div>
@@ -224,7 +224,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[1]} 
+                            checked={this.props.selTrend[1]} 
                             onChange={() => { this.props.changeCheckbox(1); }}
                           />
                           </div>
@@ -340,7 +340,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[2]} 
+                            checked={this.props.selTrend[2]} 
                             onChange={() => { this.props.changeCheckbox(2); }}
                           />
                           </div>
@@ -456,7 +456,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[3]} 
+                            checked={this.props.selTrend[3]} 
                             onChange={() => { this.props.changeCheckbox(3); }}
                           />
                           </div>
@@ -572,7 +572,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[4]} 
+                            checked={this.props.selTrend[4]} 
                             onChange={() => { this.props.changeCheckbox(4); }}
                           />
                           </div>
@@ -688,7 +688,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[5]} 
+                            checked={this.props.selTrend[5]} 
                             onChange={() => { this.props.changeCheckbox(5); }}
                           />
                           </div>
@@ -804,7 +804,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[6]} 
+                            checked={this.props.selTrend[6]} 
                             onChange={() => { this.props.changeCheckbox(6); }}
                           />
                           </div>
@@ -920,7 +920,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[7]} 
+                            checked={this.props.selTrend[7]} 
                             onChange={() => { this.props.changeCheckbox(7); }}
                           />
                           </div>
@@ -1036,7 +1036,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[8]} 
+                            checked={this.props.selTrend[8]} 
                             onChange={() => { this.props.changeCheckbox(8); }}
                           />
                           </div>
@@ -1152,7 +1152,7 @@ class AnalysisKeywordTrends extends Component {
                           <input
                             name="select-trend"
                             type="checkbox"
-                            checked={this.props.selTrends[9]} 
+                            checked={this.props.selTrend[9]} 
                             onChange={() => { this.props.changeCheckbox(9); }}
                           />
                           </div>
@@ -1270,7 +1270,7 @@ class AnalysisKeywordTrends extends Component {
                   </div>
                   <div className="pagination-buttons-end-div">
                       <button type="submit" className="btn btn-flex" onClick={this.props.backToKeywords}>Back</button>
-                      <button type="submit" className="btn btn-flex" onClick={this.props.analyzeTrend}>Analyze Trend</button>
+                      <button type="submit" className="btn btn-flex" onClick={this.props.analyzeTrend}>View Conversation</button>
                   </div>
                 </div>
                 </CardBody>

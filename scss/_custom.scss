@@ -38,7 +38,12 @@ a, a:hover {
   text-align: center;
 }
 
-// Table styling
+// General table styling
+.th {
+  text-align: center;
+}
+
+// Trend table styling
 tr {
   min-height: 80px;
 }
@@ -63,6 +68,47 @@ tr {
 
 .results-table-item {
   cursor: pointer;
+}
+
+// Conversation table styling
+.conversation-select-column {
+  width: 50px;
+}
+
+.conversation-person-column {
+  width: 100px;
+}
+
+.conversation-person-avatar {
+  display: block;
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+.conversation-person-name {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.conversation-social-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  border: none !important;
+}
+
+.conversation-post-text p {
+  font-size: 1.6em;
+}
+
+.conversation-post-sentiment-column {
+  width: 40%;
 }
 
 // Icon hover styling
