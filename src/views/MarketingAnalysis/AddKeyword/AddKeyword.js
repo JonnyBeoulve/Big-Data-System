@@ -41,7 +41,7 @@ class AddKeyword extends Component {
     formData.append('keywordLead', `${this.state.keyword}`);
     axios ({
       method: 'post',
-      url: 'http://cobiasystems.lc/rest/admin/keyword/create_keyphrases',
+      url: '/rest/admin/keyword/create_keyphrases',
       data: formData,
       headers: {
         Accept: 'application/json',

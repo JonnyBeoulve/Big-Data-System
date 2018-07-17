@@ -36,7 +36,7 @@ class Signup extends Component {
         formData.append('password_confirm', `${this.state.signupConfirmPassword}`);
         axios ({
             method: 'post',
-            url: 'http://cobiasystems.lc/rest/public/account/signup',
+            url: '/rest/public/account/signup',
             data: formData,
             headers: {
               Accept: 'application/json',

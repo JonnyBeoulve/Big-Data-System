@@ -74,7 +74,7 @@ class AnalysisResults extends Component {
     formData.append('limit', 100);
     axios ({
       method: 'post',
-      url: 'http://cobiasystems.lc/rest/admin/keyword/get_keywords',
+      url: '/rest/admin/keyword/get_keywords',
       data: formData,
       headers: {
         Accept: 'application/json',

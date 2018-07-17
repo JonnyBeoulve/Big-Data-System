@@ -44,7 +44,7 @@ class Login extends Component {
   checkSession() {
     axios ({
       method: 'post',
-      url: 'http://cobiasystems.lc/rest/admin/account/me',
+      url: '/rest/admin/account/me',
     })
     .then(response => {
       if (response.data.Status === 1) {

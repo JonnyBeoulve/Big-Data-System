@@ -31,7 +31,7 @@ class MyProfile extends Component {
     formData.append('email', userEmailStr);
     axios ({
       method: 'post',
-      url: 'http://cobiasystems.lc/rest/public/account/reset_password/',
+      url: '/rest/public/account/reset_password/',
       data: formData,
       headers: {
         Accept: 'application/json',
