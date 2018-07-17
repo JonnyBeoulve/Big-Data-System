@@ -48,19 +48,7 @@ class HeaderDropdown extends Component {
   // Remove the user's session and redirect them to the top level page.
   ====================================================================== */
   handleLogout() {
-    e.preventDefault();
-    axios ({
-      method: 'post',
-      url: 'http://cobiasystems.lc/rest/public/account/logout',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .catch(error => {
-      console.log('Error logging out', error);
-      return;
-    }) 
+    this.setState({logout: true})
   }
 
   /*= =====================================================================

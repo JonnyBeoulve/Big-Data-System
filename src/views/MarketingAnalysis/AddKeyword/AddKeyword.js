@@ -33,39 +33,13 @@ class AddKeyword extends Component {
       this.setState({
         showConfirmation: false,
         showFormError: true,
-      });
-      window.scrollTo(0, 0);
-      return;
-    }
-    const formData = new FormData();
-    formData.append('keywordLead', `${this.state.keyword}`);
-    axios ({
-      method: 'post',
-      url: '/rest/admin/keyword/create_keyphrases',
-      data: formData,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then(response => {
-      if(response.data.Status === 1) {
+      })
+    } else {
         this.setState({
           showConfirmation: true,
           showFormError: false,
-        });
-      } else {
-        this.setState({
-          showConfirmation: false,
-          showFormError: true,
-        });
-      }
-      return;
-    })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-      return;
-    })
+      })
+    }
   }
 
   render() {

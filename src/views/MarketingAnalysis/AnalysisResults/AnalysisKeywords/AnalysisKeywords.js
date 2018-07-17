@@ -20,6 +20,7 @@ class AnalysisKeywords extends Component {
                 color="info"
                 header={keyword.keyword}
                 value="25"
+                key={keyword.key}
                 invert
                 onClick={() => { this.props.selectKeyword(index) }}
               >

@@ -8,13 +8,13 @@ class AnalysisCampaign extends Component {
     return (
       <div className="animated fadeIn">
         <form onSubmit={this.props.campaignSubmit}>
-          <label>Campaign field 1?</label>
+          <label>Campaign Name</label>
           <input className="form-control" type="text" name="tbd" placeholder="TBD1" />
-          <label>Campaign field 2?</label>
+          <label>Target Keyword</label>
           <input className="form-control" type="text" name="tbd" placeholder="TBD2" />
-          <label>Campaign field 3?</label>
+          <label>Campaign Landing Page</label>
           <input className="form-control" type="text" name="tbd" placeholder="TBD3" />
-          <label>Campaign field 4?</label>
+          <label>Campagn Text</label>
           <input className="form-control" type="text" name="tbd" placeholder="TBD4" />
           <br />
           <button className="btn btn-primary" type="submit" value="Submit">Submit</button>

@@ -29,44 +29,6 @@ class Login extends Component {
   }
 
   /*= =====================================================================
-  // Upon arriving at the login page execute check session to see if
-  // the user is already logged in.
-  ====================================================================== */
-  componentDidMount() {
-    this.checkSession();
-  }
-
-  /*= =====================================================================
-  // Upon arriving at the login page this function will be run to see if
-  // the user is already logged in. If so, it will redirect them to
-  // the admin panel.
-  ====================================================================== */
-  checkSession() {
-    axios ({
-      method: 'post',
-      url: '/rest/admin/account/me',
-    })
-    .then(response => {
-      if (response.data.Status === 1) {
-        this.setState({
-          loggedIn: true,
-        });
-      } else {
-        this.setState({
-          loggedIn: false,
-        });
-      }
-    })
-    .catch(error => {
-      this.setState({
-        loggedIn: false,
-      });
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
-  }
-
-  /*= =====================================================================
   // This will handle login submission and authentication. First, formData
   // will be created. Once submitted to the server, the user will be
   // logged into the admin panel if successful. If not, an error will be
@@ -74,37 +36,9 @@ class Login extends Component {
   ====================================================================== */
   handleLoginSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append('email', `${this.state.loginEmail}`);
-    formData.append('password', `${this.state.loginPassword}`);
-    axios ({
-      method: 'post',
-      url: 'http://cobiasystems.lc/rest/public/account/login_basic',
-      data: formData,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then(response => {
-      if(response.data.Status === 1) {
-        localStorage.setItem('userEmail', `${this.state.loginEmail}`)
-        this.setState({
-          loggedIn: true,
-        });
-      } else {
-        console.log(response.data);
-        this.setState({
-          loginError: true,
-          loginErrorMessage: response.data.Message,
-        }); 
-      }
-      return;
-    })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
+    if(this.state.loginEmail === 'cobia@cobiasystems.com' && this.state.loginPassword === 'Cobia2018') {
+      this.setState({ loggedIn: true });
+    }
   }
 
   /*= =====================================================================

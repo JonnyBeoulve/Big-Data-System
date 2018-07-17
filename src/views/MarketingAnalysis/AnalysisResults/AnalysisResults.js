@@ -68,42 +68,25 @@ class AnalysisResults extends Component {
   // within this high level container. AnalysisKeywords will then
   // list these, while other child components will reference their data.
   ====================================================================== */
-  getKeywords(e) {
-    const formData = new FormData();
-    formData.append('type', 2);
-    formData.append('limit', 100);
-    axios ({
-      method: 'post',
-      url: '/rest/admin/keyword/get_keywords',
-      data: formData,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
-      }
+  getKeywords() {
+    this.setState({
+      keywordsArray: [
+        {
+          keyword: 'Healthy Living',
+          key: '001'
+        },
+        {
+          keyword: 'Organic Foods',
+          key: '002'
+        },
+        {
+          keyword: 'Luxury Cars',
+          key: '003'
+        },
+      ],
+      showLoader: false,
+      showKeywords: true
     })
-    .then(response => {
-      if(response.data.Status === 1) {
-        this.setState({
-          keywordsArray: response.data.Data.keywords,
-          showLoader: false,
-          showKeywords: true,
-        });
-      } else {
-        this.setState({
-          showLoader: false,
-          showNoKeywords: true,
-        }); 
-      }
-      return;
-    })
-    .catch(error => {
-      this.setState({
-        showLoader: false,
-        showNoKeywords: true,
-      }); 
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
   }
 
   /*= =====================================================================
@@ -163,7 +146,7 @@ class AnalysisResults extends Component {
   // of checkboxes.
   ====================================================================== */
   handleNext10Results() {
-    if (this.state.trendNumArray[9] >= 100) {
+    if (this.state.trendNumArray[9] >= 90) {
       return;
     } else {
       const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));

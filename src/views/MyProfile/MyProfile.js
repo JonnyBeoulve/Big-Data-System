@@ -20,45 +20,6 @@ class MyProfile extends Component {
     };
   }
 
-  /*= =====================================================================
-  // Upon clicking the edit button next to a login email address, the
-  // user will receive an email to reset their password.
-  ====================================================================== */  
-  handleResetPassword(e) {
-    e.preventDefault();
-    const userEmailStr = localStorage.getItem('userEmail');
-    const formData = new FormData();
-    formData.append('email', userEmailStr);
-    axios ({
-      method: 'post',
-      url: '/rest/public/account/reset_password/',
-      data: formData,
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-    .then(response => {
-      console.log(response);
-      if(response.data.Status === 1) {
-        this.setState({
-          passwordResetFailed: false,
-          passwordResetSucceeded: true,
-        });
-      } else {
-        this.setState({
-          passwordResetFailed: true,
-          passwordResetSucceeded: false,
-        }); 
-      }
-      return;
-    })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
-  }
-
   render() {
     const userEmailString = localStorage.getItem('userEmail');
     return (
@@ -78,7 +39,7 @@ class MyProfile extends Component {
             { (this.state.passwordResetSucceeded)
             ? <div className="form-success-div">Password reset succeeded. Check your email.</div>
             : <div /> }
-            <p>{userEmailString} <i onClick={this.handleResetPassword.bind(this)} className={['fa fa-edit', 'icon-hover'].join(' ')} /></p>
+            <p>{userEmailString}</p>
             <p>Click the icon next to an email to reset password.</p>
             <a href="#/admin/myprofile/addlogin"><button type="submit" className="btn btn-primary">Add Login</button></a>
           </Col>

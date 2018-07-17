@@ -23,56 +23,11 @@ import Help from '../../views/Help/';
 // routing for all views.
 ====================================================================== */
 class AdminPanel extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: true,
-    };
-  }
-
-  /*= =====================================================================
-  // Check if the user has a login session upon arriving at admin panel
-  // as well as a connected Twitter account.
-  ====================================================================== */
-  componentDidMount() {
-    this.checkSession();
-  }
-
-  /*= =====================================================================
-  // Upon arriving at the admin panel this function will be run to see if
-  // the user is already logged in. If so, it will redirect them to
-  // the admin panel.
-  ====================================================================== */
-  checkSession() {
-    axios ({
-      method: 'post',
-      url: '/rest/admin/account/me',
-    })
-    .then(response => {
-      if (response.data.Status === 0) {
-        this.setState({
-          loggedIn: false,
-        });
-      } else return;
-    })
-    .catch(error => {
-      this.setState({
-        loggedIn: false,
-      });
-      console.log('Error checking session', error);
-      return;
-    }) 
-  }
-
   /*= =====================================================================
   // This will render the entire layout of the Admin Panel, in addition
   // to handling displaying of views within the UI.
   ====================================================================== */
   render() {
-    if (!this.state.loggedIn) {
-      return <Redirect to="/" />;
-    }
-
     return (
       <div className="app">
         <Header />
