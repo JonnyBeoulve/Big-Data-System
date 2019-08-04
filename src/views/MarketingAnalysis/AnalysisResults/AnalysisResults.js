@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
-import AnalysisKeywords from './AnalysisKeywords/AnalysisKeywords';
-import Loader from '../../Loader';
-import AnalysisKeywordTrends from './AnalysisKeywordTrends/AnalysisKeywordTrends';
-import AnalysisTrendConversations from './AnalysisTrendConversations/AnalysisTrendConversations';
-import AnalysisCampaign from './AnalysisCampaign/AnalysisCampaign';
-import AnalysisConfirmation from './AnalysisConfirmation/AnalysisConfirmation';
+import AnalysisKeywords from "./AnalysisKeywords/AnalysisKeywords";
+import Loader from "../../Loader";
+import AnalysisKeywordTrends from "./AnalysisKeywordTrends/AnalysisKeywordTrends";
+import AnalysisTrendConversations from "./AnalysisTrendConversations/AnalysisTrendConversations";
+import AnalysisCampaign from "./AnalysisCampaign/AnalysisCampaign";
+import AnalysisConfirmation from "./AnalysisConfirmation/AnalysisConfirmation";
 
 // Use local data file for data instead of server until server is working
-import jsonData from '../../../data/health_435.json';
+import jsonData from "../../../data/health_435.json";
 
 /*= =====================================================================
 // This is the dashboard view that users will land on upon logging into
-// Cobia Systems.
+// the system.
 ====================================================================== */
 class AnalysisResults extends Component {
   /*= =====================================================================
@@ -27,18 +27,22 @@ class AnalysisResults extends Component {
   constructor(props) {
     super(props);
     this.displayResultsTrends = this.displayResultsTrends.bind(this);
-    this.displayResultsConversations = this.displayResultsConversations.bind(this);
+    this.displayResultsConversations = this.displayResultsConversations.bind(
+      this
+    );
     this.handlePrevious10Results = this.handlePrevious10Results.bind(this);
     this.handleNext10Results = this.handleNext10Results.bind(this);
     this.toggleTooltip = this.toggleTooltip.bind(this);
     this.toggleTrendCheckbox = this.toggleTrendCheckbox.bind(this);
-    this.toggleConversationCheckbox = this.toggleConversationCheckbox.bind(this);
+    this.toggleConversationCheckbox = this.toggleConversationCheckbox.bind(
+      this
+    );
     this.handleBackToKeywords = this.handleBackToKeywords.bind(this);
     this.handleBackToTrends = this.handleBackToTrends.bind(this);
     this.handleCampaignBegin = this.handleCampaignBegin.bind(this);
     this.handleCampaignSubmit = this.handleCampaignSubmit.bind(this);
     this.state = {
-      breadcrumbCurrentStep: 'All Keywords',
+      breadcrumbCurrentStep: "All Keywords",
       showLoader: true,
       showNoKeywords: false,
       showKeywords: false,
@@ -50,9 +54,42 @@ class AnalysisResults extends Component {
       keywordsArray: [],
       trendNumArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       conversationNumArray: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      selectedTrend: [false, false, false, false, false, false, false, false, false, false],
-      selectedConversation: [false, false, false, false, false, false, false, false, false, false],
-      tooltipOpen: [false, false, false, false, false, false, false, false, false, false],
+      selectedTrend: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      selectedConversation: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      tooltipOpen: [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
     };
   }
 
@@ -70,49 +107,51 @@ class AnalysisResults extends Component {
   ====================================================================== */
   getKeywords(e) {
     const formData = new FormData();
-    formData.append('type', 2);
-    formData.append('limit', 100);
-    axios ({
-      method: 'post',
-      url: '/rest/admin/keyword/get_keywords',
+    formData.append("type", 2);
+    formData.append("limit", 100);
+    axios({
+      method: "post",
+      url: "/rest/admin/keyword/get_keywords",
       data: formData,
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data"
       }
     })
-    .then(response => {
-      if(response.data.Status === 1) {
+      .then(response => {
+        if (response.data.Status === 1) {
+          this.setState({
+            keywordsArray: response.data.Data.keywords,
+            showLoader: false,
+            showKeywords: true
+          });
+        } else {
+          this.setState({
+            showLoader: false,
+            showNoKeywords: true
+          });
+        }
+        return;
+      })
+      .catch(error => {
         this.setState({
-          keywordsArray: response.data.Data.keywords,
           showLoader: false,
-          showKeywords: true,
+          showNoKeywords: true
         });
-      } else {
-        this.setState({
-          showLoader: false,
-          showNoKeywords: true,
-        }); 
-      }
-      return;
-    })
-    .catch(error => {
-      this.setState({
-        showLoader: false,
-        showNoKeywords: true,
-      }); 
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
+        console.log("Error fetching and parsing data", error);
+        return;
+      });
   }
 
   /*= =====================================================================
   // Toggle the visible state of tooltips for a trend on mouseover.
   ====================================================================== */
   toggleTooltip(i) {
-    const newArray = this.state.tooltipOpen.map((element, index) => (index === i ? !element : false));
+    const newArray = this.state.tooltipOpen.map((element, index) =>
+      index === i ? !element : false
+    );
     this.setState({
-        tooltipOpen: newArray,
+      tooltipOpen: newArray
     });
   }
 
@@ -120,21 +159,25 @@ class AnalysisResults extends Component {
   // Toggle whether or not a checkbox is selected.
   ====================================================================== */
   toggleTrendCheckbox(i) {
-      const newArray = this.state.selectedTrend.map((element, index) => (index === i ? !element : false));
-      this.setState({
-          selectedTrend: newArray,
-      });
+    const newArray = this.state.selectedTrend.map((element, index) =>
+      index === i ? !element : false
+    );
+    this.setState({
+      selectedTrend: newArray
+    });
   }
 
   /*= =====================================================================
   // Toggle whether or not a checkbox is selected.
   ====================================================================== */
   toggleConversationCheckbox(i) {
-    const newArray = this.state.selectedConversation.map((element, index) => (index === i ? !element : false));
+    const newArray = this.state.selectedConversation.map((element, index) =>
+      index === i ? !element : false
+    );
     this.setState({
-        selectedConversation: newArray,
+      selectedConversation: newArray
     });
-}
+  }
 
   /*= =====================================================================
   // For pagination, minus 10 from each element in trendNumArray, but only
@@ -146,11 +189,13 @@ class AnalysisResults extends Component {
     if (this.state.trendNumArray[0] === 0) {
       return;
     } else {
-      const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
-      const newTrendNumArray = this.state.trendNumArray.map((element) => (element - 10));
+      const newSelTrendsArray = this.state.selectedTrend.map(element => false);
+      const newTrendNumArray = this.state.trendNumArray.map(
+        element => element - 10
+      );
       this.setState({
-          selectedTrend: newSelTrendsArray,
-          trendNumArray: newTrendNumArray,
+        selectedTrend: newSelTrendsArray,
+        trendNumArray: newTrendNumArray
       });
     }
   }
@@ -166,11 +211,13 @@ class AnalysisResults extends Component {
     if (this.state.trendNumArray[9] >= 100) {
       return;
     } else {
-      const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
-      const newTrendNumArray = this.state.trendNumArray.map((element) => (element + 10));
+      const newSelTrendsArray = this.state.selectedTrend.map(element => false);
+      const newTrendNumArray = this.state.trendNumArray.map(
+        element => element + 10
+      );
       this.setState({
-          selectedTrend: newSelTrendsArray,
-          trendNumArray: newTrendNumArray,
+        selectedTrend: newSelTrendsArray,
+        trendNumArray: newTrendNumArray
       });
     }
   }
@@ -180,54 +227,57 @@ class AnalysisResults extends Component {
   // keywords. In addition, reset state.
   ====================================================================== */
   handleBackToKeywords() {
-    const newSelTrendsArray = this.state.selectedTrend.map((element) => (false));
-    const newTrendNumArray = this.state.trendNumArray.map((element, index) => (index));
+    const newSelTrendsArray = this.state.selectedTrend.map(element => false);
+    const newTrendNumArray = this.state.trendNumArray.map(
+      (element, index) => index
+    );
     this.setState({
       selectedTrend: newSelTrendsArray,
       showKeywords: true,
       showResultsTrends: false,
-      trendNumArray: newTrendNumArray,
+      trendNumArray: newTrendNumArray
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-    /*= =====================================================================
+  /*= =====================================================================
   // When the user clicks the Back button, hide conversations and show
   // trends.
   ====================================================================== */
   handleBackToTrends() {
-    const newSelConvoArray = this.state.selectedConversation.map((element) => (false));
+    const newSelConvoArray = this.state.selectedConversation.map(
+      element => false
+    );
     this.setState({
       showResultsTrends: true,
       showResultsConversations: false,
-      selectedConveration: newSelConvoArray,
+      selectedConveration: newSelConvoArray
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-  
   /*= =====================================================================
   // Display trends.
   ====================================================================== */
   displayResultsTrends(i) {
     this.setState({
-      breadcrumbCurrentStep: 'Keyword Trends',
+      breadcrumbCurrentStep: "Keyword Trends",
       showKeywords: false,
-      showResultsTrends: true,
+      showResultsTrends: true
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
-      /*= =====================================================================
+  /*= =====================================================================
   // Display conversations.
   ====================================================================== */
   displayResultsConversations(i) {
     this.setState({
-      breadcrumbCurrentStep: 'Trend Conversations',
+      breadcrumbCurrentStep: "Trend Conversations",
       showResultsTrends: false,
-      showResultsConversations: true,
+      showResultsConversations: true
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   /*= =====================================================================
@@ -236,11 +286,11 @@ class AnalysisResults extends Component {
   ====================================================================== */
   handleCampaignBegin() {
     this.setState({
-      breadcrumbCurrentStep: 'Create Campaign',
+      breadcrumbCurrentStep: "Create Campaign",
       showResultsConversations: false,
-      showCampaign: true,
+      showCampaign: true
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   /*= =====================================================================
@@ -249,11 +299,11 @@ class AnalysisResults extends Component {
   ====================================================================== */
   handleCampaignSubmit() {
     this.setState({
-      breadcrumbCurrentStep: 'Campaign Success',
+      breadcrumbCurrentStep: "Campaign Success",
       showCampaign: false,
-      showConfirmation: true,
+      showConfirmation: true
     });
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   /*= =====================================================================
@@ -265,24 +315,30 @@ class AnalysisResults extends Component {
       <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
-            <li className="breadcrumb-item"><a href="#/admin">Dashboard</a></li>
-            <li className="breadcrumb-item active" aria-current="page">{this.state.breadcrumbCurrentStep}</li>
+            <li className="breadcrumb-item">
+              <a href="#/admin">Dashboard</a>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              {this.state.breadcrumbCurrentStep}
+            </li>
           </ol>
         </nav>
-        { (this.state.showLoader)
-          ? <Loader />
-          : null }
-        { (this.state.showNoKeywords)
-          ? <div>No keywords found. Visit <a href="#/admin/marketinganalysis/addkeyword">add keyword</a> to get started.</div>
-          : null }
-        { (this.state.showKeywords)
-          ? <AnalysisKeywords 
-              allKeywords={this.state.keywordsArray} 
-              selectKeyword={this.displayResultsTrends}
-            />
-          : null }
-        { (this.state.showResultsTrends)
-          ? <AnalysisKeywordTrends
+        {this.state.showLoader ? <Loader /> : null}
+        {this.state.showNoKeywords ? (
+          <div>
+            No keywords found. Visit{" "}
+            <a href="#/admin/marketinganalysis/addkeyword">add keyword</a> to
+            get started.
+          </div>
+        ) : null}
+        {this.state.showKeywords ? (
+          <AnalysisKeywords
+            allKeywords={this.state.keywordsArray}
+            selectKeyword={this.displayResultsTrends}
+          />
+        ) : null}
+        {this.state.showResultsTrends ? (
+          <AnalysisKeywordTrends
             resultsData={this.state.data}
             trendNum={this.state.trendNumArray}
             selTrend={this.state.selectedTrend}
@@ -296,9 +352,9 @@ class AnalysisResults extends Component {
             backToKeywords={this.handleBackToKeywords}
             analyzeTrend={this.displayResultsConversations}
           />
-          : null }
-        { (this.state.showResultsConversations)
-          ? <AnalysisTrendConversations
+        ) : null}
+        {this.state.showResultsConversations ? (
+          <AnalysisTrendConversations
             resultsData={this.state.data}
             trendNum={this.state.trendNumArray}
             selConvo={this.state.selectedConversation}
@@ -310,16 +366,14 @@ class AnalysisResults extends Component {
             backToTrends={this.handleBackToTrends}
             startCampaign={this.handleCampaignBegin}
           />
-          : null }
-        { (this.state.showCampaign)
-          ? <AnalysisCampaign
+        ) : null}
+        {this.state.showCampaign ? (
+          <AnalysisCampaign
             resultsData={this.state.data}
             campaignSubmit={this.handleCampaignSubmit}
           />
-          : null }
-        { (this.state.showConfirmation)
-          ? <AnalysisConfirmation />
-          : null }
+        ) : null}
+        {this.state.showConfirmation ? <AnalysisConfirmation /> : null}
       </div>
     );
   }

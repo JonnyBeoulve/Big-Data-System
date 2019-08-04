@@ -1,3 +1,10 @@
 # Big Data System
 
-The repository for a mock build of a big data system to demonstrate a potential UI solution for the platform.
+A mock build of a big data system to demonstrate a potential UI solution for the platform.
+
+## Programming
+
+- React
+- JavaScript
+- CSS
+- HTML

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 
-import Signup from './Signup/Signup';
-import CobiaLogo from '../../../public/img/logo.png';
+import Signup from "./Signup/Signup";
+import BDSLogo from "../../../public/img/logo.png";
 
 /*= =====================================================================
-// This is the Login container for Cobia Systems where users first
+// This is the Login container for Big Data System where users first
 // arrive. Here a user can login to the system to gain access to the
 // Admin Panel or register a new account.
 ====================================================================== */
@@ -21,10 +21,10 @@ class Login extends Component {
     this.state = {
       showSignUp: false,
       loggedIn: false,
-      loginEmail: '',
-      loginPassword: '',
+      loginEmail: "",
+      loginPassword: "",
       loginError: false,
-      loginErrorMessage: '',
+      loginErrorMessage: ""
     };
   }
 
@@ -42,28 +42,28 @@ class Login extends Component {
   // the admin panel.
   ====================================================================== */
   checkSession() {
-    axios ({
-      method: 'post',
-      url: '/rest/admin/account/me',
+    axios({
+      method: "post",
+      url: "/rest/admin/account/me"
     })
-    .then(response => {
-      if (response.data.Status === 1) {
+      .then(response => {
+        if (response.data.Status === 1) {
+          this.setState({
+            loggedIn: true
+          });
+        } else {
+          this.setState({
+            loggedIn: false
+          });
+        }
+      })
+      .catch(error => {
         this.setState({
-          loggedIn: true,
+          loggedIn: false
         });
-      } else {
-        this.setState({
-          loggedIn: false,
-        });
-      }
-    })
-    .catch(error => {
-      this.setState({
-        loggedIn: false,
+        console.log("Error fetching and parsing data", error);
+        return;
       });
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
   }
 
   /*= =====================================================================
@@ -75,36 +75,36 @@ class Login extends Component {
   handleLoginSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('email', `${this.state.loginEmail}`);
-    formData.append('password', `${this.state.loginPassword}`);
-    axios ({
-      method: 'post',
-      url: 'http://cobiasystems.lc/rest/public/account/login_basic',
+    formData.append("email", `${this.state.loginEmail}`);
+    formData.append("password", `${this.state.loginPassword}`);
+    axios({
+      method: "post",
+      url: "/",
       data: formData,
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data"
       }
     })
-    .then(response => {
-      if(response.data.Status === 1) {
-        localStorage.setItem('userEmail', `${this.state.loginEmail}`)
-        this.setState({
-          loggedIn: true,
-        });
-      } else {
-        console.log(response.data);
-        this.setState({
-          loginError: true,
-          loginErrorMessage: response.data.Message,
-        }); 
-      }
-      return;
-    })
-    .catch(error => {
-      console.log('Error fetching and parsing data', error);
-      return;
-    }) 
+      .then(response => {
+        if (response.data.Status === 1) {
+          localStorage.setItem("userEmail", `${this.state.loginEmail}`);
+          this.setState({
+            loggedIn: true
+          });
+        } else {
+          console.log(response.data);
+          this.setState({
+            loginError: true,
+            loginErrorMessage: response.data.Message
+          });
+        }
+        return;
+      })
+      .catch(error => {
+        console.log("Error fetching and parsing data", error);
+        return;
+      });
   }
 
   /*= =====================================================================
@@ -113,7 +113,7 @@ class Login extends Component {
   ====================================================================== */
   handleSignUp() {
     this.setState({
-      showSignUp: true,
+      showSignUp: true
     });
   }
 
@@ -123,12 +123,12 @@ class Login extends Component {
   ====================================================================== */
   handleCloseSignupModal() {
     this.setState({
-      showSignUp: false,
+      showSignUp: false
     });
   }
 
   /*= =====================================================================
-  // This will render the Cobia Systems logo, email and password inputs,
+  // This will render the Big Data System logo, email and password inputs,
   // as well as a submit button for login. Upon login, the program will
   // redirect to the dashboard.
   ====================================================================== */
@@ -138,22 +138,49 @@ class Login extends Component {
     }
 
     return (
-      <div className={['login', 'animated fadeIn'].join(' ')}>
-        <img src={CobiaLogo} className="login-cobia-logo" alt="Cobia Systems Logo" />
+      <div className={["login", "animated fadeIn"].join(" ")}>
+        <img
+          src={BDSLogo}
+          className="login-bds-logo"
+          alt="Big Data System logo"
+        />
         <h2 className="login-header-text">LOG IN</h2>
-        { (this.state.loginError)
-            ? <div className="login-error-div">{this.state.loginErrorMessage}</div>
-            : <div /> }
+        {this.state.loginError ? (
+          <div className="login-error-div">{this.state.loginErrorMessage}</div>
+        ) : (
+          <div />
+        )}
         <div className="login-form">
           <form onSubmit={this.handleLoginSubmit.bind(this)}>
-            <input className="login-email-input" type="email" name="email" placeholder="Email" onChange={e => this.setState({ loginEmail: e.target.value })} />
-            <input className="login-password-input" type="password" name="password" placeholder="Password" onChange={e => this.setState({ loginPassword: e.target.value })} />
-            <button className="login-button" type="submit" value="Submit">Submit</button>
+            <input
+              className="login-email-input"
+              type="email"
+              name="email"
+              placeholder="Email"
+              onChange={e => this.setState({ loginEmail: e.target.value })}
+            />
+            <input
+              className="login-password-input"
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={e => this.setState({ loginPassword: e.target.value })}
+            />
+            <button className="login-button" type="submit" value="Submit">
+              Submit
+            </button>
           </form>
-          <p className="login-signup-link" onClick={this.handleSignUp.bind(this)}>Sign Up</p>
-          { (this.state.showSignUp)
-            ? <Signup closeSignupModal={this.handleCloseSignupModal} />
-            : <div /> }
+          <p
+            className="login-signup-link"
+            onClick={this.handleSignUp.bind(this)}
+          >
+            Sign Up
+          </p>
+          {this.state.showSignUp ? (
+            <Signup closeSignupModal={this.handleCloseSignupModal} />
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     );

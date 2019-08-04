@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import { Container } from 'reactstrap';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { Container } from "reactstrap";
+import axios from "axios";
 
-import Header from '../../components/Header/';
-import Sidebar from '../../components/Sidebar/';
-import Footer from '../../components/Footer/';
-import AddKeyword from '../../views/MarketingAnalysis/AddKeyword/';
-import AnalysisResults from '../../views/MarketingAnalysis/AnalysisResults';
-import Dashboard from '../../views/Dashboard/';
-import EventAnalysis from '../../views/EventAnalysis/';
-import CompetitorAnalysis from '../../views/CompetitorAnalysis/';
-import ReputationReport from '../../views/ReputationReport/';
-import MyCampaigns from '../../views/MyCampaigns/';
-import MyProfile from '../../views/MyProfile/';
-import MyProfileAddLogin from '../../views/MyProfile/MyProfileAddLogin/';
-import Help from '../../views/Help/';
+import Header from "../../components/Header/";
+import Sidebar from "../../components/Sidebar/";
+import Footer from "../../components/Footer/";
+import AddKeyword from "../../views/MarketingAnalysis/AddKeyword/";
+import AnalysisResults from "../../views/MarketingAnalysis/AnalysisResults";
+import Dashboard from "../../views/Dashboard/";
+import EventAnalysis from "../../views/EventAnalysis/";
+import CompetitorAnalysis from "../../views/CompetitorAnalysis/";
+import ReputationReport from "../../views/ReputationReport/";
+import MyCampaigns from "../../views/MyCampaigns/";
+import MyProfile from "../../views/MyProfile/";
+import MyProfileAddLogin from "../../views/MyProfile/MyProfileAddLogin/";
+import Help from "../../views/Help/";
 
 /*= =====================================================================
-// This is the full wrapper for Cobia Systems which includes a sidebar,
+// This is the full wrapper for Big Data System which includes a sidebar,
 // container for views, aside, and footer. It also includes
 // routing for all views.
 ====================================================================== */
@@ -26,7 +26,7 @@ class AdminPanel extends Component {
   constructor() {
     super();
     this.state = {
-      loggedIn: true,
+      loggedIn: true
     };
   }
 
@@ -44,24 +44,24 @@ class AdminPanel extends Component {
   // the admin panel.
   ====================================================================== */
   checkSession() {
-    axios ({
-      method: 'post',
-      url: '/rest/admin/account/me',
+    axios({
+      method: "post",
+      url: "/rest/admin/account/me"
     })
-    .then(response => {
-      if (response.data.Status === 0) {
+      .then(response => {
+        if (response.data.Status === 0) {
+          this.setState({
+            loggedIn: false
+          });
+        } else return;
+      })
+      .catch(error => {
         this.setState({
-          loggedIn: false,
+          loggedIn: false
         });
-      } else return;
-    })
-    .catch(error => {
-      this.setState({
-        loggedIn: false,
+        console.log("Error checking session", error);
+        return;
       });
-      console.log('Error checking session', error);
-      return;
-    }) 
   }
 
   /*= =====================================================================
@@ -81,15 +81,53 @@ class AdminPanel extends Component {
           <main className="main">
             <Container fluid>
               <Switch>
-                <Route path="/admin/dashboard" name="Dashboard" component={Dashboard} />
-                <Route path="/admin/marketinganalysis/addkeyword" name="AddKeyword" component={AddKeyword} />
-                <Route path="/admin/marketinganalysis/results" name="AnalysisResults" component={AnalysisResults} />
-                <Route path="/admin/eventanalysis" name="EventAnalysis" component={EventAnalysis} />
-                <Route path="/admin/competitoranalysis" name="CompetitorAnalysis" component={CompetitorAnalysis} />
-                <Route path="/admin/reputationreport" name="ReputationReport" component={ReputationReport} />
-                <Route path="/admin/mycampaigns" name="MyCampaigns" component={MyCampaigns} />
-                <Route exact path="/admin/myprofile" name="MyProfile" component={MyProfile} />
-                <Route exact path="/admin/myprofile/addlogin" name="MyProfileAddLogin" component={MyProfileAddLogin} />
+                <Route
+                  path="/admin/dashboard"
+                  name="Dashboard"
+                  component={Dashboard}
+                />
+                <Route
+                  path="/admin/marketinganalysis/addkeyword"
+                  name="AddKeyword"
+                  component={AddKeyword}
+                />
+                <Route
+                  path="/admin/marketinganalysis/results"
+                  name="AnalysisResults"
+                  component={AnalysisResults}
+                />
+                <Route
+                  path="/admin/eventanalysis"
+                  name="EventAnalysis"
+                  component={EventAnalysis}
+                />
+                <Route
+                  path="/admin/competitoranalysis"
+                  name="CompetitorAnalysis"
+                  component={CompetitorAnalysis}
+                />
+                <Route
+                  path="/admin/reputationreport"
+                  name="ReputationReport"
+                  component={ReputationReport}
+                />
+                <Route
+                  path="/admin/mycampaigns"
+                  name="MyCampaigns"
+                  component={MyCampaigns}
+                />
+                <Route
+                  exact
+                  path="/admin/myprofile"
+                  name="MyProfile"
+                  component={MyProfile}
+                />
+                <Route
+                  exact
+                  path="/admin/myprofile/addlogin"
+                  name="MyProfileAddLogin"
+                  component={MyProfileAddLogin}
+                />
                 <Route path="/admin/help" name="Help" component={Help} />
                 <Redirect from="/" to="/admin/dashboard" />
               </Switch>

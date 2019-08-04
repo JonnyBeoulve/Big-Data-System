@@ -1,11 +1,8 @@
 {
-  "name": "cobia-systems",
+  "name": "big-data-system",
   "version": "0.2.1",
-  "description": "The new Cobia Systems.",
+  "description": "A mock build of a big data system to demonstrate a potential UI solution for the platform.",
   "author": "Jonathan Leack",
-  "homepage": "https://www.cobiasystems.com",
-  "copyright": "Copyright 2018 Cobia Systems",
-  "license": "https://www.cobiasystems.com",
   "private": true,
   "devDependencies": {
     "babel-core": "6.26.0",

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 /*= =====================================================================
 // This is the Help page where users can learn more about how to use
-// Cobia Systems effectively.
+// Cthe system effectively.
 ====================================================================== */
 class Help extends Component {
   render() {
@@ -10,12 +10,16 @@ class Help extends Component {
       <div className="animated fadeIn">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
-            <li className="breadcrumb-item"><a href="#/admin">Dashboard</a></li>
-            <li className="breadcrumb-item active" aria-current="page">Help</li>
+            <li className="breadcrumb-item">
+              <a href="#/admin">Dashboard</a>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Help
+            </li>
           </ol>
         </nav>
         <p>Coming soon...</p>
-        <p>Support: (844)324-4784</p>
+        <p>Support: (123)456-7890</p>
       </div>
     );
   }

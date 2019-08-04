@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
-  Dropdown,
-} from 'reactstrap';
+  Dropdown
+} from "reactstrap";
 
 const propTypes = {
   notif: PropTypes.bool,
   accnt: PropTypes.bool,
   tasks: PropTypes.bool,
-  mssgs: PropTypes.bool,
+  mssgs: PropTypes.bool
 };
 const defaultProps = {
   notif: false,
   accnt: false,
   tasks: false,
-  mssgs: false,
+  mssgs: false
 };
 
 /*= =====================================================================
@@ -31,7 +31,7 @@ class HeaderDropdown extends Component {
     this.toggleDropdown = this.toggleDropdown.bind(this);
     this.state = {
       dropdownOpen: false,
-      logout: false,
+      logout: false
     };
   }
 
@@ -40,7 +40,7 @@ class HeaderDropdown extends Component {
   ====================================================================== */
   toggleDropdown() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
+      dropdownOpen: !this.state.dropdownOpen
     });
   }
 
@@ -49,18 +49,17 @@ class HeaderDropdown extends Component {
   ====================================================================== */
   handleLogout() {
     e.preventDefault();
-    axios ({
-      method: 'post',
-      url: 'http://cobiasystems.lc/rest/public/account/logout',
+    axios({
+      method: "post",
+      url: "/",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'multipart/form-data'
+        Accept: "application/json",
+        "Content-Type": "multipart/form-data"
       }
-    })
-    .catch(error => {
-      console.log('Error logging out', error);
+    }).catch(error => {
+      console.log("Error logging out", error);
       return;
-    }) 
+    });
   }
 
   /*= =====================================================================
@@ -74,28 +73,38 @@ class HeaderDropdown extends Component {
     }
 
     return (
-      <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
+      <Dropdown
+        nav
+        isOpen={this.state.dropdownOpen}
+        toggle={this.toggleDropdown}
+      >
         <DropdownToggle nav>
-          <img src="img/avatars/user-default.jpg" className="img-avatar" alt="Default user avatar" />
+          <img
+            src="img/avatars/user-default.jpg"
+            className="img-avatar"
+            alt="Default user avatar"
+          />
         </DropdownToggle>
         <DropdownMenu right>
-          <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>
-          <DropdownItem><a href="#/admin/myprofile"><i className="fa fa-user" /> Profile</a></DropdownItem>
-          <DropdownItem onClick={e => this.handleLogout()}><i className="fa fa-lock" /> Logout</DropdownItem>
+          <DropdownItem header tag="div" className="text-center">
+            <strong>Account</strong>
+          </DropdownItem>
+          <DropdownItem>
+            <a href="#/admin/myprofile">
+              <i className="fa fa-user" /> Profile
+            </a>
+          </DropdownItem>
+          <DropdownItem onClick={e => this.handleLogout()}>
+            <i className="fa fa-lock" /> Logout
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
   }
 
   render() {
-    const {
-      notif, accnt, tasks, mssgs, ...attributes
-    } = this.props;
-    return (
-      accnt
-        ? this.dropAccnt()
-        : null
-    );
+    const { notif, accnt, tasks, mssgs, ...attributes } = this.props;
+    return accnt ? this.dropAccnt() : null;
   }
 }
 
